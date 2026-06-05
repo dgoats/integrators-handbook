@@ -67,8 +67,14 @@ body {
 .cover-stripe { height: 3.5pt; background: var(--accent); flex-shrink: 0; }
 .cover-body { flex: 1; padding: 20pt 28.8pt 28pt;
   display: flex; flex-direction: column; justify-content: space-between; }
-.cover h1 { font-family: var(--head); font-weight: 400; font-size: 22pt;
-  line-height: 1.1; color: var(--nouvelle); margin-bottom: 10pt; border: none; padding: 0; }
+.cover h1 {     font-family: var(--head);
+    font-weight: 400;
+    font-size: 22pt;
+    line-height: 2em;
+    color: #FFC107;
+    margin-bottom: 10pt;
+    border: none;
+    padding-top: 20px; }
 .cover-sub { font-family: var(--head); font-weight: 400; font-size: 9pt;
   line-height: 1.4; color: var(--sidebar-bg); }
 .cover-meta { font-family: var(--head); font-size: 7pt; line-height: 1.7;
@@ -99,6 +105,16 @@ p { margin: 0; margin-top: 5px; margin-bottom: 5px; font-size: 11pt; line-height
 p { text-indent: 0pt; }
 h1 + p, h2 + p , h3 + p, .sidebar + p, blockquote + p,
 table + p, ul + p, ol + p, .no-indent, .stats + p { text-indent: 0 !important; }
+p.cap { font-family: var(--head);
+    font-weight: 600;
+    font-size: 6pt;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    text-align: left;
+    padding: 3pt 0;
+    border-top: .5pt solid var(--accent);
+    caption-side: top;
+    line-height: 10.5pt;}
 
 /* ── Pull quote ──────────────────────────────────────── */
 blockquote {
@@ -115,7 +131,7 @@ blockquote cite { display: block; font-family: var(--head); font-style: normal;
 .sidebar { background: var(--sidebar-bg); padding: 9pt 10pt 10pt; margin: 11pt 0;
   break-inside: avoid; page-break-inside: avoid; }
 .sidebar-head { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
-  text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 5pt; }
+  text-transform: uppercase; letter-spacing: .1em; color: rgb(119 82 7); margin-bottom: 5pt; }
 .sidebar p { font-size: 9pt; line-height: 12.5pt; text-indent: 0 !important; margin-top: 4pt; }
 .sidebar p:first-of-type { margin-top: 0; }
 
@@ -252,14 +268,13 @@ figure {
 }
 
 figcaption {
-  font-family: var(--head);
-  font-size: 6.5pt;
-  line-height: 9.5pt;
-  color: var(--mid);
-  font-style: italic;
-  margin-top: 3pt;
-  padding-top: 3pt;
-  border-top: 0.25pt solid var(--sidebar-bg);
+font-family: var(--head);
+    font-size: 7pt;
+    line-height: 9.5pt;
+    color: var(--mid);
+    margin-top: 3pt;
+    padding-top: 3pt;
+    border-top: 0.25pt solid var(--sidebar-bg);
 }
 
 .img-pair {
@@ -330,6 +345,7 @@ figcaption {
 <div class="toc-ch">Core Concepts</div>
 <div class="toc-row"><span class="toc-title">What Is Integrative Study?</span><span class="toc-dots"></span><span class="toc-pg">11</span></div>
 <div class="toc-row"><span class="toc-title">Practicing Integration</span><span class="toc-dots"></span><span class="toc-pg">16</span></div>
+<div class="toc-row"><span class="toc-title">The Integration Cycle</span><span class="toc-dots"></span><span class="toc-pg">18</span></div>
 <div class="toc-row"><span class="toc-title">Working With Systems</span><span class="toc-dots"></span><span class="toc-pg">21</span></div>
 <div class="toc-ch">Research Practice</div>
 <div class="toc-row"><span class="toc-title">Place-Based Collaborative Research</span><span class="toc-dots"></span><span class="toc-pg">28</span></div>
@@ -385,7 +401,7 @@ figcaption {
 <tr><td><strong>Transdisciplinary</strong></td><td>Knowledge co-created across disciplines and with community partners, producing new frameworks that transcend any single field.</td></tr>
 <tr><td><strong>Integrative</strong></td><td>The active weaving of all of the above, including non-academic forms of knowing, into a coherent response to a complex challenge.</td></tr>
 </tbody></table>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">Key sources: Repko &amp; Szostak, <em>Interdisciplinary Research: Process and Theory</em> (2016); Klein, <em>Interdisciplinarity: History, Theory, and Practice</em> (1990); Boix Mansilla &amp; Duraising, "Targeted Assessment of Students' Interdisciplinary Work," <em>The Journal of Higher Education</em> (2007).</p>
+<p class="cap">Key sources: Repko &amp; Szostak, <em>Interdisciplinary Research: Process and Theory</em> (2016); Klein, <em>Interdisciplinarity: History, Theory, and Practice</em> (1990); Boix Mansilla &amp; Duraising, "Targeted Assessment of Students' Interdisciplinary Work," <em>The Journal of Higher Education</em> (2007).</p>
 <h2>The Problem with Disciplines</h2>
 <p>Modern universities are organized by discipline for good reasons. Disciplinary training sharpens perception and teaches what you should notice, how to measure, what counts as evidence, and how to communicate findings to others in your field.</p>
 <p>But disciplines also have blind spots. A hydrologist trained only in hydrology may model a watershed with great precision, while missing how a community's cultural relationship to water shapes what solutions are possible. Complex adaptive challenges — drought adaptation, food system transformation, rural economic resilience — do not reside neatly inside disciplinary boundaries. They live at the intersections.</p>
@@ -398,13 +414,13 @@ figcaption {
 <p>Integrative researchers must resist the temptation to simplify too quickly. A drought is not just a water shortage. It is a hydrological event, an economic disruption, a cultural wound, a political flashpoint, and an opportunity for social reinvention.</p>
 <h3>2. Following the Question — Not the Methodology</h3>
 <p>Disciplinary researchers often begin with a favored method. Integrative researchers begin with a question — often a messy and urgent real-world question — and assemble the methods that might best illuminate it. This requires methodological flexibility, intellectual humility, and genuine curiosity about approaches different from one's training.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">See Repko &amp; Szostak (2016), Chapter 3; Klein (1990), pp. 11–55.</p>
+<p class="cap">See Repko &amp; Szostak (2016), Chapter 3; Klein (1990), pp. 11–55.</p>
 <h3>3. Bridging Knowledge and Action</h3>
 <p>The Wright-Ingraham Institute's research tradition leans toward applied and actionable knowledge: learning that can actually inform decisions, designs, policies, and practices. This means engaging with practitioners, policymakers, and community members not merely as research subjects but as co-designers of inquiry and co-creators of strategies.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">See Gibbons et al., <em>The New Production of Knowledge</em> (1994); Funtowicz &amp; Ravetz, "Science for the Post-Normal Age," <em>Futures</em> 25.7 (1993): 739–755.</p>
+<p class="cap">See Gibbons et al., <em>The New Production of Knowledge</em> (1994); Funtowicz &amp; Ravetz, "Science for the Post-Normal Age," <em>Futures</em> 25.7 (1993): 739–755.</p>
 <h3>4. Practicing Reflexivity</h3>
 <p>Integrative researchers are aware of their own positionality — the ways their background, training, assumptions, and privileges shape what they see and how they interpret it. Knowing your lens lets you examine it, adjust it, and be honest with others about how it shapes your work.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">See Haraway, "Situated Knowledges," <em>Feminist Studies</em> 14.3 (1988): 575–599; Boix Mansilla &amp; Duraising (2007).</p>
+<p class="cap">See Haraway, "Situated Knowledges," <em>Feminist Studies</em> 14.3 (1988): 575–599; Boix Mansilla &amp; Duraising (2007).</p>
 <h2>Integrator's Toolkit: Ways of Knowing</h2>
 <figure><img src="img/integrators-wheel.png" style="mix-blend-mode: multiply;width:100%">
 <table>
@@ -432,7 +448,10 @@ figcaption {
 <p>Writing prompts you to discover what you actually think. Even short observational entries can help clarify complex problems by situating your reflection in 'the now.' A daily writing practice is highly recommended.</p>
 <h3>Drawing and Sketching</h3>
 <p>You don't have to be a trained artist to make use of daily sketching. When you sketch a landscape, a water delivery system, or a conversation's web of relationships, it can help make choices about what we want to accentuate and discover connections between things. A quick sketch of an irrigation canal's path through a valley may reveal a logic that three paragraphs of description would not.</p>
-<h2>The Integration Cycle</h2>
+<p class="cap">For more on seeing, sensing, and documenting places, see Max Liboiron’s <em>Methodologies: How to Read a Landscape</em> – <a href="http://discardstudies.com/2013/06/17/methodologies-how-to-read-a-landscape" style="color: var(--accent);">http://discardstudies.com/2013/06/17/methodologies-how-to-read-a-landscape/</a></p>
+
+<div class="chapter-opener">
+<h1>The Integration Cycle</h1></div>
 <p>Integration is not a one-time act of synthesis; it is an ongoing cycle of inquiry, reflection, and revision. The Institute has developed a framework for navigating this cycle, which we call the Integration Cycle.</p>
 <div class="cycle"><div class="cycle-lbl">1 — Immerse</div><div class="cycle-txt">Enter the problem with open attention. Observe, listen, feel. Suspend judgment. Collect without filtering.</div></div>
 <div class="cycle"><div class="cycle-lbl">2 — Diverge</div><div class="cycle-txt">Generate multiple framings of what you observed. What does a hydrologist see? An anthropologist? A farmer? A designer? Resist early convergence.</div></div>
@@ -440,22 +459,29 @@ figcaption {
 <div class="cycle"><div class="cycle-lbl">4 — Synthesize</div><div class="cycle-txt">Weave connections into a provisional integrated account or design response. Name the tensions you could not resolve.</div></div>
 <div class="cycle"><div class="cycle-lbl">5 — Test</div><div class="cycle-txt">Bring your synthesis back into the field. Share with community partners, collaborators, or the landscape itself. What holds? What breaks?</div></div>
 <div class="cycle"><div class="cycle-lbl">6 — Reflect</div><div class="cycle-txt">Document what you learned, how your thinking changed, what new questions emerged. Begin again.</div></div>
-<div class="sidebar"><div class="sidebar-head">Integration Case Study: The Salton Sea</div><p>Located in the Imperial and Coachella Valleys in Southern California, the Salton Sea is the state's largest lake and one of its most polluted places. Formed when an irrigation canal broke and flooded a desert basin between 1905 and 1907, the Sea later became a mid-century resort destination, then collapsed into an ecological crisis, and now sits at the center of intersecting emergencies involving public health, agriculture, water rights, climate adaptation, Tribal rights, and renewable energy development.</p><p>The Torres Martinez Desert Cahuilla Indians have treaty claims to the land and water. Migratory birds depend on the sea as a critical stopover on the Pacific Flyway. Beneath the lakebed sits one of the world's largest lithium deposits, and tech and energy companies are racing to extract it for electric vehicle batteries.</p><p><strong>Working through the Integration Cycle with the Salton Sea:<br/><br/></strong>In the Immerse phase, resist the urge to immediately frame the Sea as an environmental problem. Sit with its strangeness.<br/><br/>In the Diverge phase, draw on distinct perspectives — a hydrologist, a Cahuilla water rights attorney, a respiratory epidemiologist, a lithium mining engineer, a bird bander. Each grants a view of a different Sea.<br/><br/>In the Connect phase, look for places where these framings speak to each other in surprising ways: where does the energy transition create new conflicts with health equity? Where do Indigenous water rights and ecological restoration align — and where do they diverge?<br/><br/>In the Synthesize phase, write a provisional integrated brief that weaves these perspectives together without flattening them.<br/><br/>In the Test phase, we would identify one community partner, agency, or stakeholder whose response to our synthesis could tell you whether it holds: a representative from the Torres Martinez Tribe, a Coachella Valley Unified School District administrator, a farmworker health clinic director.<br/><br/>In the Reflect phase, we would document what surprised us, what our prior framings made us miss, and what questions we are now considering that we did not have before. <br/><br/>The six-phase Integration Cycle is not a linear problem-solving method so much as a discipline of sustained attention. The Salton Sea illustrates the need for complex, structured, rigorous integrative toolsets to address complex challenges in the world.</p></div>
+<div class="sidebar"><div class="sidebar-head">Integration Case Study: The Salton Sea</div>
+<figure>
+<img src="img/California__Imperial_Valley_Salton_NARA_23934393.jpg" style="width:100%">
+<figcaption>U.S. National Archives and Records Administration, Public Domain<figcaption>
+</figure>
+<p>Located in the Imperial and Coachella Valleys in Southern California, the Salton Sea is the state's largest lake and one of its most polluted places. Formed when an irrigation canal broke and flooded a desert basin between 1905 and 1907, the Sea later became a mid-century resort destination, then collapsed into an ecological crisis, and now sits at the center of intersecting emergencies involving public health, agriculture, water rights, climate adaptation, Tribal rights, and renewable energy development.</p><p>The Torres Martinez Desert Cahuilla Indians have treaty claims to the land and water. Migratory birds depend on the sea as a critical stopover on the Pacific Flyway. Beneath the lakebed sits one of the world's largest lithium deposits, and tech and energy companies are racing to extract it for electric vehicle batteries.</p><div class="sidebar-head">Working through the Integration Cycle</div><img src="img/integration_cycle_green.svg"><p style="margin-top:-25px">In the <strong>Immerse</strong> phase, resist the urge to immediately frame the Sea as an environmental problem, but find ways to engage with its "strange otherness."<br/><br/>In the <strong>Diverge</strong> phase, draw on distinct perspectives — a hydrologist, a Cahuilla water rights attorney, a respiratory epidemiologist, a lithium mining engineer, a bird bander. Each perspective grants a view of a different Sea.<br/><br/>In the <strong>Connect</strong> phase, look for places where these framings speak to each other in surprising ways: where does the energy transition create new conflicts with health equity? Where do Indigenous water rights and ecological restoration align — and where do they diverge?<br/><br/>In the <strong>Synthesize</strong> phase, write a provisional integrated brief that weaves these perspectives together without flattening them.<br/><br/>In the <strong>Test</strong> phase, we would want to identify at least one community partner, agency, or stakeholder whose response to our synthesis could tell you whether it holds: a representative from the Torres Martinez Tribe, a Coachella Valley Unified School District administrator, a farmworker health clinic director.<br/><br/>In the <strong>Reflect</strong> phase, we would document what surprised us, what our prior framings made us miss, and what questions we are now considering that we did not have before. <br/><br/>The six-phase Integration Cycle is not a linear problem-solving method so much as a discipline of sustained attention. The Salton Sea illustrates the need for complex, structured, rigorous integrative toolsets to address complex challenges in the world.</p></div>
 <div class="chapter-opener"><h1>Working With Systems</h1></div>
 <p>The Institute's place-based integrative studies are grounded in systems thinking, a holistic problem-solving framework that focuses on how different parts of a whole interact, influence, and depend on one another. The Southwest's water crisis is the result of multiple, interlinked causes. Drought reduced snowpack. Reduced snowpack cut surface flows. Reduced flows pushed farmers toward groundwater. Decades of heavy pumping drew down the aquifer. All of which unfolded against a backdrop of water rights law, commodity markets, population change, and cultural memory that shaped which decisions were made.</p>
 <h2>What Is a System?</h2>
 <p>A system, in the sense developed by environmental scientist Donella Meadows, is a set of elements interconnected in such a way that they produce their own pattern of behavior over time. Three things make a system a system: its elements (the visible, tangible parts), its interconnections (the relationships and flows linking those elements), and its function or purpose.</p>
 <div class="sidebar"><div class="sidebar-head">Three Components of Every System</div><p><strong>Elements:</strong> The visible, countable parts. In the San Luis Valley: snowpack, aquifers, canals, farms, water boards, families, crops.</p><p><strong>Interconnections:</strong> The relationships, flows, and signals that link elements — water rights seniority, market prices for seed potatoes, acequia work obligations, snowmelt timing, aquifer recharge rates.</p><p><strong>Function or Purpose:</strong> What the system actually does, revealed by its behavior over time. A water system functions to allocate a scarce and variable resource among competing users across generations.</p></div>
+<p>Meadows observes that the least obvious part of a system is its function or purpose, and that changing elements is the least effective way to change a system's behavior.</p>
+<p class="cap">See Meadows, <em>Thinking in Systems: A Primer</em> (2008), pp. 11–34.</p>
 <figure>
 <img src="img/george-van-dyne.png" style="mix-blend-mode: multiply;width:100%">
 <figcaption>George Van Dyne, IBP Grasslands Biome Ecosystem Model, from the Running Creek Field Station archive.</figcaption>
 </figure>
-
-<p>Meadows observes that the least obvious part of a system is its function or purpose, and that changing elements is the least effective way to change a system's behavior.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">See Meadows, <em>Thinking in Systems: A Primer</em> (2008), pp. 11–34.</p>
-
 <h2>Stocks, Flows, and Feedback Loops</h2>
 <p>Every system contains stocks and flows. A <em>stock</em> is anything that accumulates or depletes over time: water in an aquifer, trust between an institution and a community, topsoil on a farm, cultural knowledge held by elders. A <em>flow</em> is the rate at which a stock changes. Stocks change slowly; flows can change quickly. This is why aquifer depletion is so difficult to reverse: the stock took millennia to accumulate, and the flows that replenish it are far slower than the flows that drain it.</p>
+<figure>
+<img src="img/feedback-loop.svg" style="width:100%">
+<figcaption>Wikimedia/GliderMaven <figcaption>
+</figure>
 <h2>Two Kinds of Feedback Loops</h2>
 <h3>Reinforcing (positive) loops</h3>
 <p>Amplify change in one direction. Declining aquifer levels raise pumping costs, which stress farm finances, which pressure farmers to pump more aggressively in good years to compensate, which further depletes the aquifer. Left unchecked, reinforcing loops drive systems toward collapse or explosion.</p>
@@ -500,7 +526,7 @@ figcaption {
 <li><strong>Look for delays.</strong> Mark connections where cause and effect are separated by time.</li>
 <li><strong>Test and revise with partners.</strong> Show your diagram to farmers, water managers, and community members. The map is a thinking tool, not a truth claim.</li>
 </ol>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">Primary source for this primer: Meadows, Donella H. <em>Thinking in Systems: A Primer</em>. Ed. Diana Wright. Chelsea Green Publishing, 2008. Additional reference: Senge, Peter. <em>The Fifth Discipline: The Art and Practice of the Learning Organization</em>. Doubleday, 1990.</p>
+<p class="cap">Primary source for this primer: Meadows, Donella H. <em>Thinking in Systems: A Primer</em>. Ed. Diana Wright. Chelsea Green Publishing, 2008. Additional reference: Senge, Peter. <em>The Fifth Discipline: The Art and Practice of the Learning Organization</em>. Doubleday, 1990.</p>
 
 
 <figure>
@@ -539,16 +565,27 @@ figcaption {
 <p>Formal consent is a basic necessity, but genuine informed consent requires that participants understand not just what you are asking, but how you intend to use what they share, who else will have access to it, what happens to it after the workshop ends, and what recourse they have if they later want something removed or changed. Many Indigenous nations and pueblos operate under principles of collective consent: the community, as a governing body, must agree to a research relationship before individual community members are approached. At Taos Pueblo, this means following the Pueblo's own research protocols and receiving authorization through the appropriate governance channels before any data collection begins. A researcher's role here is to follow this guidance without exception, and to understand why: the Pueblo's sovereignty over its territory includes sovereignty over who studies it and how.</p>
 <h3>During Research: Reciprocity and Ongoing Consent</h3>
 <p>Consent is not a one-time event. People have the right to withdraw, limit, or amend what they have shared at any point in the process. Reciprocity in the field means contributing something of genuine value — not just gratitude.</p>
+<div class="sidebar"><div class="sidebar-head">Free, Prior and Informed Consent (FPIC)</div>
+<p>FPIC is an international standard, recognized in the UN Declaration on the Rights of Indigenous Peoples (2007), that requires research involving Indigenous peoples to be:</p>
+<p>Free: given without coercion, manipulation, or pressure, and without dependence on any benefit the researcher controls.</p>
+<p>Prior: sought before the research begins, not after data has already been collected. Retroactive consent is not consent.</p>
+<p>Informed: based on a full and plain-language explanation of the research purpose, methods, intended uses, and any risks the community might bear as a result.</p>
+<p>Consent: a genuine yes, expressed by whoever has authority to give it — which in Indigenous community contexts may be a governing council, an elder body, or a designated representative, not simply an individual who happens to be present.</p>
+</div>
 <h2>Indigenous Data Sovereignty</h2>
 <p>Indigenous data sovereignty is the right of Indigenous peoples to govern the collection, ownership, and application of data about their communities, territories, peoples, and cultures. This principle, developed by Indigenous researchers and now recognized in national and international policy frameworks including the CARE Principles for Indigenous Data Governance, extends the logic of FPIC into the domain of data itself.</p>
 <p>Data collected in or about Indigenous communities does not automatically belong to the researcher who collected it or the institution that funded the collection. It may belong to the community. The community may have the right to review, correct, restrict, or withdraw it. Any data storage, analysis, or dissemination plan for research touching Indigenous communities must address these questions explicitly, with the community's input, before the research begins.</p>
 <p>In the Southwest, for instance, the Southern Ute and Taos Pueblo each have their own data governance protocols. Your program coordinators will provide the current guidance for each community.</p>
 
 <h2>CARE Principles for Indigenous Data Governance</h2>
-<p>Developed by the Global Indigenous Data Alliance, the CARE Principles complement the FAIR data principles (Findable, Accessible, Interoperable, Reusable) by centering Indigenous rights and interests:</p>
+<p>Developed by the Global Indigenous Data Alliance, the CARE Principles complement FAIR data principles (Findable, Accessible, Interoperable, Reusable) by centering Indigenous rights and interests:</p>
 <div class="sidebar"><div class="sidebar-head">The CARE Principles</div><p><strong>Collective Benefit:</strong> Data ecosystems shall be designed and function in ways that enable Indigenous peoples to derive benefit from the data.</p><p><strong>Authority to Control:</strong> Indigenous peoples' rights and interests in Indigenous data must be recognized, and their authority to control such data be empowered.</p><p><strong>Responsibility:</strong> Those working with Indigenous data have a responsibility to share how those data are used to support Indigenous peoples' self-determination and collective benefit.</p><p><strong>Ethics:</strong> Indigenous peoples' rights and wellbeing should be the primary concern at all stages of the data life cycle and across the data ecosystem.</p></div>
 <h3>Handling Sacred and Sensitive Knowledge</h3>
 <p>Some knowledge contained in field sites is not yours to carry out. This is especially true in Indigenous communities, where certain ecological, ceremonial, and territorial knowledge is held collectively and governed by protocols about who can know it, how it can be shared, and with whom. The fact that someone tells you something does not mean you have the right to record it, write it down, analyze it, or share it outside the conversation.</p>
+<p class="cap">For more on FAIR, see: <a href="https://www.go-fair.org/fair-principles/" style="color: var(--accent);">https://www.go-fair.org/fair-principles/</a></p>
+
+
+
 <div class="chapter-opener"><h1>Designing for Adaptation</h1></div>
 <p>Design for adaptation draws on traditions of adaptive management, participatory and iterative design, and resilience theory to develop responses to complex, uncertain, and changing conditions. Several principles distinguish design for adaptation from conventional planning or problem-solving.</p>
 <h3>Adaptation is not optimization</h3>
@@ -560,7 +597,7 @@ figcaption {
 <h3>Local knowledge is critical</h3>
 <p>Farmers, acequia managers, and Indigenous water stewards in the San Luis Valley and Northern New Mexico possess millennia of cumulative knowledge about what works in a specific landscape. This knowledge is not anecdote; it is data, tested over time by the most rigorous of evaluators: survival. Integrating this knowledge with technical analysis is not merely culturally sensitive; it is scientifically sound.</p>
 <p>Designing for adaptation means approaching these landscapes as evolving, living systems. It means building capacity for change rather than optimizing for a single fixed outcome. It means paying close attention to who bears the costs of adaptation and who captures its benefits — questions of justice as much as ecology. As we move through the range of sites and work with our synthesis partners, we can take notice of what adaptations are underway, but also who designed them, who stands behind them, and who will benefit from them in the future.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">See also: Glossary entries for "Adaptation," "Leverage Point," "Subdistrict," "Acequia." <em>Working with Systems</em> provides the systems framework that underpins this concept throughout the workshop.</p>
+<p class="cap">See also: Glossary entries for "Adaptation," "Leverage Point," "Subdistrict," "Acequia." <em>Working with Systems</em> provides the systems framework that underpins this concept throughout the workshop.</p>
 
 <div class="chapter-opener"><h1>Glossary</h1></div>
 <p>The following terms appear throughout this handbook or are relevant to the integrative research practice it describes. The terms collected here are the broad, conceptual, disciplinary, and methodological vocabulary of the field of integrative studies.</p>

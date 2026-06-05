@@ -98,6 +98,16 @@ p { margin: 0; font-size: 11pt; line-height: 14.5pt; }
 p + p { text-indent: 20pt; }
 h1 + p, h2 + p, h3 + p, .sidebar + p, blockquote + p,
 table + p, ul + p, ol + p, .no-indent, .stats + p { text-indent: 0 !important; }
+p.cap { font-family: var(--head);
+    font-weight: 600;
+    font-size: 6pt;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    text-align: left;
+    padding: 3pt 0;
+    border-top: .5pt solid var(--accent);
+    caption-side: top;
+    line-height: 10.5pt;}
 
 /* ── Pull quote ──────────────────────────────────────── */
 blockquote {
@@ -250,16 +260,14 @@ figure {
   page-break-inside: avoid;
 }
 
-figcaption {
-  font-family: var(--head);
-  font-size: 6.5pt;
-  line-height: 9.5pt;
-  color: var(--mid);
-  font-style: italic;
-  margin-top: 3pt;
-  padding-top: 3pt;
-  border-top: 0.25pt solid var(--sidebar-bg);
-}
+figcaption {font-family: var(--head);
+    font-size: 7pt;
+    line-height: 9.5pt;
+    color: var(--mid);
+    margin-top: 3pt;
+    padding-top: 3pt;
+    border-top: 0.25pt solid var(--sidebar-bg);
+    }
 
 .img-pair {
   display: flex;
