@@ -14,7 +14,7 @@
   --rust:       rgb(239, 170, 31);
   --blue:       rgb(239, 170, 31);
   --sage:       rgb(239, 170, 31);
-  --dark:       rgb(24, 20, 17);
+  --dark:       #676a20;
   --mid:        rgb(130, 118, 95);
   --paper:      #ffffff;
   --body:       'Crimson Text', Georgia, serif;
@@ -53,7 +53,7 @@ body {
   break-after: page; page-break-after: always;
   min-height: calc(8.25in - 74pt);
   display: flex; flex-direction: column;
-  margin: -32pt -28.8pt -42pt -28.8pt;
+  margin: -32pt -28.8pt 0pt -28.8pt;
   background: var(--dark);
 }
 .cover-img {
@@ -70,7 +70,7 @@ body {
 .cover-sub { font-family: var(--head); font-weight: 400; font-size: 9pt;
   line-height: 1.4; color: var(--sidebar-bg); }
 .cover-meta { font-family: var(--head); font-size: 7pt; line-height: 1.7;
-  color: var(--mid); letter-spacing: .04em; }
+  color: #FFEB3B; letter-spacing: .04em; }
 .cover-meta strong { color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
 
 /* ── Chapter opener ──────────────────────────────────── */
@@ -394,7 +394,7 @@ figcaption {
 <h3>4. Practicing Reflexivity</h3>
 <p>Integrative researchers are aware of their own positionality — the ways their background, training, assumptions, and privileges shape what they see and how they interpret it. Knowing your lens lets you examine it, adjust it, and be honest with others about how it shapes your work.</p>
 <h2>Integrator's Toolkit: Ways of Knowing</h2>
-<figure><img src="img/integrators-wheel.png" style="width:100%">
+<figure><img src="img/integrators-wheel.png" style="mix-blend-mode: multiply;width:100%">
 <table>
 <caption>Ways of Knowing</caption>
 <thead><tr><th style="width:35%">Way of Knowing</th><th>Contributes</th></tr></thead>
@@ -422,7 +422,7 @@ figcaption {
 <p>You don't have to be a trained artist to make use of daily sketching. When you sketch a landscape, a water delivery system, or a conversation's web of relationships, it can help make choices about what we want to accentuate and discover connections between things. A quick sketch of an irrigation canal's path through a valley may reveal a logic that three paragraphs of description would not.</p>
 <h2>The Integration Cycle</h2>
 <p>Integration is not a one-time act of synthesis; it is an ongoing cycle of inquiry, reflection, and revision. The Institute has developed a framework for navigating this cycle, which we call the Integration Cycle.</p>
-<figure><img src="img/integration-cycle.png" style="width:100%">
+<figure><img src="img/integration-cycle.png" style="mix-blend-mode: multiply;width:100%">
 <figcaption>The Integration Cycle: a framework for iterative integrative inquiry.</figcaption>
 </figure>
 <div class="cycle"><div class="cycle-lbl">1 — Immerse</div><div class="cycle-txt">Enter the problem with open attention. Observe, listen, feel. Suspend judgment. Collect without filtering.</div></div>
@@ -437,13 +437,11 @@ figcaption {
 <h2>What Is a System?</h2>
 <p>A system, in the sense developed by environmental scientist Donella Meadows, is a set of elements interconnected in such a way that they produce their own pattern of behavior over time. Three things make a system a system: its elements (the visible, tangible parts), its interconnections (the relationships and flows linking those elements), and its function or purpose.</p>
 <div class="sidebar"><div class="sidebar-head">Three Components of Every System</div><p><strong>Elements:</strong> The visible, countable parts. In the San Luis Valley: snowpack, aquifers, canals, farms, water boards, families, crops.</p><p><strong>Interconnections:</strong> The relationships, flows, and signals that link elements — water rights seniority, market prices for seed potatoes, acequia work obligations, snowmelt timing, aquifer recharge rates.</p><p><strong>Function or Purpose:</strong> What the system actually does, revealed by its behavior over time. A water system functions to allocate a scarce and variable resource among competing users across generations.</p></div>
-<figure><img src="george-van-dyne.png" style="with:100%">
+<figure>
+<img src="img/george-van-dyne.png" style="mix-blend-mode: multiply;width:100%">
 <figcaption>George Van Dyne, IBP Grasslands Biome Ecosystem Model, from the Running Creek Field Station archive.</figcaption>
 </figure>
 
-<figure><img src="hutchinson.png" style="with:100%">
-<figcaption>The Carbon Cycle – Hutchinson 1948:223.</figcaption>
-</figure>
 
 <h2>Stocks, Flows, and Feedback Loops</h2>
 <p>Every system contains stocks and flows. A <em>stock</em> is anything that accumulates or depletes over time: water in an aquifer, trust between an institution and a community, topsoil on a farm, cultural knowledge held by elders. A <em>flow</em> is the rate at which a stock changes. Stocks change slowly; flows can change quickly. This is why aquifer depletion is so difficult to reverse: the stock took millennia to accumulate, and the flows that replenish it are far slower than the flows that drain it.</p>
@@ -453,7 +451,7 @@ figcaption {
 <h3>Balancing (negative) loops</h3>
 <p>Resist change and seek equilibrium. The subdistrict model in the San Luis Valley was designed as a series of integrated balancing loops: when collective pumping exceeds targets, mandatory reductions kick in, pushing the system back toward sustainability.</p>
 
-<div class="img-triple">
+<!--<div class="img-triple">
   <div class="img-placeholder" style="height:80pt">
   <div class="img-placeholder-inner">
     <div class="img-placeholder-icon">&#9634;</div>
@@ -474,6 +472,7 @@ figcaption {
 </div>
 </div>
 <p style="font-family:var(--head);font-size:6.5pt;font-style:italic;color:var(--mid);margin-bottom:8pt">Systems diagrams illustrating reinforcing and balancing feedback loops.</p>
+-->
 
 <h2>Why Whole Systems? The Problem of 'Bounded Rationality'</h2>
 <p>Donella Meadows used the term 'bounded rationality' to describe how each actor in a system makes decisions that are individually rational given what that actor can see and know, but which produce outcomes that no one intended and everyone regrets. A farmer who pumps water to protect her livelihood is not being irrational. A water board that allocates according to legal seniority is not being irrational. But the aggregate result of all these locally rational decisions is aquifer depletion that threatens the entire system.</p>
@@ -490,13 +489,10 @@ figcaption {
 <li><strong>Look for delays.</strong> Mark connections where cause and effect are separated by time.</li>
 <li><strong>Test and revise with partners.</strong> Show your diagram to farmers, water managers, and community members. The map is a thinking tool, not a truth claim.</li>
 </ol>
-<figure><div class="img-placeholder" style="height:100pt">
-  <div class="img-placeholder-inner">
-    <div class="img-placeholder-icon">&#9634;</div>
-    <div class="img-placeholder-label">image11 — Photograph by Frank Miller</div>
-  </div>
-</div>
-<figcaption>Image: Frank Miller.</figcaption>
+
+<figure>
+<img src="img/hutchinson.png" style="mix-blend-mode: multiply;width:100%">
+<figcaption>The Carbon Cycle – Hutchinson 1948:223.</figcaption>
 </figure>
 <div class="chapter-opener"><h1>Place-Based Collaborative Research</h1></div>
 <h2>What Makes Research 'Place-Based'?</h2>
@@ -546,13 +542,10 @@ figcaption {
 <p>Designing for adaptation means approaching these landscapes as evolving, living systems. It means building capacity for change rather than optimizing for a single fixed outcome. It means paying close attention to who bears the costs of adaptation and who captures its benefits — questions of justice as much as ecology.</p>
 
 <div class="chapter-opener"><h1>Glossary</h1></div>
-<p>The following terms appear throughout this handbook or are relevant to the integrative research practice it describes. Terms specific to the San Luis Valley and Taos Plateau field sites — acequia, prior appropriation, subdistrict, dust on snow, and related concepts — are defined in the Field Guide (Book 2), which carries its own glossary oriented to those landscapes. The terms collected here are the broader conceptual, disciplinary, and methodological vocabulary of integrative studies itself.</p>
+<p>The following terms appear throughout this handbook or are relevant to the integrative research practice it describes. The terms collected here are the broad, conceptual, disciplinary, and methodological vocabulary of the field of integrative studies.</p>
 
 <div class="gterm">Adaptive Management</div>
 <p class="gdef">An approach to natural resource management and planning that treats decisions as experiments, builds in monitoring and evaluation from the start, and uses what is learned to adjust strategies over time. Distinguished from conventional planning by its expectation that first attempts will be imperfect and its deliberate design of feedback loops between action and learning. In the Field Workshop context, adaptive management is both a method and an orientation: the willingness to change course in response to what the field actually shows you.</p>
-
-<div class="gterm">Bounded Rationality</div>
-<p class="gdef">A concept from systems theory, used extensively by Donella Meadows, describing the gap between the decisions that look rational from inside a system and the outcomes those decisions produce at the level of the whole. Each actor makes choices that are sensible given what they can see, know, and measure — but because every actor can only see a portion of the system, the aggregate result is often something no one intended and everyone regrets. Understanding bounded rationality is one reason integrative researchers resist explaining complex problems through individual behavior alone.</p>
 
 <div class="gterm">Causal Loop Diagram (CLD)</div>
 <p class="gdef">A visual tool for making the feedback structure of a system visible. Variables are represented as nodes; arrows between them are labeled '+' (the two variables move in the same direction) or '−' (they move in opposite directions). Closed chains of arrows form feedback loops, which are identified as reinforcing (R) or balancing (B) depending on the count of '−' signs. A CLD is not a truth claim about a system; it is a collaborative thinking tool, a map for conversation, and a way of surfacing assumptions that often remain invisible in ordinary analysis.</p>
