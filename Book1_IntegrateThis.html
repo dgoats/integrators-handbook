@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book 1: Integrate This! — Wright-Ingraham Institute</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --nouvelle:   rgb(245, 240, 225);
+  --sidebar-bg: rgb(215, 207, 185);
+  --rust:       rgb(239, 170, 31);
+  --blue:       rgb(239, 170, 31);
+  --sage:       rgb(239, 170, 31);
+  --dark:       rgb(24, 20, 17);
+  --mid:        rgb(130, 118, 95);
+  --paper:      #ffffff;
+  --body:       'Crimson Text', Georgia, serif;
+  --head:       'Archivo', Helvetica Neue, sans-serif;
+  --accent:     var(--rust);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page { size: 5in 8.25in; margin: 57pt 28.8pt 67pt 28.8pt; }
+
+@media screen {
+  html { background: #555; padding: 20pt; }
+  body { max-width: 360pt; margin: 0 auto; background: var(--nouvelle);
+         box-shadow: 0 4pt 32pt rgba(0,0,0,.4); }
+}
+
+@media print {
+  html, body { background: var(--nouvelle); }
+  body { margin: 0; padding: 0; }
+}
+
+body {
+  background: var(--nouvelle);
+  padding: 57pt 28.8pt 67pt 28.8pt;
+  font-family: var(--body);
+  font-size: 11pt;
+  line-height: 14.5pt;
+  color: var(--dark);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ── Cover ───────────────────────────────────────────── */
+.cover {
+  break-after: page; page-break-after: always;
+  min-height: calc(8.25in - 74pt);
+  display: flex; flex-direction: column;
+  margin: -32pt -28.8pt -42pt -28.8pt;
+  background: var(--dark);
+}
+.cover-img {
+  flex: 0 0 240pt; background: var(--sidebar-bg);
+  display: flex; align-items: center; justify-content: center;
+}
+.cover-img span { font-family: var(--head); font-size: 7pt; color: var(--mid);
+  text-transform: uppercase; letter-spacing: .1em; }
+.cover-stripe { height: 3.5pt; background: var(--accent); flex-shrink: 0; }
+.cover-body { flex: 1; padding: 20pt 28.8pt 28pt;
+  display: flex; flex-direction: column; justify-content: space-between; }
+.cover h1 { font-family: var(--head); font-weight: 400; font-size: 22pt;
+  line-height: 1.1; color: var(--nouvelle); margin-bottom: 10pt; border: none; padding: 0; }
+.cover-sub { font-family: var(--head); font-weight: 400; font-size: 9pt;
+  line-height: 1.4; color: var(--sidebar-bg); }
+.cover-meta { font-family: var(--head); font-size: 7pt; line-height: 1.7;
+  color: var(--mid); letter-spacing: .04em; }
+.cover-meta strong { color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+
+/* ── Chapter opener ──────────────────────────────────── */
+.chapter-opener {
+  break-before: page; page-break-before: always;
+  padding-top: 8pt; margin-bottom: 18pt;
+  border-top: 3pt solid var(--accent);
+}
+.chapter-opener:first-child { break-before: avoid; page-break-before: avoid; }
+
+/* ── Headings ────────────────────────────────────────── */
+h1 { font-family: var(--head); font-weight: 400; font-size: 20pt;
+  line-height: 1.1; color: var(--dark); margin: 0 0 12pt; padding-top: 2pt; }
+h2 { font-family: var(--head); font-weight: 500; font-size: 11.5pt;
+  line-height: 1.25; color: var(--dark); margin: 16pt 0 4pt;
+  break-after: avoid; page-break-after: avoid; }
+h3 { font-family: var(--head); font-weight: 600; font-size: 9pt;
+  line-height: 1.3; color: var(--dark); margin: 11pt 0 2pt; letter-spacing: .02em;
+  break-after: avoid; page-break-after: avoid; }
+
+/* ── Body text ───────────────────────────────────────── */
+p { margin: 0; margin-top: 5px; margin-bottom: 5px; font-size: 11pt; line-height: 14.5pt; }
+p { text-indent: 20pt; }
+h1 + p /*, h2 + p */, h3 + p, .sidebar + p, blockquote + p,
+table + p, ul + p, ol + p, .no-indent, .stats + p { text-indent: 0 !important; }
+
+/* ── Pull quote ──────────────────────────────────────── */
+blockquote {
+  margin: 12pt 0 12pt 28pt; padding: 7pt 0 5pt;
+  border-top: 1.5pt solid var(--accent); border-bottom: .5pt solid var(--accent);
+  break-inside: avoid; page-break-inside: avoid;
+}
+blockquote p { font-style: italic; font-size: 11.5pt; line-height: 15pt;
+  text-align: right; text-indent: 0 !important; }
+blockquote cite { display: block; font-family: var(--head); font-style: normal;
+  font-size: 7pt; letter-spacing: .04em; text-align: right; color: var(--mid); margin-top: 4pt; }
+
+/* ── Sidebar box ─────────────────────────────────────── */
+.sidebar { background: var(--sidebar-bg); padding: 9pt 10pt 10pt; margin: 11pt 0;
+  break-inside: avoid; page-break-inside: avoid; }
+.sidebar-head { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 5pt; }
+.sidebar p { font-size: 9pt; line-height: 12.5pt; text-indent: 0 !important; margin-top: 4pt; }
+.sidebar p:first-of-type { margin-top: 0; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol { margin: 5pt 0 5pt 12pt; padding: 0; list-style: none; }
+ul li, ol li { font-size: 11pt; line-height: 14pt; padding-left: 14pt;
+  position: relative; margin-bottom: 2pt; }
+ul li::before { content: '3'; position: absolute; left: 0; color: var(--accent); font-family: var(--head); }
+ol { counter-reset: li; }
+ol li::before { content: counter(li)"."; counter-increment: li;
+  position: absolute; left: 0; font-family: var(--head); font-size: 8.5pt; font-weight: 600; color: var(--accent); }
+
+/* ── Table ───────────────────────────────────────────── */
+table { width: 100%; border-collapse: collapse; margin: 11pt 0;
+  break-inside: avoid; page-break-inside: avoid; font-size: 9pt; }
+caption { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .08em; color: var(--accent);
+  text-align: left; padding: 3pt 0; border-top: 1pt solid var(--accent); caption-side: top; }
+thead th { font-family: var(--head); font-weight: 700; font-size: 8pt;
+  color: var(--nouvelle); background: var(--dark); text-align: left; padding: 4pt 6pt; }
+tbody td { padding: 3.5pt 6pt; border-bottom: .25pt solid var(--sidebar-bg);
+  vertical-align: top; line-height: 13pt; }
+tbody tr:nth-child(even) td { background: rgba(0,0,0,.04); }
+
+/* ── Stats panel ─────────────────────────────────────── */
+.stats { display: flex; border-top: 1pt solid var(--accent);
+  border-bottom: .5pt solid var(--sidebar-bg); margin: 11pt 0;
+  break-inside: avoid; page-break-inside: avoid; }
+.stat { flex: 1; padding: 7pt 5pt; text-align: center; border-right: .5pt solid var(--sidebar-bg); }
+.stat:last-child { border-right: none; }
+.stat-n { display: block; font-family: var(--head); font-weight: 700; font-size: 14pt;
+  line-height: 1.1; color: var(--accent); }
+.stat-l { display: block; font-family: var(--head); font-size: 6pt;
+  line-height: 1.4; color: var(--dark); margin-top: 2pt; }
+
+/* ── Integration cycle ───────────────────────────────── */
+.cycle { border-left: 2pt solid var(--accent); padding-left: 10pt; margin: 7pt 0;
+  break-inside: avoid; page-break-inside: avoid; }
+.cycle-lbl { font-family: var(--head); font-weight: 700; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+.cycle-txt { font-style: italic; font-size: 9.5pt; line-height: 13pt; margin-top: 1pt; }
+
+/* ── TOC ─────────────────────────────────────────────── */
+.toc-ch { font-family: var(--head); font-weight: 600; font-size: 8pt;
+  text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 10pt 0 3pt; }
+.toc-row { display: flex; align-items: baseline; margin-bottom: 3pt; }
+.toc-title { font-family: var(--body); font-size: 10.5pt; color: var(--dark); }
+.toc-dots { flex: 1; border-bottom: .4pt dotted var(--mid); margin: 0 4pt 2pt; }
+.toc-pg { font-family: var(--head); font-size: 8pt; color: var(--mid); }
+
+/* ── Workbook ────────────────────────────────────────── */
+.field-lbl { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin: 14pt 0 3pt; }
+.lines { width: 100%; margin: 0; }
+.line { display: block; width: 100%; height: 22pt; border-bottom: .3pt solid var(--sidebar-bg); }
+.day-num { font-family: var(--head); font-weight: 700; font-size: 60pt; line-height: 1;
+  color: var(--accent); opacity: .18; float: right; margin: -8pt -4pt 0 0; }
+.prompt-box { background: var(--sidebar-bg); padding: 8pt 10pt; margin: 8pt 0 4pt;
+  break-inside: avoid; page-break-inside: avoid; }
+.prompt-box p { font-style: italic; font-size: 10pt; line-height: 14pt;
+  text-indent: 0 !important; margin-top: 4pt; }
+.prompt-box p:first-of-type { margin-top: 0; }
+
+/* ── Bib / Glossary / Reading ────────────────────────── */
+.bib { font-size: 9pt; line-height: 13pt; padding-left: 18pt; text-indent: -18pt; margin-bottom: 5pt; }
+.gterm { font-family: var(--head); font-weight: 600; font-size: 9pt; color: var(--dark); margin: 10pt 0 1pt; }
+.gdef { font-size: 10pt; line-height: 13.5pt; text-indent: 0 !important; }
+.reading-title { font-family: var(--head); font-weight: 600; font-size: 9pt; color: var(--dark); margin: 12pt 0 1pt; }
+.reading-meta { font-family: var(--head); font-size: 7.5pt; color: var(--mid); margin-bottom: 3pt; }
+.reading-desc { font-size: 10pt; line-height: 13.5pt; text-indent: 0 !important; }
+
+/* ── Synthesis project ───────────────────────────────── */
+.synth { border-top: .5pt solid var(--sidebar-bg); padding-top: 10pt; margin-top: 10pt;
+  break-inside: avoid; page-break-inside: avoid; }
+.synth-partners { font-family: var(--head); font-size: 7.5pt; color: var(--mid); margin-bottom: 5pt; }
+
+hr { border: none; border-top: .4pt solid var(--sidebar-bg); margin: 10pt 0; }
+
+:root { --accent: rgb(239, 170, 31); }
+
+/* ── Image placeholders ──────────────────────────────────── */
+.img-placeholder {
+  width: 100%;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12pt 0 2pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  position: relative;
+}
+
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2pt;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.img-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8pt 12pt;
+  width: 100%;
+}
+
+.img-placeholder-icon {
+  font-size: 18pt;
+  opacity: 0.3;
+  margin-bottom: 4pt;
+  line-height: 1;
+}
+
+.img-placeholder-label {
+  font-family: var(--head);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+  text-align: center;
+  line-height: 1.4;
+}
+
+figure {
+  margin: 12pt 0 10pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+figcaption {
+  font-family: var(--head);
+  font-size: 6.5pt;
+  line-height: 9.5pt;
+  color: var(--mid);
+  font-style: italic;
+  margin-top: 3pt;
+  padding-top: 3pt;
+  border-top: 0.25pt solid var(--sidebar-bg);
+}
+
+.img-pair {
+  display: flex;
+  gap: 6pt;
+  margin: 12pt 0 2pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.img-pair .img-placeholder {
+  flex: 1;
+  margin: 0;
+}
+
+.img-triple {
+  display: flex;
+  gap: 5pt;
+  margin: 12pt 0 2pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.img-triple .img-placeholder {
+  flex: 1;
+  margin: 0;
+}
+
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-img"><img src="img/frida-foberg1.jpg" style="width:100%"></div>
+  <div class="cover-stripe"></div>
+  <div class="cover-body">
+    <div><h1><em style="font-style:normal;color:var(--accent)">Integrate This!</em></h1><p class="cover-sub">An Open Handbook for Place-Based Integrative Studies and Collaborative Research in the Field</p></div>
+    <div class="cover-meta">Dylan Gauthier, Tal Beery, Frida Foberg<br><strong>Field Workshop Program</strong> &middot; Wright-Ingraham Institute &middot; 2026</div>
+  </div>
+</div>
+<div class="chapter-opener"><h1>Contents</h1></div>
+<div class="toc-ch">Foundations</div>
+<div class="toc-row"><span class="toc-title">Introduction: Why this Handbook?</span><span class="toc-dots"></span><span class="toc-pg">5</span></div>
+<div class="toc-row"><span class="toc-title">Foundations: Origins and Place</span><span class="toc-dots"></span><span class="toc-pg">7</span></div>
+<div class="toc-ch">Core Concepts</div>
+<div class="toc-row"><span class="toc-title">What Is Integrative Studies?</span><span class="toc-dots"></span><span class="toc-pg">11</span></div>
+<div class="toc-row"><span class="toc-title">Practicing Integration</span><span class="toc-dots"></span><span class="toc-pg">16</span></div>
+<div class="toc-row"><span class="toc-title">Working With Systems</span><span class="toc-dots"></span><span class="toc-pg">21</span></div>
+<div class="toc-ch">Research Practice</div>
+<div class="toc-row"><span class="toc-title">Place-Based Collaborative Research</span><span class="toc-dots"></span><span class="toc-pg">28</span></div>
+<div class="toc-row"><span class="toc-title">Non-Extractive Research</span><span class="toc-dots"></span><span class="toc-pg">33</span></div>
+<div class="toc-row"><span class="toc-title">Designing for Adaptation</span><span class="toc-dots"></span><span class="toc-pg">36</span></div>
+<div class="toc-ch">Reference</div>
+<div class="toc-row"><span class="toc-title">Bibliography</span><span class="toc-dots"></span><span class="toc-pg">38</span></div>
+<div class="chapter-opener"><h1>Epigraphs</h1></div>
+<blockquote><p>"We are constantly impacting and changing our civilization — each other, ourselves, intimates, strangers. And we are working to transform a world that is, by its very nature, in a constant state of change."</p><cite>— adrienne maree brown, <em>Emergent Strategy</em></cite></blockquote>
+<blockquote><p>"The water we drink, like the air we breathe, is not a part of our body but is our body. What we do to one — to the body, to the water — we do to the other."</p><cite>— Natalie Diaz, <em>The First Water is the Body</em></cite></blockquote>
+<blockquote><p>"The Earth is what we all have in common."</p><cite>— Wendell Berry, <em>The Body and the Earth</em></cite></blockquote>
+<div class="chapter-opener"><h1>Introduction: Why this Handbook?</h1></div>
+<p>We began writing this handbook to try to formalize something we had been intuitively doing as facilitators and educators over the years, and to try to make those background practices and processes — what we have been referring to in shorthand as 'Integrative Studies' — more legible, more visible, and more pronounced. Drawing on more than fifty years of the Institute's work, we wanted to explain how and why we worked the way we did.</p>
+<p>We start from a baseline belief that the challenges that define our moment do not fit neatly inside any single discipline. Extreme drought, heat and flooding, land degradation and biodiversity loss, are not purely ecological phenomena, nor are they purely economic, or purely political, or purely cultural. As such, they can only be addressed through a framework that treats them as related, and integrated.</p>
+<p>We are also entering a time when the status of knowledge itself is contested. Our work is transdisciplinary because it has to be. A hydrologist can model aquifer depletion with great precision and still be unable to tell you why a farming family will not stop pumping, or what it would take for them to trust a new governance arrangement, or what gets lost when a field goes dry that cannot be recovered by any technical intervention.</p>
+<p>This handbook is a guide to different ways of engaging with the world's complexity. Integrative studies, as practiced at the Wright-Ingraham Institute, means a commitment to following a question wherever it leads, across disciplinary lines, across the boundary between academic and community knowledge, and sometimes across the gap between analysis and action.</p>
+<p>In our work, we have to consider that someone who farms a particular acreage of land knows something about water that a hydrologist does not, and that the hydrologist knows something the farmer cannot easily access, and that neither of them knows what an artist or a poet or landscape architect might notice. It asks us to hold those different ways of knowing in tension long enough for something genuinely new to emerge.</p>
+<p>This requires patience with ambiguity, comfort with not-knowing, genuine curiosity about perspectives that may challenge your own, a humility around disciplines — while recognizing what they are good for — and the commitment to stay in the question rather than reaching too quickly for an answer.</p>
+<p>In presenting this as an 'open handbook,' we are genuinely hopeful that you will treat this book as a living document. Write in it. Make edits. Cross things out that don't feel right. Let us know what you think works and what doesn't.</p>
+<p style="text-indent: 0pt !important;margin-top:16pt;font-family:var(--head);font-size:9pt;color:var(--mid)">Dylan Gauthier<br>Director of Research and Publications<br>Wright-Ingraham Institute</p>
+
+<p style="font-family:var(--head);font-size:6.5pt;font-style:italic;color:var(--mid);margin-bottom:8pt;text-indent:0px !important">"It has been said that civilization is not a collection of finished artifacts, it is the elaboration of processes." — Elizabeth Wright Ingraham, quoting John Dewey.</p>
+<div class="chapter-opener"><h1>Foundations: Origins and Place</h1></div>
+<h2>The Wright-Ingraham Institute Story</h2>
+<figure><img src="img/rcfs.png" style="width:100%"></figure>
+
+<p>The Wright-Ingraham Institute (WII) is a non-profit education and research institution established in Colorado in 1970 by Elizabeth 'Liz' Wright Ingraham (1922–2013). Liz was a prolific author, a Fellow of the American Institute of Architects, a champion of women's issues, and a highly regarded innovator. She is credited with the design of approximately 150 buildings throughout the Southwestern United States and was posthumously inducted into the Colorado Women's Hall of Fame. The granddaughter of Frank Lloyd Wright, her family discouraged her from studying architecture, or having a career at all. Nonetheless, Liz excelled at her work and forged a practice that combined her passions for architecture, community, conservation, and education. She established the Institute to promote, direct, encourage, and develop educational opportunities contributing to the conservation, preservation, and responsible use of human and natural resources.</p>
+<h2>From Field Station to Field Workshop</h2>
+<figure><img src="img/grasslands.png" style="width:100%"></figure>
+<p>In 1973, under Liz's direction the Institute opened what would come to be known as the Richard T. Parker Advanced Center for Research at its Running Creek Field Station (RCFS) site, located on 640 acres of short-grass prairie to the northeast of Colorado Springs, in Elbert, Colorado. The Field Station allowed for sustained contact with specific ecosystems, cumulative observation over time, and the development of deep, place-based knowledge that more limited visits to a site cannot produce.</p>
+<p>The RCFS was 'site specific' and 'place-based' before either term was widely used. The Institute's approach is still rooted in this early work, but our research agenda has changed as the challenges of drought, land use, and cultural continuity in the American Southwest have come into sharper focus.</p>
+<div class="sidebar"><div class="sidebar-head">Elizabeth Wright Ingraham on Running Creek</div><p>"When we started RCFS, in order to capture the attention of the students, we started with the physical sciences because they were easier to quantify. Moving forward from that scientific base our effort at [RCFS] then moved to introduce key principles all the way from the physical sciences to the social sciences to the humanities and arts."</p></div>
+<p>The Field Station drew its intellectual foundations from a remarkable constellation of thinkers: John Dewey's philosophy that students learn most deeply by living and working directly within the environment of inquiry; Frank Lloyd Wright's organic design philosophy; Buckminster Fuller's work in structures and cybernetics; and Aldo Leopold's land ethic.</p>
+<figure><img src="img/mchale.png" style="width:100%"></figure>
+<figcaption>John McHale, Director of the Center for Integrative Studies, SUNY, at the Running Creek Field Station.</figcaption>
+</figure>
+<p>In more recent years, the Field Station has broadened its intellectual foundations. Engaging with the wisdom of Indigenous community partners and non-western ecological and eco-feminist traditions has deepened our understanding of the land and our relationship to it. The writing and teaching of thinkers like Paulo Freire, bell hooks, adrienne maree brown, Fred Moten and Stefano Harney, and David Graeber and David Wengrow have expanded our sense of what education can be and who it is for.</p>
+<div class="chapter-opener"><h1>What Is Integrative Studies?</h1></div>
+<p>Integrative study is the deliberate practice of crossing disciplinary boundaries in the service of understanding and addressing complex problems. It is not simply multidisciplinary (assembling experts from multiple fields who then work in parallel), nor merely interdisciplinary (borrowing methods from adjacent fields to enrich one's own discipline). At its fullest, integrative studies is <em>transdisciplinary</em>: it weaves together not only multiple academic disciplines but also experiential knowledge, community wisdom, artistic sensibility, and practical craft to create something none of the contributing traditions could produce alone.</p>
+<h2>Four Modes of Cross-Disciplinary Work</h2>
+<table>
+<caption>Modes of Integration</caption>
+<thead><tr><th style="width:30%">Mode</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Multidisciplinary</strong></td><td>Multiple disciplines address the same problem side by side, each in their own lane.</td></tr>
+<tr><td><strong>Interdisciplinary</strong></td><td>Disciplines begin to borrow from and inform one another, blurring boundaries.</td></tr>
+<tr><td><strong>Transdisciplinary</strong></td><td>Knowledge co-created across disciplines and with community partners, producing new frameworks that transcend any single field.</td></tr>
+<tr><td><strong>Integrative</strong></td><td>The active weaving of all of the above, including non-academic forms of knowing, into a coherent response to a complex challenge.</td></tr>
+</tbody></table>
+<h2>The Problem with Disciplines</h2>
+<p>Modern universities are organized by discipline for good reasons. Disciplinary training sharpens perception and teaches what you should notice, how to measure, what counts as evidence, and how to communicate findings to others in your field.</p>
+<p>But disciplines also have blind spots. A hydrologist trained only in hydrology may model a watershed with great precision, while missing how a community's cultural relationship to water shapes what solutions are possible. Complex adaptive challenges — drought adaptation, food system transformation, rural economic resilience — do not reside neatly inside disciplinary boundaries. They live at the intersections.</p>
+<figure>
+<img src="img/science-map.png" style="width:100%">
+<figcaption>A global map of science, illustrating the cognitive distance between disciplines. Source: Rafols, Porter and Leydesdorff (2010).</figcaption>
+</figure>
+<h2>Four Commitments of Integrative Practice</h2>
+<h3>1. Holding Space for Complexity</h3>
+<p>Integrative researchers must resist the temptation to simplify too quickly. A drought is not just a water shortage. It is a hydrological event, an economic disruption, a cultural wound, a political flashpoint, and an opportunity for social reinvention.</p>
+<h3>2. Following the Question — Not the Methodology</h3>
+<p>Disciplinary researchers often begin with a favored method. Integrative researchers begin with a question — often a messy and urgent real-world question — and assemble the methods that might best illuminate it. This requires methodological flexibility, intellectual humility, and genuine curiosity about approaches different from one's training.</p>
+<h3>3. Bridging Knowledge and Action</h3>
+<p>The Wright-Ingraham Institute's research tradition leans toward applied and actionable knowledge: learning that can actually inform decisions, designs, policies, and practices. This means engaging with practitioners, policymakers, and community members not merely as research subjects but as co-designers of inquiry and co-creators of strategies.</p>
+<h3>4. Practicing Reflexivity</h3>
+<p>Integrative researchers are aware of their own positionality — the ways their background, training, assumptions, and privileges shape what they see and how they interpret it. Knowing your lens lets you examine it, adjust it, and be honest with others about how it shapes your work.</p>
+<h2>Integrator's Toolkit: Ways of Knowing</h2>
+<figure><img src="img/integrators-wheel.png" style="width:100%">
+<table>
+<caption>Ways of Knowing</caption>
+<thead><tr><th style="width:35%">Way of Knowing</th><th>Contributes</th></tr></thead>
+<tbody>
+<tr><td>Scientific measurement</td><td>Quantitative data, trend analysis, model-based projection (hydrology, land-use mapping)</td></tr>
+<tr><td>Ethnographic observation</td><td>Contextual understanding of practice, meaning, and social dynamics</td></tr>
+<tr><td>Oral history</td><td>Community memory, long-horizon observation, lived experience of ecological change</td></tr>
+<tr><td>Systems mapping</td><td>Visualization of relationships, feedbacks, and leverage points</td></tr>
+<tr><td>Design thinking</td><td>Creative prototyping, iterative testing, user-centered problem framing</td></tr>
+<tr><td>Soundscape &amp; visual documentation</td><td>Sensory and aesthetic dimensions of place; accessible communication of complex dynamics</td></tr>
+<tr><td>Narrative co-production</td><td>Collaborative meaning-making across different knowledge traditions</td></tr>
+<tr><td>Traditional ecological knowledge (TEK)</td><td>Long-horizon observations, place-based wisdom, relational understanding of land and water</td></tr>
+<tr><td>Local expertise</td><td>What can someone deeply invested in a site know and share about that place?</td></tr>
+</tbody></table>
+<div class="chapter-opener"><h1>Practicing Integration: The Integrator's Daily Disciplines</h1></div>
+<h3>Noticing and Sensing</h3>
+<p>Integration begins with attention. Train yourself to notice what is present: not only data and evidence, but texture, mood, contradiction, absence, surprise. Keep a running list of 'notable things' that don't necessarily fall into a narrative. Anomalies are often where the most important insights hide.</p>
+<h3>Questioning Across Scales</h3>
+<p>Practice asking the same question at multiple scales: What is happening here, in this place, in this moment? What pattern does this instance belong to? What larger system produced this pattern? Integrative insight often emerges when a local observation suddenly illuminates a systemic dynamic, or when a systems model fails to account for something you observed on the ground.</p>
+<h3>Triangulating</h3>
+<p>Never rely on a single source, method, or informant. A farmer's description of how her fields have changed, corroborated by groundwater data and aerial imagery, and set in the context of water law history, becomes something far more robust and actionable than any one of those sources alone.</p>
+<h3>Writing as Thinking</h3>
+<p>Writing prompts you to discover what you actually think. Even short observational entries can help clarify complex problems by situating your reflection in 'the now.' A daily writing practice is highly recommended.</p>
+<h3>Drawing and Sketching</h3>
+<p>You don't have to be a trained artist to make use of daily sketching. When you sketch a landscape, a water delivery system, or a conversation's web of relationships, it can help make choices about what we want to accentuate and discover connections between things. A quick sketch of an irrigation canal's path through a valley may reveal a logic that three paragraphs of description would not.</p>
+<h2>The Integration Cycle</h2>
+<p>Integration is not a one-time act of synthesis; it is an ongoing cycle of inquiry, reflection, and revision. The Institute has developed a framework for navigating this cycle, which we call the Integration Cycle.</p>
+<figure><img src="img/integration-cycle.png" style="width:100%">
+<figcaption>The Integration Cycle: a framework for iterative integrative inquiry.</figcaption>
+</figure>
+<div class="cycle"><div class="cycle-lbl">1 — Immerse</div><div class="cycle-txt">Enter the problem with open attention. Observe, listen, feel. Suspend judgment. Collect without filtering.</div></div>
+<div class="cycle"><div class="cycle-lbl">2 — Diverge</div><div class="cycle-txt">Generate multiple framings of what you observed. What does a hydrologist see? An anthropologist? A farmer? A designer? Resist early convergence.</div></div>
+<div class="cycle"><div class="cycle-lbl">3 — Connect</div><div class="cycle-txt">Identify surprising resonances, tensions, and relationships across framings. Where do different ways of knowing reinforce or contradict each other?</div></div>
+<div class="cycle"><div class="cycle-lbl">4 — Synthesize</div><div class="cycle-txt">Weave connections into a provisional integrated account or design response. Name the tensions you could not resolve.</div></div>
+<div class="cycle"><div class="cycle-lbl">5 — Test</div><div class="cycle-txt">Bring your synthesis back into the field. Share with community partners, collaborators, or the landscape itself. What holds? What breaks?</div></div>
+<div class="cycle"><div class="cycle-lbl">6 — Reflect</div><div class="cycle-txt">Document what you learned, how your thinking changed, what new questions emerged. Begin again.</div></div>
+<div class="sidebar"><div class="sidebar-head">Integration Case Study: The Salton Sea</div><p>Located in the Imperial and Coachella Valleys in Southern California, the Salton Sea is the state's largest lake and one of its most polluted places. Formed when an irrigation canal broke and flooded a desert basin between 1905 and 1907, the Sea later became a mid-century resort destination, then collapsed into an ecological crisis, and now sits at the center of intersecting emergencies involving public health, agriculture, water rights, climate adaptation, Tribal rights, and renewable energy development.</p><p>The Torres Martinez Desert Cahuilla Indians have treaty claims to the land and water. Migratory birds depend on the sea as a critical stopover on the Pacific Flyway. Beneath the lakebed sits one of the world's largest lithium deposits, and tech and energy companies are racing to extract it for electric vehicle batteries.</p><p><strong>Working through the Integration Cycle with the Salton Sea:<br/><br/></strong>In the Immerse phase, resist the urge to immediately frame the Sea as an environmental problem. Sit with its strangeness.<br/><br/>In the Diverge phase, draw on distinct perspectives — a hydrologist, a Cahuilla water rights attorney, a respiratory epidemiologist, a lithium mining engineer, a bird bander. Each grants a view of a different Sea.<br/><br/>In the Connect phase, look for places where these framings speak to each other in surprising ways: where does the energy transition create new conflicts with health equity? Where do Indigenous water rights and ecological restoration align — and where do they diverge?<br/><br/>In the Synthesize phase, write a provisional integrated brief that weaves these perspectives together without flattening them.<br/><br/>In the Test phase, we would identify one community partner, agency, or stakeholder whose response to our synthesis could tell you whether it holds: a representative from the Torres Martinez Tribe, a Coachella Valley Unified School District administrator, a farmworker health clinic director.<br/><br/>In the Reflect phase, we would document what surprised us, what our prior framings made us miss, and what questions we are now considering that we did not have before. <br/><br/>The six-phase Integration Cycle is not a linear problem-solving method so much as a discipline of sustained attention. The Salton Sea illustrates the need for complex, structured, rigorous integrative toolsets to address complex challenges in the world.</p></div>
+<div class="chapter-opener"><h1>Working With Systems</h1></div>
+<p>The Institute's place-based integrative studies are grounded in systems thinking, a holistic problem-solving framework that focuses on how different parts of a whole interact, influence, and depend on one another. The Southwest's water crisis is the result of multiple, interlinked causes. Drought reduced snowpack. Reduced snowpack cut surface flows. Reduced flows pushed farmers toward groundwater. Decades of heavy pumping drew down the aquifer. All of which unfolded against a backdrop of water rights law, commodity markets, population change, and cultural memory that shaped which decisions were made.</p>
+<h2>What Is a System?</h2>
+<p>A system, in the sense developed by environmental scientist Donella Meadows, is a set of elements interconnected in such a way that they produce their own pattern of behavior over time. Three things make a system a system: its elements (the visible, tangible parts), its interconnections (the relationships and flows linking those elements), and its function or purpose.</p>
+<div class="sidebar"><div class="sidebar-head">Three Components of Every System</div><p><strong>Elements:</strong> The visible, countable parts. In the San Luis Valley: snowpack, aquifers, canals, farms, water boards, families, crops.</p><p><strong>Interconnections:</strong> The relationships, flows, and signals that link elements — water rights seniority, market prices for seed potatoes, acequia work obligations, snowmelt timing, aquifer recharge rates.</p><p><strong>Function or Purpose:</strong> What the system actually does, revealed by its behavior over time. A water system functions to allocate a scarce and variable resource among competing users across generations.</p></div>
+<figure><div class="img-placeholder" style="height:110pt">
+  <div class="img-placeholder-inner">
+    <div class="img-placeholder-icon">&#9634;</div>
+    <div class="img-placeholder-label">image7 — George Van Dyne, IBP Grasslands Biome Ecosystem Model, from the Running Creek Field Station archive</div>
+  </div>
+</div>
+<figcaption>George Van Dyne, IBP Grasslands Biome Ecosystem Model, from the Running Creek Field Station archive.</figcaption>
+</figure>
+<h2>Stocks, Flows, and Feedback Loops</h2>
+<p>Every system contains stocks and flows. A <em>stock</em> is anything that accumulates or depletes over time: water in an aquifer, trust between an institution and a community, topsoil on a farm, cultural knowledge held by elders. A <em>flow</em> is the rate at which a stock changes. Stocks change slowly; flows can change quickly. This is why aquifer depletion is so difficult to reverse: the stock took millennia to accumulate, and the flows that replenish it are far slower than the flows that drain it.</p>
+<h2>Two Kinds of Feedback Loops</h2>
+<h3>Reinforcing (positive) loops</h3>
+<p>Amplify change in one direction. Declining aquifer levels raise pumping costs, which stress farm finances, which pressure farmers to pump more aggressively in good years to compensate, which further depletes the aquifer. Left unchecked, reinforcing loops drive systems toward collapse or explosion.</p>
+<h3>Balancing (negative) loops</h3>
+<p>Resist change and seek equilibrium. The subdistrict model in the San Luis Valley was designed as a series of integrated balancing loops: when collective pumping exceeds targets, mandatory reductions kick in, pushing the system back toward sustainability.</p>
+
+<div class="img-triple">
+  <div class="img-placeholder" style="height:80pt">
+  <div class="img-placeholder-inner">
+    <div class="img-placeholder-icon">&#9634;</div>
+    <div class="img-placeholder-label">image8 — Systems diagram / feedback loops illustration</div>
+  </div>
+</div>
+  <div class="img-placeholder" style="height:80pt">
+  <div class="img-placeholder-inner">
+    <div class="img-placeholder-icon">&#9634;</div>
+    <div class="img-placeholder-label">image9 — Systems diagram / feedback loops illustration</div>
+  </div>
+</div>
+  <div class="img-placeholder" style="height:80pt">
+  <div class="img-placeholder-inner">
+    <div class="img-placeholder-icon">&#9634;</div>
+    <div class="img-placeholder-label">image10 — Systems diagram / feedback loops illustration</div>
+  </div>
+</div>
+</div>
+<p style="font-family:var(--head);font-size:6.5pt;font-style:italic;color:var(--mid);margin-bottom:8pt">Systems diagrams illustrating reinforcing and balancing feedback loops.</p>
+
+<h2>Why Whole Systems? The Problem of 'Bounded Rationality'</h2>
+<p>Donella Meadows used the term 'bounded rationality' to describe how each actor in a system makes decisions that are individually rational given what that actor can see and know, but which produce outcomes that no one intended and everyone regrets. A farmer who pumps water to protect her livelihood is not being irrational. A water board that allocates according to legal seniority is not being irrational. But the aggregate result of all these locally rational decisions is aquifer depletion that threatens the entire system.</p>
+<h2>Leverage Points: Where to Intervene</h2>
+<p>One of Meadows' most important contributions was her analysis of leverage points: places within a system where a small shift can produce large changes in behavior. Counterintuitively, the most obvious interventions — changing the numbers — are at the bottom of her list. They change outputs without changing the system's underlying structure.</p>
+<p>The most powerful leverage points involve the mindset or paradigm out of which the system arises, the goals of the system, and the rules that govern feedback loops. In the San Luis Valley, shifting from a paradigm of water as privately owned commodity to water as communal trust held across generations would be a high-leverage intervention.</p>
+<h2>Drawing a Causal Loop Diagram</h2>
+<p>A causal loop diagram (CLD) is the core tool of systems mapping. It makes feedback structure visible. To build one in the field:</p>
+<ol>
+<li><strong>Name the problem variable.</strong> Start with the condition that concerns you most: aquifer level, farm income, community water security.</li>
+<li><strong>Ask what causes it to increase and decrease.</strong> List inflows and outflows. Draw arrows labeled '+' (same direction) or '&minus;' (opposite direction).</li>
+<li><strong>Ask what each cause is itself caused by.</strong> Follow each arrow back to its source. Keep asking until you find loops that close.</li>
+<li><strong>Identify the loops.</strong> An odd number of '&minus;' arrows means a balancing loop; even means a reinforcing loop.</li>
+<li><strong>Look for delays.</strong> Mark connections where cause and effect are separated by time.</li>
+<li><strong>Test and revise with partners.</strong> Show your diagram to farmers, water managers, and community members. The map is a thinking tool, not a truth claim.</li>
+</ol>
+<figure><div class="img-placeholder" style="height:100pt">
+  <div class="img-placeholder-inner">
+    <div class="img-placeholder-icon">&#9634;</div>
+    <div class="img-placeholder-label">image11 — Photograph by Frank Miller</div>
+  </div>
+</div>
+<figcaption>Image: Frank Miller.</figcaption>
+</figure>
+<div class="chapter-opener"><h1>Place-Based Collaborative Research</h1></div>
+<h2>What Makes Research 'Place-Based'?</h2>
+<p>Place-based research is research conducted in direct, embodied contact with the places, people, and processes under study. In the San Luis Valley context, field-based research means spending time at farms and ranchlands, attending acequia workdays and water board meetings, walking canal headgates and dry creek beds, sitting with elders and with engineers, and tracing the flow of water through both infrastructure and community life.</p>
+<h2>Collaborative Research Practices</h2>
+<p>Collaboration is crucial to integrative study. No single researcher can hold the full range of knowledge, perspective, and skill that complex problems demand. Effective collaborative research requires a framework that considers and explicitly negotiates roles, assumptions, and working styles. It requires regular structured check-ins, a genuine willingness to be changed by what your collaborators contribute, and shared norms for managing disagreement productively.</p>
+<h2>Working with Community Partners</h2>
+<p>In our programs, we engage with vibrant and diverse communities who are our knowledge partners, our hosts, and our collaborators. Effective community-partnered research requires prior agreements about how findings will be shared; transparency about the purposes and limitations of your research; genuine reciprocity — asking how your work can be useful to partners; patience with the pace of relationship-building; and cultural humility.</p>
+<h2>Collaborative Research Methods Portfolio</h2>
+<h3>Stakeholder Interviews and Oral History</h3>
+<p>Semi-structured interviews with farmers, water managers, community organizers, and elders provide contextual depth that no dataset can supply. Oral history methods allow you to understand how current conditions emerged from past decisions and events.</p>
+<div class="sidebar"><div class="sidebar-head">Interview Practice Principles</div><p>Approach every partner — farmer, rancher, water manager, acequia mayordomo — with the same question: what does this person know that I do not, and how can my work here serve what they are already trying to do?</p><p>Ask for stories, probe values. 'How has your irrigation practice changed over the past decade?' reveals far more than 'Do you think drought is getting worse?'</p><p>Listen for what is not said. Silences, deflections, and changes of subject are data.</p><p>You can finish an interview by asking who else you might consider talking to.</p></div>
+<h3>Participatory Mapping</h3>
+<p>Participatory mapping engages community members in the creation of spatial knowledge: maps of water sources, historical land uses, areas of flooding or desiccation, culturally significant sites, or areas of concern. These maps often reveal spatial dimensions of drought adaptation that technical surveys miss.</p>
+<h3>Transect Walks</h3>
+<p>A transect walk is a systematic journey across a landscape, typically along a line that crosses multiple ecological or land-use zones. In the San Luis Valley, transect walks might traverse a gradient from high-altitude snowpack zones through mountain meadows, into irrigated agricultural land, and across dry basin floor, tracking how water presence or absence shapes ecology and human use.</p>
+<h3>Deep Mapping: Creative and Narrative Research</h3>
+<p>The Institute's research agenda recognizes narrative, artmaking, and listening as essential research tools — not supplements to 'real' research but methods in their own right. Deep Mapping means attending to the aesthetic, emotional, and narrative dimensions of the landscape alongside the technical and social. This might involve soundscape recording in a dry creek bed; sketch-mapping a farmer's perception of where water has retreated over her lifetime; collaborative timeline-making with a community group; or documenting the visual textures of soil, irrigation infrastructure, and cropping patterns.</p>
+<h3>Scenario Development and Design Prototyping</h3>
+<p>Once a research team has developed a grounded understanding of the system, scenario development combines climate projections, stakeholder input, and systems analysis into concrete, communicable visions of possible futures. Design prototyping translates those visions into material, spatial, or institutional proposals that can be evaluated by community partners.</p>
+<div class="chapter-opener"><h1>Non-Extractive Research</h1></div>
+<h2>A History of Extractive Research</h2>
+<p>Academic and institutional research has a long history in Indigenous, rural, and marginalized communities, and much of that history is not a good one. Researchers arrive with questionnaires, recording equipment, and collection bags; take what they need in the form of stories, seeds, maps, songs, ecological knowledge, and water data; and leave. The communities are thanked in footnotes. The knowledge appears in journal articles and policy reports that the communities never see, in language they were not consulted about, drawing conclusions they were not asked to review.</p>
+<p>This pattern has a name: <em>extractive research</em>. Its effects accumulate. Some of that research has caused harm. There is a risk that some research may produce findings that are used against the communities who provided the underlying knowledge.</p>
+<h2>What Non-Extractive Research Requires</h2>
+<p>Non-extractive research is not simply research that is polite, culturally sensitive, or well-intentioned. It is research structured so that the communities involved have genuine agency over the process and its outcomes.</p>
+<h3>Consent and Prior Agreement</h3>
+<p>Genuine informed consent requires that participants understand not just what you are asking, but how you intend to use what they share, who else will have access to it, what happens to it after the workshop ends, and what recourse they have if they later want something removed or changed. Many Indigenous nations and pueblos operate under principles of collective consent: the community, as a governing body, must agree to a research relationship before individual community members are approached.</p>
+<h3>During Research: Reciprocity and Ongoing Consent</h3>
+<p>Consent is not a one-time event. People have the right to withdraw, limit, or amend what they have shared at any point in the process. Reciprocity in the field means contributing something of genuine value — not just gratitude.</p>
+<h2>Indigenous Data Sovereignty</h2>
+<p>Indigenous data sovereignty is the right of Indigenous peoples to govern the collection, ownership, and application of data about their communities, territories, peoples, and cultures. Data collected in or about Indigenous communities does not automatically belong to the researcher who collected it. Any data storage, analysis, or dissemination plan must address these questions explicitly, with the community's input, before the research begins.</p>
+<h2>CARE Principles for Indigenous Data Governance</h2>
+<div class="sidebar"><div class="sidebar-head">The CARE Principles</div><p><strong>Collective Benefit:</strong> Data ecosystems shall be designed and function in ways that enable Indigenous peoples to derive benefit from the data.</p><p><strong>Authority to Control:</strong> Indigenous peoples' rights and interests in Indigenous data must be recognized, and their authority to control such data be empowered.</p><p><strong>Responsibility:</strong> Those working with Indigenous data have a responsibility to share how those data are used to support Indigenous peoples' self-determination and collective benefit.</p><p><strong>Ethics:</strong> Indigenous peoples' rights and wellbeing should be the primary concern at all stages of the data life cycle and across the data ecosystem.</p></div>
+<h3>Handling Sacred and Sensitive Knowledge</h3>
+<p>Some knowledge contained in field sites is not yours to carry out. This is especially true in Indigenous communities, where certain ecological, ceremonial, and territorial knowledge is held collectively and governed by protocols about who can know it, how it can be shared, and with whom. The fact that someone tells you something does not mean you have the right to record it, write it down, analyze it, or share it outside the conversation.</p>
+<div class="chapter-opener"><h1>Designing for Adaptation</h1></div>
+<p>Design for adaptation draws on traditions of adaptive management, participatory and iterative design, and resilience theory to develop responses to complex, uncertain, and changing conditions. Several principles distinguish design for adaptation from conventional planning or problem-solving.</p>
+<h3>Adaptation is not optimization</h3>
+<p>Conventional planning often seeks an optimal solution. Adaptive design recognizes that in complex systems, conditions change faster than optimal solutions can be implemented. The goal is adaptive capacity: the ability to respond effectively to a wide range of possible futures.</p>
+<h3>Design must be legible to users</h3>
+<p>A drought-resilient irrigation system that farmers cannot understand, maintain, or modify is not truly adaptive. Adaptive designs must be accessible to the people who will actually use and maintain them. This requires deep engagement with end-users during the design process, not merely at the point of delivery.</p>
+<h3>Failure can be useful data</h3>
+<p>Adaptive design practitioners expect that first implementations will be imperfect. Monitoring, evaluation, and iteration are built into the process from the beginning. Communities that can identify what is not working and adjust accordingly are more resilient than those that implement 'final' solutions.</p>
+<h3>Local knowledge is critical</h3>
+<p>Farmers, acequia managers, and Indigenous water stewards in the San Luis Valley and Northern New Mexico possess millennia of cumulative knowledge about what works in a specific landscape. This knowledge is not anecdote; it is data, tested over time by the most rigorous of evaluators: survival. Integrating this knowledge with technical analysis is not merely culturally sensitive; it is scientifically sound.</p>
+<p>Designing for adaptation means approaching these landscapes as evolving, living systems. It means building capacity for change rather than optimizing for a single fixed outcome. It means paying close attention to who bears the costs of adaptation and who captures its benefits — questions of justice as much as ecology.</p>
+
+<div class="chapter-opener"><h1>Glossary</h1></div>
+<p>The following terms appear throughout this handbook or are relevant to the integrative research practice it describes. Terms specific to the San Luis Valley and Taos Plateau field sites — acequia, prior appropriation, subdistrict, dust on snow, and related concepts — are defined in the Field Guide (Book 2), which carries its own glossary oriented to those landscapes. The terms collected here are the broader conceptual, disciplinary, and methodological vocabulary of integrative studies itself.</p>
+
+<div class="gterm">Adaptive Management</div>
+<p class="gdef">An approach to natural resource management and planning that treats decisions as experiments, builds in monitoring and evaluation from the start, and uses what is learned to adjust strategies over time. Distinguished from conventional planning by its expectation that first attempts will be imperfect and its deliberate design of feedback loops between action and learning. In the Field Workshop context, adaptive management is both a method and an orientation: the willingness to change course in response to what the field actually shows you.</p>
+
+<div class="gterm">Bounded Rationality</div>
+<p class="gdef">A concept from systems theory, used extensively by Donella Meadows, describing the gap between the decisions that look rational from inside a system and the outcomes those decisions produce at the level of the whole. Each actor makes choices that are sensible given what they can see, know, and measure — but because every actor can only see a portion of the system, the aggregate result is often something no one intended and everyone regrets. Understanding bounded rationality is one reason integrative researchers resist explaining complex problems through individual behavior alone.</p>
+
+<div class="gterm">Causal Loop Diagram (CLD)</div>
+<p class="gdef">A visual tool for making the feedback structure of a system visible. Variables are represented as nodes; arrows between them are labeled '+' (the two variables move in the same direction) or '−' (they move in opposite directions). Closed chains of arrows form feedback loops, which are identified as reinforcing (R) or balancing (B) depending on the count of '−' signs. A CLD is not a truth claim about a system; it is a collaborative thinking tool, a map for conversation, and a way of surfacing assumptions that often remain invisible in ordinary analysis.</p>
+
+<div class="gterm">Collaborative Research</div>
+<p class="gdef">A mode of inquiry in which research is designed and conducted not by a single expert acting on a community or landscape, but by multiple actors — including community members, practitioners, and researchers from different disciplines — who share roles in framing questions, collecting and interpreting evidence, and deciding how findings are used. Collaborative research requires explicit negotiation of roles, assumptions, and credit. It is slower than conventional expert-led research and more likely to produce findings that are actually usable by the communities involved.</p>
+
+<div class="gterm">Community Knowledge</div>
+<p class="gdef">The forms of understanding held collectively by a community, developed through long habitation in a place, shared practice, oral tradition, and intergenerational experience. Community knowledge is not inferior to scientific or technical knowledge; it operates at different scales and through different methods, and often captures dynamics — the feel of a season, the behavior of a canal over decades, the social meaning of a water shortage — that technical instruments cannot easily measure. Integrative research treats community knowledge as a legitimate epistemic resource, not merely as 'context' around the 'real' data.</p>
+
+<div class="gterm">Convergence Science</div>
+<p class="gdef">A mode of research that integrates knowledge from the life sciences, physical sciences, social sciences, engineering, and the humanities to address complex problems. Distinguished from simple multidisciplinarity by its aspiration to produce genuinely new conceptual frameworks, not just to arrange existing disciplines side by side. The Wright-Ingraham Institute's research practice is broadly aligned with convergence science, particularly in its emphasis on bringing together ecological, hydrological, social, cultural, and design knowledge around questions that none of those fields can answer alone.</p>
+
+<div class="gterm">Deep Mapping</div>
+<p class="gdef">A creative and narrative research method that attends to the aesthetic, emotional, historical, and sensory dimensions of a landscape alongside technical and social data. Deep maps aim to produce a richer understanding of place than datasets alone can provide, drawing on soundscape recording, sketch mapping, oral history, community-based timeline-making, and visual documentation. The term originates in literary geography and has been taken up by artists, geographers, and environmental humanists working at the intersection of place, memory, and ecology.</p>
+
+<div class="gterm">Discipline</div>
+<p class="gdef">An organized field of study defined by its characteristic questions, methods, standards of evidence, and community of practitioners. Disciplines are not natural features of knowledge; they are historically contingent social institutions, built up over time as universities, journals, grant agencies, and professional associations sorted inquiry into manageable categories. This history matters for integrative work because it means disciplinary boundaries are negotiable — they have been drawn and redrawn before — and that what counts as a legitimate question, method, or finding is always shaped by the norms of a particular community, not just by the nature of reality.</p>
+
+<div class="gterm">Ecology</div>
+<p class="gdef">The scientific study of the relationships between organisms and their environments, including interactions among species and between living organisms and the physical world. In the context of the Field Workshop, ecology provides analytical tools for understanding how landscapes function as systems — how energy and nutrients flow, how disturbances propagate, how resilience is built or lost. Ecological thinking is one of the core disciplinary lenses the workshop draws on, alongside hydrology, social science, economics, and the arts.</p>
+
+<div class="gterm">Epistemology</div>
+<p class="gdef">The branch of philosophy concerned with the nature, sources, and limits of knowledge. In integrative research practice, epistemological questions are not abstract: they arise every time you ask whose knowledge counts, how different ways of knowing relate to each other, and what it means to 'know' something about a landscape, a community, or a system. The commitment to integrative studies implies a pluralist epistemology — the view that no single method or tradition has a monopoly on valid knowledge, and that understanding complex problems requires drawing on multiple epistemic traditions simultaneously.</p>
+
+<div class="gterm">Ethnography</div>
+<p class="gdef">A qualitative research method developed in social and cultural anthropology, involving sustained, close observation of and participation in the life of a community or social setting. Ethnographic methods include participant observation, semi-structured interviewing, documentary analysis, and the careful recording of field notes. In the Field Workshop context, ethnographic approaches help researchers understand how institutions function in practice, how cultural values shape resource use decisions, and how communities make sense of drought and adaptation in their own terms rather than in the terms imported by outside researchers.</p>
+
+<div class="gterm">Feedback Loop</div>
+<p class="gdef">In systems thinking, a closed chain of cause-and-effect relationships in which a change in one variable propagates through the system and eventually returns to affect that same variable. Feedback loops are the primary mechanism through which systems exhibit self-reinforcing or self-correcting behavior over time. A reinforcing (positive) loop amplifies change in one direction; a balancing (negative) loop resists change and seeks equilibrium. Understanding the feedback structure of a system is essential to identifying where interventions are likely to have lasting effect.</p>
+
+<div class="gterm">Hydrology</div>
+<p class="gdef">The science of water — its properties, distribution, and movement through the atmosphere, across the land surface, and through the subsurface. In the Southwest context, hydrological understanding is foundational: it describes how snowpack accumulates and melts, how water moves from mountains through stream systems and into aquifers, how aquifers recharge and deplete, and how land use choices ripple through the water cycle. Hydrological data — streamflow records, aquifer levels, evapotranspiration estimates — form the quantitative backbone of the San Luis Valley's water management challenges.</p>
+
+<div class="gterm">Indigenous Knowledge</div>
+<p class="gdef">The body of knowledge, practices, and beliefs developed by Indigenous peoples through long-term interaction with their specific environments, passed down through generations via oral tradition, practice, and ceremony. Sometimes called Traditional Ecological Knowledge (TEK) when referring specifically to knowledge about the natural world. Indigenous knowledge is not a single thing: it varies enormously across nations, communities, and landscapes. In research contexts, Indigenous knowledge must be engaged with on its own terms and according to the protocols of the community that holds it — not extracted, decontextualized, or treated as supplementary data for scientific studies conducted without community consent.</p>
+
+<div class="gterm">Integration Cycle</div>
+<p class="gdef">WII's six-phase framework for integrative research practice: Immerse, Diverge, Connect, Synthesize, Test, Reflect. The cycle is not a linear protocol but an iterative discipline — a structured way of moving between open observation and provisional synthesis, between individual inquiry and collective sense-making, and between research and action. Researchers are expected to move through the cycle multiple times at different scales and timescales, and to treat each completed cycle as the beginning of the next rather than the end of the inquiry.</p>
+
+<div class="gterm">Integrative Studies</div>
+<p class="gdef">The deliberate practice of crossing disciplinary boundaries in the service of understanding and addressing complex problems. Integrative studies is distinguished from multidisciplinary work (disciplines working in parallel) and interdisciplinary work (disciplines borrowing from each other) by its aspiration to produce genuinely new understanding that no single discipline could generate alone — including by weaving in community wisdom, artistic practice, experiential knowledge, and practical craft alongside academic expertise. At its fullest, integrative studies is transdisciplinary: it does not just combine existing disciplines but creates new conceptual frameworks adequate to the problems it addresses.</p>
+
+<div class="gterm">Land Ethic</div>
+<p class="gdef">A concept developed by ecologist and conservationist Aldo Leopold in <em>A Sand County Almanac</em> (1949), proposing that the moral community should be extended beyond humans to include soils, waters, plants, and animals — 'the land' as an integrated whole. The land ethic holds that 'a thing is right when it tends to preserve the integrity, stability, and beauty of the biotic community. It is wrong when it tends otherwise.' Leopold's framework has been influential in conservation biology, environmental ethics, and place-based education, and informs the Field Station's foundational emphasis on learning to 'read' living systems as an act of stewardship.</p>
+
+<div class="gterm">Leverage Point</div>
+<p class="gdef">A place within a system where a small shift can produce large changes in overall behavior. Donella Meadows identified twelve categories of leverage points, ranging from least to most powerful: changing numbers (parameters) at the bottom; changing feedback loop strengths, information flows, and rules in the middle; and changing the goals, self-organization capacity, and paradigm of the system at the top. Counterintuitively, the most obvious interventions — adjusting the numbers — are typically the weakest. The most powerful interventions work at the level of purpose and mindset.</p>
+
+<div class="gterm">Multidisciplinary / Interdisciplinary / Transdisciplinary</div>
+<p class="gdef">Three related but distinct modes of working across academic fields. <em>Multidisciplinary</em> work assembles experts from multiple fields who address the same problem side by side, each in their own lane. <em>Interdisciplinary</em> work involves genuine borrowing and integration across fields, with researchers adopting concepts and methods from adjacent disciplines. <em>Transdisciplinary</em> work goes further: knowledge is co-created across disciplinary and community boundaries, producing new frameworks that transcend any single field. WII's approach to integrative studies aims for the transdisciplinary end of this spectrum, while recognizing that most real projects involve elements of all three.</p>
+
+<div class="gterm">Oral History</div>
+<p class="gdef">A method of historical and qualitative research that collects and preserves spoken memories, narratives, and interpretations of the past from individuals and communities. Oral history is especially important in communities whose histories have not been well documented in official archives — including many rural, Indigenous, and Hispano communities in the Southwest. In the Field Workshop context, oral history interviews are a primary tool for understanding how current landscape conditions and water governance arrangements emerged from specific historical decisions, and for capturing knowledge — about what the land used to look like, how water once behaved, what was tried and why it failed — that does not appear in any dataset.</p>
+
+<div class="gterm">Paradigm</div>
+<p class="gdef">In Thomas Kuhn's influential account, a paradigm is the set of assumptions, values, exemplary problems, and methods that define normal practice within a scientific community at a given time. More broadly, a paradigm is the taken-for-granted worldview within which problems are framed, evidence is interpreted, and solutions are designed. In systems thinking (following Meadows), paradigms are the most powerful leverage points in a system: they shape the goals institutions pursue, the rules they enforce, and the metrics they track. Changing a paradigm — for instance, from water as private property to water as communal trust — changes everything downstream.</p>
+
+<div class="gterm">Participatory Research</div>
+<p class="gdef">An approach to inquiry in which the people most directly affected by a problem are involved as active participants in the research process — not merely as subjects or informants, but as co-designers, co-interpreters, and co-owners of findings. Participatory research methods include community-based participatory research (CBPR), participatory action research (PAR), and participatory mapping. The approach is premised on the recognition that communities hold knowledge that outside researchers cannot access through conventional methods, and that research is more likely to produce usable outcomes when those affected by a problem are involved in defining it.</p>
+
+<div class="gterm">Place-Based Research</div>
+<p class="gdef">Research that takes a specific place — with its particular ecology, history, social relations, and cultural meanings — as the primary unit of inquiry rather than an abstract variable or case study. Place-based research is grounded in direct, embodied contact with the landscape and community under study. It is distinguished by attention to context, flexibility in response to what the field reveals, and the recognition that the same 'problem' looks very different depending on where you are standing and whose eyes you are seeing through.</p>
+
+<div class="gterm">Positionality</div>
+<p class="gdef">The ways in which a researcher's social location — their race, class, gender, disciplinary training, institutional affiliation, prior knowledge, and lived experience — shapes what they notice, what they take as evidence, how they interpret what they observe, and whose knowledge they are inclined to take seriously. Acknowledging positionality is not a confession of bias that disqualifies a researcher; it is an intellectual resource that makes research more honest and more rigorous. Knowing your lens lets you examine it, name its limits, adjust for them where possible, and be transparent with collaborators and readers about how it shapes your work.</p>
+
+<div class="gterm">Reflexivity</div>
+<p class="gdef">The practice of systematically examining and accounting for the ways that a researcher's own assumptions, values, and position shape the research process and its findings. Reflexivity goes beyond simple acknowledgment of positionality: it is an ongoing practice of scrutinizing one's choices — about what questions to ask, whose voices to seek out, which evidence to trust, and how to frame findings — in order to produce more honest and rigorous knowledge. In integrative research, reflexivity also extends to the team level: collaborative groups benefit from regular examination of whose perspectives are shaping the group's collective framing.</p>
+
+<div class="gterm">Resilience</div>
+<p class="gdef">The capacity of a system — ecological, social, or socio-ecological — to absorb disturbance, reorganize under pressure, and continue to function in much the same way. Resilience is distinct from stability (resistance to change) and from robustness (the ability to function under a specific range of conditions): a resilient system can absorb shocks and adapt, whereas a merely stable system may be rigid and brittle. In the context of drought adaptation, resilience thinking draws attention to the importance of diversity (in crops, incomes, governance arrangements), redundancy (multiple pathways to the same function), and the ability to reorganize when current arrangements no longer work.</p>
+
+<div class="gterm">Social-Ecological System (SES)</div>
+<p class="gdef">A concept from resilience science and institutional economics describing a system in which human social structures and ecological processes are so deeply intertwined that they cannot be understood separately. The San Luis Valley is a social-ecological system: its aquifer levels are shaped by water rights law; its cropping patterns are shaped by commodity markets and cultural identity; its dust-on-snow dynamics are shaped by land management decisions made across millions of acres. SES thinking resists the tendency to treat ecology and society as separate domains and insists that understanding either requires understanding the other.</p>
+
+<div class="gterm">Soil Science</div>
+<p class="gdef">The scientific study of soil as a natural resource — its formation, classification, mapping, physical, chemical, biological, and mineralogical properties, and its role in supporting plant life, storing water, cycling nutrients, and sequestering carbon. In the Southwest context, soil science is directly relevant to questions of dust generation (disturbed, unprotected soils are the source of the dust that darkens mountain snowpack), revegetation (soil health determines whether plant cover can be re-established on retired irrigated land), and long-term agricultural viability. Healthy soils are a slow-building stock; their degradation is a reinforcing loop that is difficult to reverse.</p>
+
+<div class="gterm">Systems Thinking</div>
+<p class="gdef">An approach to analysis and problem-solving that focuses on how the parts of a system interact to produce its behavior over time, rather than on the properties of parts in isolation. Systems thinking draws attention to feedback loops, delays, stocks and flows, nonlinear responses, and the gap between local rationality and system-level outcomes. It was developed in the mid-twentieth century by engineers and social scientists including Jay Forrester and Norbert Wiener, and applied to environmental and social problems most accessibly by Donella Meadows in <em>Thinking in Systems</em> (2008). Systems thinking is not a replacement for disciplinary expertise; it is a framework for integrating diverse forms of expertise and for understanding why complex problems resist simple solutions.</p>
+
+<div class="gterm">Traditional Ecological Knowledge (TEK)</div>
+<p class="gdef">The cumulative body of knowledge, practices, and beliefs about the relationships between living beings — including humans — and their environment, developed by Indigenous and local peoples over long periods of time through direct contact with the environment, and passed down through generations by cultural transmission. TEK is not static: it is dynamic, adaptive, and place-specific. In research contexts, TEK must be engaged with according to Indigenous data sovereignty principles — with community consent, with recognition of community ownership, and with genuine reciprocity about how findings are used and shared.</p>
+
+<div class="gterm">Transdisciplinarity</div>
+<p class="gdef">See: <em>Multidisciplinary / Interdisciplinary / Transdisciplinary</em>.</p>
+
+<div class="gterm">Ways of Knowing</div>
+<p class="gdef">A term used in integrative and decolonial scholarship to acknowledge that knowledge is produced through many different methods, traditions, and social locations — not only through the methods of Western academic science. Ways of knowing include scientific measurement, ethnographic observation, oral history, traditional ecological knowledge, artistic and sensory practice, narrative, design, and community-based inquiry. Recognizing multiple ways of knowing does not mean treating all claims as equally valid regardless of context; it means being genuinely curious about what each tradition can perceive, what it cannot, and how different ways of knowing can be brought into productive dialogue with each other.</p>
+
+
+<div class="chapter-opener"><h1>Bibliography</h1></div>
+<p class="bib">Boix Mansilla, Veronica. "Assessing Expert Interdisciplinary Work at the Frontier." <em>Research Evaluation</em> 15.1 (2006): 17–29.</p>
+<p class="bib">Boix Mansilla, Veronica, and Elizabeth Duraising. "Targeted Assessment of Students' Interdisciplinary Work." <em>The Journal of Higher Education</em> 78.2 (2007): 215–237.</p>
+<p class="bib">Funtowicz, Silvio O., and Jerome R. Ravetz. "Science for the Post-Normal Age." <em>Futures</em> 25.7 (1993): 739–755.</p>
+<p class="bib">Gibbons, Michael, et al. <em>The New Production of Knowledge.</em> Sage, 1994.</p>
+<p class="bib">Haraway, Donna. "Situated Knowledges." <em>Feminist Studies</em> 14.3 (1988): 575–599.</p>
+<p class="bib">Klein, Julie Thompson. <em>Interdisciplinarity: History, Theory, and Practice.</em> Wayne State University Press, 1990.</p>
+<p class="bib">Liboiron, Max. "Methodologies: How to Read a Landscape." <em>Discard Studies,</em> 17 June 2013.</p>
+<p class="bib">Meadows, Donella H. <em>Thinking in Systems: A Primer.</em> Chelsea Green Publishing, 2008.</p>
+<p class="bib">Meadows, Donella H. "Leverage Points: Places to Intervene in a System." Donella Meadows Institute, 1999.</p>
+<p class="bib">Nicolescu, Basarab. <em>Manifesto of Transdisciplinarity.</em> SUNY Press, 2002.</p>
+<p class="bib">Rafols, I., Porter, A.L. and Leydesdorff, L. "Science overlay maps." <em>J. Am. Soc. Inf. Sci.,</em> 61 (2010): 1871–1887.</p>
+<p class="bib">Repko, Allen F., and Rick Szostak. <em>Interdisciplinary Research: Process and Theory.</em> 3rd ed. Sage, 2016.</p>
+<p class="bib">Scott, James C. <em>Seeing Like a State.</em> Yale University Press, 1998.</p>
+<p class="bib">Senge, Peter M. <em>The Fifth Discipline.</em> Doubleday, 1990.</p>
+<p class="bib">Sterman, John D. <em>Business Dynamics.</em> Irwin/McGraw-Hill, 2000.</p>
+</body>
+</html>

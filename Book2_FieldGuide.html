@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book 2: A Field Guide — Wright-Ingraham Institute</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --nouvelle:   rgb(238, 239, 228);
+  --sidebar-bg: rgb(200, 202, 172);
+  --rust:       rgb(128, 131, 37);
+  --blue:       rgb(128, 131, 37);
+  --sage:       rgb(128, 131, 37);
+  --dark:       rgb(20, 22, 14);
+  --mid:        rgb(110, 113, 75);
+  --paper:      #ffffff;
+  --body:       'Crimson Text', Georgia, serif;
+  --head:       'Archivo', Helvetica Neue, sans-serif;
+  --accent:     var(--rust);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page { size: 5in 8.25in; margin: 57pt 28.8pt 67pt 28.8pt; }
+
+@media screen {
+  html { background: #555; padding: 20pt; }
+  body { max-width: 360pt; margin: 0 auto; background: var(--nouvelle);
+         box-shadow: 0 4pt 32pt rgba(0,0,0,.4); }
+}
+
+@media print {
+  html, body { background: var(--nouvelle); }
+  body { margin: 0; padding: 0; }
+}
+
+body {
+  background: var(--nouvelle);
+  padding: 57pt 28.8pt 67pt 28.8pt;
+  font-family: var(--body);
+  font-size: 11pt;
+  line-height: 14.5pt;
+  color: var(--dark);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ── Cover ───────────────────────────────────────────── */
+.cover {
+  break-after: page; page-break-after: always;
+  min-height: calc(8.25in - 74pt);
+  display: flex; flex-direction: column;
+  margin: -32pt -28.8pt -42pt -28.8pt;
+  background: var(--dark);
+}
+.cover-img {
+  flex: 0 0 240pt; background: var(--sidebar-bg);
+  display: flex; align-items: center; justify-content: center;
+}
+.cover-img span { font-family: var(--head); font-size: 7pt; color: var(--mid);
+  text-transform: uppercase; letter-spacing: .1em; }
+.cover-stripe { height: 3.5pt; background: var(--accent); flex-shrink: 0; }
+.cover-body { flex: 1; padding: 20pt 28.8pt 28pt;
+  display: flex; flex-direction: column; justify-content: space-between; }
+.cover h1 { font-family: var(--head); font-weight: 400; font-size: 22pt;
+  line-height: 1.1; color: var(--nouvelle); margin-bottom: 10pt; border: none; padding: 0; }
+.cover-sub { font-family: var(--head); font-weight: 400; font-size: 9pt;
+  line-height: 1.4; color: var(--sidebar-bg); }
+.cover-meta { font-family: var(--head); font-size: 7pt; line-height: 1.7;
+  color: var(--mid); letter-spacing: .04em; }
+.cover-meta strong { color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+
+/* ── Chapter opener ──────────────────────────────────── */
+.chapter-opener {
+  break-before: page; page-break-before: always;
+  padding-top: 8pt; margin-bottom: 18pt;
+  border-top: 3pt solid var(--accent);
+}
+.chapter-opener:first-child { break-before: avoid; page-break-before: avoid; }
+
+/* ── Headings ────────────────────────────────────────── */
+h1 { font-family: var(--head); font-weight: 400; font-size: 20pt;
+  line-height: 1.1; color: var(--dark); margin: 0 0 12pt; padding-top: 2pt; }
+h2 { font-family: var(--head); font-weight: 500; font-size: 11.5pt;
+  line-height: 1.25; color: var(--dark); margin: 16pt 0 4pt;
+  break-after: avoid; page-break-after: avoid; }
+h3 { font-family: var(--head); font-weight: 600; font-size: 9pt;
+  line-height: 1.3; color: var(--dark); margin: 11pt 0 2pt; letter-spacing: .02em;
+  break-after: avoid; page-break-after: avoid; }
+
+/* ── Body text ───────────────────────────────────────── */
+p { margin: 0; font-size: 11pt; line-height: 14.5pt; }
+p + p { text-indent: 20pt; }
+h1 + p, h2 + p, h3 + p, .sidebar + p, blockquote + p,
+table + p, ul + p, ol + p, .no-indent, .stats + p { text-indent: 0 !important; }
+
+/* ── Pull quote ──────────────────────────────────────── */
+blockquote {
+  margin: 12pt 0 12pt 28pt; padding: 7pt 0 5pt;
+  border-top: 1.5pt solid var(--accent); border-bottom: .5pt solid var(--accent);
+  break-inside: avoid; page-break-inside: avoid;
+}
+blockquote p { font-style: italic; font-size: 11.5pt; line-height: 15pt;
+  text-align: right; text-indent: 0 !important; }
+blockquote cite { display: block; font-family: var(--head); font-style: normal;
+  font-size: 7pt; letter-spacing: .04em; text-align: right; color: var(--mid); margin-top: 4pt; }
+
+/* ── Sidebar box ─────────────────────────────────────── */
+.sidebar { background: var(--sidebar-bg); padding: 9pt 10pt 10pt; margin: 11pt 0;
+  break-inside: avoid; page-break-inside: avoid; }
+.sidebar-head { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 5pt; }
+.sidebar p { font-size: 9pt; line-height: 12.5pt; text-indent: 0 !important; margin-top: 4pt; }
+.sidebar p:first-of-type { margin-top: 0; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol { margin: 5pt 0 5pt 12pt; padding: 0; list-style: none; }
+ul li, ol li { font-size: 11pt; line-height: 14pt; padding-left: 14pt;
+  position: relative; margin-bottom: 2pt; }
+ul li::before { content: '3'; position: absolute; left: 0; color: var(--accent); font-family: var(--head); }
+ol { counter-reset: li; }
+ol li::before { content: counter(li)"."; counter-increment: li;
+  position: absolute; left: 0; font-family: var(--head); font-size: 8.5pt; font-weight: 600; color: var(--accent); }
+
+/* ── Table ───────────────────────────────────────────── */
+table { width: 100%; border-collapse: collapse; margin: 11pt 0;
+  break-inside: avoid; page-break-inside: avoid; font-size: 9pt; }
+caption { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .08em; color: var(--accent);
+  text-align: left; padding: 3pt 0; border-top: 1pt solid var(--accent); caption-side: top; }
+thead th { font-family: var(--head); font-weight: 700; font-size: 8pt;
+  color: var(--nouvelle); background: var(--dark); text-align: left; padding: 4pt 6pt; }
+tbody td { padding: 3.5pt 6pt; border-bottom: .25pt solid var(--sidebar-bg);
+  vertical-align: top; line-height: 13pt; }
+tbody tr:nth-child(even) td { background: rgba(0,0,0,.04); }
+
+/* ── Stats panel ─────────────────────────────────────── */
+.stats { display: flex; border-top: 1pt solid var(--accent);
+  border-bottom: .5pt solid var(--sidebar-bg); margin: 11pt 0;
+  break-inside: avoid; page-break-inside: avoid; }
+.stat { flex: 1; padding: 7pt 5pt; text-align: center; border-right: .5pt solid var(--sidebar-bg); }
+.stat:last-child { border-right: none; }
+.stat-n { display: block; font-family: var(--head); font-weight: 700; font-size: 14pt;
+  line-height: 1.1; color: var(--accent); }
+.stat-l { display: block; font-family: var(--head); font-size: 6pt;
+  line-height: 1.4; color: var(--dark); margin-top: 2pt; }
+
+/* ── Integration cycle ───────────────────────────────── */
+.cycle { border-left: 2pt solid var(--accent); padding-left: 10pt; margin: 7pt 0;
+  break-inside: avoid; page-break-inside: avoid; }
+.cycle-lbl { font-family: var(--head); font-weight: 700; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+.cycle-txt { font-style: italic; font-size: 9.5pt; line-height: 13pt; margin-top: 1pt; }
+
+/* ── TOC ─────────────────────────────────────────────── */
+.toc-ch { font-family: var(--head); font-weight: 600; font-size: 8pt;
+  text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 10pt 0 3pt; }
+.toc-row { display: flex; align-items: baseline; margin-bottom: 3pt; }
+.toc-title { font-family: var(--body); font-size: 10.5pt; color: var(--dark); }
+.toc-dots { flex: 1; border-bottom: .4pt dotted var(--mid); margin: 0 4pt 2pt; }
+.toc-pg { font-family: var(--head); font-size: 8pt; color: var(--mid); }
+
+/* ── Workbook ────────────────────────────────────────── */
+.field-lbl { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin: 14pt 0 3pt; }
+.lines { width: 100%; margin: 0; }
+.line { display: block; width: 100%; height: 22pt; border-bottom: .3pt solid var(--sidebar-bg); }
+.day-num { font-family: var(--head); font-weight: 700; font-size: 60pt; line-height: 1;
+  color: var(--accent); opacity: .18; float: right; margin: -8pt -4pt 0 0; }
+.prompt-box { background: var(--sidebar-bg); padding: 8pt 10pt; margin: 8pt 0 4pt;
+  break-inside: avoid; page-break-inside: avoid; }
+.prompt-box p { font-style: italic; font-size: 10pt; line-height: 14pt;
+  text-indent: 0 !important; margin-top: 4pt; }
+.prompt-box p:first-of-type { margin-top: 0; }
+
+/* ── Bib / Glossary / Reading ────────────────────────── */
+.bib { font-size: 9pt; line-height: 13pt; padding-left: 18pt; text-indent: -18pt; margin-bottom: 5pt; }
+.gterm { font-family: var(--head); font-weight: 600; font-size: 9pt; color: var(--dark); margin: 10pt 0 1pt; }
+.gdef { font-size: 10pt; line-height: 13.5pt; text-indent: 0 !important; }
+.reading-title { font-family: var(--head); font-weight: 600; font-size: 9pt; color: var(--dark); margin: 12pt 0 1pt; }
+.reading-meta { font-family: var(--head); font-size: 7.5pt; color: var(--mid); margin-bottom: 3pt; }
+.reading-desc { font-size: 10pt; line-height: 13.5pt; text-indent: 0 !important; }
+
+/* ── Synthesis project ───────────────────────────────── */
+.synth { border-top: .5pt solid var(--sidebar-bg); padding-top: 10pt; margin-top: 10pt;
+  break-inside: avoid; page-break-inside: avoid; }
+.synth-partners { font-family: var(--head); font-size: 7.5pt; color: var(--mid); margin-bottom: 5pt; }
+
+hr { border: none; border-top: .4pt solid var(--sidebar-bg); margin: 10pt 0; }
+
+:root { --accent: rgb(128, 131, 37); }
+
+/* ── Image placeholders ──────────────────────────────────── */
+.img-placeholder {
+  width: 100%;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12pt 0 2pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  position: relative;
+}
+
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2pt;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.img-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8pt 12pt;
+  width: 100%;
+}
+
+.img-placeholder-icon {
+  font-size: 18pt;
+  opacity: 0.3;
+  margin-bottom: 4pt;
+  line-height: 1;
+}
+
+.img-placeholder-label {
+  font-family: var(--head);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+  text-align: center;
+  line-height: 1.4;
+}
+
+figure {
+  margin: 12pt 0 10pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+figcaption {
+  font-family: var(--head);
+  font-size: 6.5pt;
+  line-height: 9.5pt;
+  color: var(--mid);
+  font-style: italic;
+  margin-top: 3pt;
+  padding-top: 3pt;
+  border-top: 0.25pt solid var(--sidebar-bg);
+}
+
+.img-pair {
+  display: flex;
+  gap: 6pt;
+  margin: 12pt 0 2pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.img-pair .img-placeholder {
+  flex: 1;
+  margin: 0;
+}
+
+.img-triple {
+  display: flex;
+  gap: 5pt;
+  margin: 12pt 0 2pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.img-triple .img-placeholder {
+  flex: 1;
+  margin: 0;
+}
+
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-img"><img src="img/angie-mestas-1.jpg" style="width:100%"></div>
+  <div class="cover-stripe"></div>
+  <div class="cover-body">
+    <div><h1>A Field Guide to the San Luis Valley and the Taos Plateau</h1><p class="cover-sub">Field Workshop 2026</p></div>
+    <div class="cover-meta">Dylan Gauthier, Tal Beery, Frida Foberg<br><strong>Field Workshop Program</strong> &middot; Wright-Ingraham Institute &middot; 2026</div>
+  </div>
+</div>
+<div class="chapter-opener"><h1>Contents</h1></div>
+<div class="toc-ch">The Context</div>
+<div class="toc-row"><span class="toc-title">What Is Adaptation?</span><span class="toc-dots"></span><span class="toc-pg">3</span></div>
+<div class="toc-row"><span class="toc-title">Context 1: The San Luis Valley, Colorado</span><span class="toc-dots"></span><span class="toc-pg">6</span></div>
+<div class="toc-row"><span class="toc-title">Context 2: The Taos Plateau, New Mexico</span><span class="toc-dots"></span><span class="toc-pg">16</span></div>
+<div class="toc-ch">Research and Design</div>
+<div class="toc-row"><span class="toc-title">Synthesis Projects: Research and Adaptive Design</span><span class="toc-dots"></span><span class="toc-pg">19</span></div>
+<div class="toc-ch">Reference</div>
+<div class="toc-row"><span class="toc-title">Glossary</span><span class="toc-dots"></span><span class="toc-pg">22</span></div>
+<div class="toc-row"><span class="toc-title">Suggested Readings</span><span class="toc-dots"></span><span class="toc-pg">26</span></div>
+<div class="toc-row"><span class="toc-title">Bibliography</span><span class="toc-dots"></span><span class="toc-pg">31</span></div>
+<div class="chapter-opener"><h1>What Is Adaptation?</h1></div>
+<p>The title of this Field Workshop is “Designing for Adaptation in a Time of Prolonged Drought” but what do we mean by adaptation? In ecological terms, adaptation refers to changes in the behavior, physiology, or structure of organisms or systems that improve fitness under new or shifting conditions. A species adapted to drought conserves moisture differently than one that evolved in abundance. An ecosystem adapted to periodic fire stores energy and nutrients in different forms than one that has been protected from it. The key feature of ecological adaptation is that it happens over time, through selective pressure, and that it is always relative to a particular environment. </p>
+<p>In the San Luis Valley, adaptation can mean the deliberate, purposeful adjustment of practices, institutions, technologies, and social arrangements in response to changed or changing conditions. The farmers in Subdistrict 1 who are switching from barley to rye are adapting. The water managers who designed the subdistrict governance model rather than wait for state curtailment were adapting. The acequia <em>mayordomo</em> who proportionally reduces each <em>parciante's</em> share in a drought year is performing a governance adaptation encoded into custom law over centuries.</p>
+<h2>Three Dimensions of Adaptation</h2>
+<h3>Reactive vs. Anticipatory</h3>
+<p>Some adaptations respond to conditions that have already changed; others are designed in advance. The shift from surface to groundwater irrigation in the 1950s was reactive. Subdistrict formation in 2004–2006 was anticipatory: the community saw where the trajectory was heading and moved to shape the outcome before the state imposed one.</p>
+<h3>Incremental vs. Transformative</h3>
+<p>Some adaptations adjust the settings of an existing system without changing its underlying logic. Others change the system itself: who owns what, who decides, what counts as success. The difference matters enormously for which interventions are possible and who bears their costs.</p>
+<h3>Individual vs. Collective</h3>
+<p>A single farmer's decision to fallow fields is an individual adaptation. The subdistrict model, the acequia, the conservation easement held by a land trust: these are collective adaptations — institutional arrangements that coordinate individual behavior toward shared outcomes.</p>
+<h2>Two Landscapes, Two Contexts</h2>
+<p>This Field Workshop moves sequentially through two distinct but deeply connected landscapes: the San Luis Valley of south-central Colorado and the Taos Plateau of northern New Mexico. The differences between these closely related places help form a comparative field for understanding drought adaptation across different ecologies, governance systems, cultural traditions, and land use histories — all within the larger Rio Grande watershed.</p>
+<div class="chapter-opener"><h1>Context 1: The San Luis Valley, Colorado</h1></div>
+<div class="stats">
+<div class="stat"><span class="stat-n">8,000 sq mi</span><span class="stat-l">Area &mdash; largest alpine valley in the world</span></div>
+<div class="stat"><span class="stat-n">46,776</span><span class="stat-l">Residents across 6 counties (2025)</span></div>
+<div class="stat"><span class="stat-n">$50,680</span><span class="stat-l">Median household income vs. $92,470 Colorado avg.</span></div>
+</div>
+<blockquote><p>"We are the first generation in this area, with this system of water development, that is going to have to figure out how to actually do more with less rather than be creative and create a solution. And that is a really hard thing for us to live with and work with."</p><cite>— Heather Dutton, San Luis Valley Water Conservancy District</cite></blockquote>
+<blockquote><p>"If we are going to grow something different, it comes from consumer demand. It is very easy for someone who used to grow barley to grow rye — and they can save up to a foot an acre. But they are not going to do it unless they can make money."</p><cite>— Madeline Wilson, CSU Extension / WII Field Workshop Partner</cite></blockquote>
+<h2>The Valley's Water System</h2>
+<p>The Valley is defined above all by aridity and variability. The center of the San Luis Valley now averages less than 7 inches of rain annually. Nearly all of that water arrives as snowpack in the Sangre de Cristo and San Juan Mountains, melting in spring and early summer to feed the Rio Grande and its tributaries, and to percolate through alluvial fans into two distinct aquifer systems beneath the valley floor.</p>
+<p>The Rio Grande gauge near Del Norte, the second-oldest river gauge in the country, has recorded this flow for well over a century. From 1890 to 2000, average annual streamflow crossing that gauge was 654,000 acre-feet per year. From 2000 to 2024, that figure has dropped by 16 percent: roughly 105,000 acre-feet missing from the river every year. The lowest decade on record was the 1950s, when average annual flows reached only 502,600 acre-feet, but the last five years are tracking below even that.</p>
+<p>The shallower unconfined aquifer extends to roughly 100 feet below the surface. Beneath it lies the Confined Aquifer, also called the San Luis Aquifer, which holds a vast store of water accumulated over centuries. These aquifers have historically functioned like underground reservoirs, offering farmers flexibility — but that flexibility has been severely compromised by decades of over-extraction.</p>
+<p>The unconfined aquifer is hydraulically connected to most surface streams in the Valley. The 2002 drought triggered a collapse of the unconfined aquifer level from which the system has never fully recovered. Even in the most recent reporting year, Subdistrict 1 recorded the lowest groundwater pumping on record, and the aquifer still declined. The supply problem is not merely about how much farmers pump. It is about how little snowpack is coming back.</p>
+<p>One reference point comes from the <em>Nexus of Land and Water</em> initiative: atmospheric dust from disturbed soils across the desert Southwest settles on mountain snowpack, darkens its surface, causes earlier and faster melt, and shifts the timing of streamflow in ways that cascade through irrigation systems and aquifer recharge cycles. Land use practices in the Valley directly affect when and how much water returns to it.</p>
+<h2>Water Law and Governance</h2>
+<p>Colorado operates on the <em>Prior Appropriation doctrine</em>, whose governing principle is 'first in time, first in right.' Water rights are allocated by seniority based on the date of first legally recognized beneficial use. In drought years, junior right holders are curtailed before senior ones. The oldest water rights in the state of Colorado are in the Rio Grande Basin. By 1900, all of the water in the basin was spoken for.</p>
+<p>The State's courts have made a critical finding that both the Rio Grande River and its tributaries and the aquifers of the San Luis Valley are over-appropriated. Any new diversion is legally presumed to injure senior appropriators.</p>
+<p>Layered atop state law are acequia governance — community irrigation associations rooted in Spanish colonial and Indigenous traditions — and the Rio Grande Compact of 1938, a tri-state agreement between Colorado, New Mexico, and Texas. Colorado's obligation to deliver water downstream means that aquifer pumping in the Valley that reduces stream flows can put Colorado in Compact violation.</p>
+<p>The subdistrict model, first authorized by the Colorado Legislature in 2004 following the 2002 drought, represents a significant governance innovation. Rather than wait for the State Engineer to impose blanket curtailments, Valley water users took the proactive step of going to the legislature themselves and asking the state to promulgate rules that would allow the community to manage its own reductions. Today, seven subdistricts have formed across the Valley.</p>
+<h2>Agricultural Economy and the 2031 Deadline</h2>
+<p>The San Luis Valley produces almost 40 percent of Colorado's total agricultural economic output, contributing over $481 million annually. It is the nation's largest producer of seed potatoes — one in four fresh-market potatoes sold at major grocery chains comes from the Valley. This productivity depends almost entirely on groundwater irrigation, primarily from wells in the central valley's Subdistrict 1.</p>
+<p>Subdistrict 1 is currently approximately 1.4 million acre-feet overdrawn relative to its sustainability target. To achieve compliance with its decreed water management plan, the subdistrict must retire between 40,000 and 100,000 irrigated acres by a 2031 deadline — roughly 333 farms. A CSU Extension study estimated that even a randomly distributed retirement of the acreage necessary for sustainability would result in a loss of nearly $30 million annually in agricultural economic output.</p>
+<div class="sidebar"><div class="sidebar-head">The 2031 Deadline</div><p>Madeline Wilson, an agricultural production systems specialist and a key WII partner in the Valley, is direct about the stakes: we can anticipate large amounts of land coming out of production by 2031. That will obviously have a massive impact on our economies.</p><p>And she is equally direct that the problem is not primarily behavioral: even Subdistrict 1's record-low pumping year did not stop the aquifer from declining further. The supply problem from the mountains is simply outpacing whatever reductions farmers can achieve.</p></div>
+<h2>Adaptive Responses Already Underway</h2>
+<h3>Irrigation Technology and Efficiency</h3>
+<p>Most producers in the Valley have already invested in irrigation efficiency: lowering sprinklers to reduce evapotranspiration, switching to precision wobbler heads, deploying soil moisture sensors and AI-assisted pivot controls. These technologies have produced real per-farm savings. But they have not, at a communal scale, been sufficient to recharge the aquifer. On dry and windy Valley days, evapotranspiration losses from center pivots can reach 50 percent even with modern equipment.</p>
+<h3>Alternative Crops and Market Development</h3>
+<p>Crops like rye, dry beans, millet, and canola use significantly less water than potatoes, barley, or alfalfa. The Rye Resurgence Project, co-founded by Dutton, is building markets specifically for rye grown in the Valley, partnering with distilleries and other buyers to create a viable supply chain. Switching an acre from barley to rye can save up to one acre-foot of water — over a 120-acre field, that is 120 acre-feet, enough to supply more than 600 Denver households for a year.</p>
+<h3>Dust, Revegetation and Dry Land Revaluation</h3>
+<p>As land comes out of irrigation, bare fallow fields become a secondary crisis: without cover, soils blow, and wind-eroded sediment contributes to the dust-on-snow feedback loop that is already reducing the Valley's primary water supply. Wilson is developing a 'Revegetation Playbook': a decision framework for transitioning retired irrigated land into ecologically functional, economically viable dry-land uses. Revegetating even one field to the 30 percent ground cover threshold that limits wind erosion can cost close to $100,000.</p>
+<h2>The Water Export Threat</h2>
+<p>The San Luis Valley's water governance history cannot be understood without considering the threat of water export: proposals by outside investors to pump Valley groundwater and pipe it north to the growing cities of Colorado's Front Range. The first and defining confrontation came in 1986, when Maurice Strong founded American Water Development, Inc. (AWDI) and proposed to export 200,000 acre-feet of groundwater annually. In 1991, the Division 3 Water Court denied AWDI's application, finding its groundwater modeling fatally flawed. The Colorado Supreme Court upheld this ruling in 1994.</p>
+<div class="sidebar"><div class="sidebar-head">The Regulatory Gauntlet: What Any Water Export Proposal Must Clear</div><p>Since AWDI, the legal barriers to water export have grown substantially. Any proposal today must navigate all of the following:</p><p>1. No injury to the Great Sand Dunes National Park's federal reserved water right</p><p>2. No injury to existing senior water rights (with over-appropriation presumption)</p><p>3. Rio Grande Compact compliance: no reduction in Colorado's downstream delivery obligations</p><p>4. One-to-one replacement of any new groundwater withdrawal (New Use Rules, 2004)</p><p>5. Compliance with Subdistrict withdrawal targets and RGDSS Model projections</p><p>6. Possible county 1041 permitting requirements in Alamosa and Saguache Counties</p></div>
+<p>These legal barriers did not end export ambitions. After AWDI, Stockman's Water in the mid-1990s was defeated by a 3-to-1 margin in a 1998 statewide ballot vote. Then, beginning in 2018, Renewable Water Resources (RWR) proposed exporting 22,000 acre-feet annually to the Front Range. Despite a community fund of $50 million promised to Valley schools, law enforcement, and conservation easements, the proposal met unified opposition from the Rio Grande Water Conservation District, Valley municipalities, the Nature Conservancy, and the Colorado Attorney General.</p>
+<div class="sidebar"><div class="sidebar-head">Case Study: Blanca Wetlands — Restoration in an Arid Landscape</div><p>The Blanca Wetlands, managed by the Bureau of Land Management as an Area of Critical Environmental Concern, sit in the San Luis Valley south of Great Sand Dunes National Park. The wetlands were completely destroyed by pumping and diversion during the twentieth century. Basins that had once held twelve feet of water dried up entirely, becoming known locally as 'Dry Lakes.'</p><p>Beginning in 1965, BLM began restoring the dry playas. The site now covers nearly 10,000 acres containing about two hundred shallow basins, wet meadows, salt flats, marshes, and freshwater ponds. The wetlands are now one of the most important bird habitats in Colorado, hosting thirteen threatened, endangered, and sensitive species.</p><p><strong>Sample Research Questions:</strong> What does 'restoration' mean in a landscape where the pressures that caused the damage are still active? How do San Luis Valley residents — farmers, ranchers, Hispano communities — understand and relate to the wetlands? Is the restoration seen as a gain, a loss, or something more complicated?</p></div>
+<h2>A Note on Hispano and Rural Communities in the SLV</h2>
+<p>The multigenerational Hispano farming and ranching families of the San Luis Valley and Northern New Mexico carry their own history of displacement, legal dispossession, and research that was done on rather than with them. Rural communities have often been imagined as lacking agency, or presented as problems to be solved. When we show up with genuine accountability and reciprocity, communities share what they actually know, and continue to be interested in how that knowledge gets shared in the world.</p>
+<div class="chapter-opener"><h1>Context 2: The Taos Plateau, New Mexico</h1></div>
+<h2>Landscape and Hydrology</h2>
+<p>The Taos Plateau is a high-desert volcanic tableland in northern New Mexico, cut dramatically by the Rio Grande Gorge. The plateau sits at 6,000 to 7,000 feet, and the two landscapes are hydrologically continuous — what happens upstream in Colorado shapes what is available in northern New Mexico. The Taos area is characterized by a mosaic of land tenures: Taos Pueblo lands, National Forest and BLM lands, private ranches and farms, and the sprawling Taos Valley irrigated by a network of acequias dating to Spanish colonial settlement.</p>
+<h2>Wildfire and Landscape Risk</h2>
+<p>The Taos Plateau and surrounding forests face escalating wildfire risk driven by the same climatic shifts that are reshaping water availability across the region: earlier snowmelt, longer dry seasons, and accumulated fuel loads from a century of fire suppression. The 2022 Hermits Peak/Calf Canyon Fire — the largest in New Mexico history — burned more than 340,000 acres in the mountains east of Taos, destroyed hundreds of homes, and sent debris flows and ash into the watershed, affecting water quality and aquifer recharge for years afterward.</p>
+<h2>Land Speculation and Gentrification</h2>
+<p>Taos has long attracted artists, second-home buyers, and remote workers drawn by landscape, culture, and relatively low land prices. This pattern has accelerated sharply since 2020. Rising property values and short-term rental markets are displacing long-established Hispano and Indigenous residents, putting agricultural land under development pressure, and straining the social fabric of communities whose identity is inseparable from their land base.</p>
+<h2>Indigenous Governance and Water</h2>
+<p>Taos Pueblo is one of the oldest continuously inhabited communities in North America, with a water governance system that predates Spanish colonization by centuries. The Pueblo maintains senior water rights and a deep cultural relationship to water that is inseparable from spiritual practice, agricultural tradition, and community identity. Blue Lake, returned to Taos Pueblo by Congress in 1970 after a 64-year struggle, is the headwaters of the Rio Pueblo de Taos and holds profound significance as both a water source and a sacred site.</p>
+<p>Engagement with Taos Pueblo requires genuine respect for the Pueblo's sovereign authority over its lands and waters and for the protocols that govern relationships with outside researchers.</p>
+<h2>Acequia Culture and Cross-Border Comparison</h2>
+<p>The acequia system of the Taos Valley is among the most intact in the Southwest: a living network of community-managed irrigation ditches governed by <em>mayordomos</em> and <em>parciantes</em> according to customary law that blends Spanish colonial and Indigenous precedent. New Mexico water law recognizes acequia governance as a distinct legal category with greater collective authority than Colorado's equivalent institutions — a difference rooted in the divergent legal histories of two states that share a watershed.</p>
+<div class="sidebar"><div class="sidebar-head">Case Study: Questa — A Post-Extraction Restoration Landscape</div><p>The former Chevron Questa molybdenum mine, located on the Red River above its confluence with the Rio Grande, operated for much of the twentieth century and left behind a legacy of acid mine drainage, heavy metal contamination, and destabilized slopes. In 1994, the site was listed on the EPA's National Priorities List, triggering a remediation process that has involved decades of technical assessment, regulatory negotiation, and community pressure.</p><p>Active reclamation work includes slope stabilization, removal of mine tailings, treatment of contaminated seeps, and monitoring of Red River water quality.</p><p><strong>Sample Research Questions:</strong> What does recovery mean when the damage operates on a geological timescale? Who defines success in a reclamation process — regulators, scientists, the company, or the community? What role do narrative and creative practice play in helping a community reclaim its relationship to a damaged landscape?</p></div>
+<div class="chapter-opener"><h1>Synthesis Projects: Research and Adaptive Design</h1></div>
+<p>The synthesis portion of the Field Workshop is where broader understanding of regional systems is brought into direct engagement with place. Fellows move from working as a full cohort to smaller groups, each paired with a partner organization. These partners define a question grounded in the realities they are navigating, asking what is at risk of being lost, what must be transformed, and what new pathways might emerge in response.</p>
+<p>Fellows are asked to take up these questions through the development of a synthesis project. Each project is shaped by real conditions and constraints, and requires close attention to what is actually possible. Partners bring site access, relationships, and lived experience, while fellows engage that context directly, testing and refining ideas in response to what they encounter.</p>
+<p>The work operates across multiple levels: engaging the partner's questions, the field itself, and the broader theoretical, historical, cultural, and scientific frameworks that shape the region. At the final symposium, each group will present its work in dialogue with its synthesis partner.</p>
+<div class="synth">
+<h2>Headwaters</h2>
+<p class="synth-partners">Partners: Jocelyn Catterson and Laura Cusick, Rio Grande Headwaters Land Trust</p>
+<blockquote><p>"How can land and forest stewardship practices be implemented at the scale required to reduce wildfire risk and protect water systems while remaining viable for working ranches and farms?"</p><cite>— Core Research Question</cite></blockquote>
+<ul>
+<li>Regulatory, funding, policy and cultural barriers</li>
+<li>Coordination across fragmented ownership and jurisdictions</li>
+<li>Long-term ecological stewardship vs. short-term operational needs</li>
+<li>Integration of technical expertise with local knowledge and practices</li>
+</ul>
+</div>
+<div class="synth">
+<h2>Center</h2>
+<p class="synth-partners">Partners: Bill Brinton, Mosca-Hooper Conservation District, and Madeline Wilson, SECANACo</p>
+<blockquote><p>"How can family farms and agricultural producers transition away from groundwater-intensive practices without triggering the worst ecological consequences — especially dust — and the potential for cultural and economic collapse?"</p><cite>— Core Research Question</cite></blockquote>
+<ul>
+<li>Ecological impacts of reduced irrigation</li>
+<li>Economic pressures facing agricultural producers</li>
+<li>Cultural impacts on families, communities, and agricultural identity</li>
+<li>Place-responsive pathways for transition across different landscapes and operations</li>
+</ul>
+</div>
+<div class="synth">
+<h2>Conejos</h2>
+<p class="synth-partners">Partners: Angie Mestas, Conejos County Conservation District and CSU Extension; Larry Brown, CSU Extension</p>
+<blockquote><p>"How can acequia and ditch systems in the southern San Luis Valley be maintained and adapted under deepening drought in ways that sustain water sharing, ecological functions, and the local knowledge and livelihoods that depend on them?"</p><cite>— Core Research Question</cite></blockquote>
+<ul>
+<li>Ditch riders and place-based water knowledge</li>
+<li>Generational transition and changing agricultural and ranching communities</li>
+<li>The relationship between technological systems and human judgment</li>
+</ul>
+</div>
+<div class="chapter-opener"><h1>Glossary</h1></div>
+<div class="gterm">Adaptation</div>
+<p class="gdef">The purposeful adjustment of practices, institutions, technologies, and social arrangements in response to changed or changing conditions. Adaptation operates at different scales (individual, institutional, systemic) and timescales (reactive after a crisis, anticipatory before one fully arrives), and can be incremental or transformative.</p>
+<div class="gterm">Acequia</div>
+<p class="gdef">A community-managed irrigation ditch rooted in Spanish colonial and Indigenous water traditions. Governed by a <em>mayordomo</em> (ditch boss) and <em>parciantes</em> (shareholders), who allocate water collectively according to customary law. One of the oldest and most resilient forms of communal water governance in North America.</p>
+<div class="gterm">Acre-Foot</div>
+<p class="gdef">The volume of water required to cover one acre of land to a depth of one foot, equal to approximately 325,851 gallons. One acre-foot supplies roughly two to three average households for one year.</p>
+<div class="gterm">Aquifer</div>
+<p class="gdef">An underground layer of permeable rock, sediment, or soil that holds and transmits groundwater. The San Luis Valley sits above two layered aquifers: the unconfined aquifer and the Confined (San Luis) Aquifer.</p>
+<div class="gterm">Augmentation Plan</div>
+<p class="gdef">A legally binding plan, approved by a water court, in which a junior water rights holder demonstrates how they will replace any water they divert out of priority to prevent injury to senior rights holders.</p>
+<div class="gterm">Balancing Loop</div>
+<p class="gdef">In systems thinking, a feedback loop that resists change and seeks equilibrium. Balancing loops counteract disruptions and tend to stabilize a system. The acequia <em>mayordomo's</em> proportional water distribution during shortages is an example of a designed balancing loop. Contrast with: Reinforcing Loop.</p>
+<div class="gterm">Bounded Rationality</div>
+<p class="gdef">A concept from systems theory describing how actors in a complex system make individually rational decisions based on local information that nonetheless produce collectively harmful outcomes no one intended.</p>
+<div class="gterm">Buy-and-Dry</div>
+<p class="gdef">The practice by which municipalities or investors purchase agricultural water rights and retire the land from irrigation, effectively 'drying up' farmland to redirect water to urban uses.</p>
+<div class="gterm">Causal Loop Diagram (CLD)</div>
+<p class="gdef">A systems mapping tool that visualizes the relationships and feedback loops within a complex system. Arrows between variables are labeled '+' (same direction) or '&minus;' (opposite direction); loops are identified as reinforcing (R) or balancing (B).</p>
+<div class="gterm">Closed Basin</div>
+<p class="gdef">A distinctive hydrological feature of the northern San Luis Valley in which surface water from surrounding mountains flows inward to a geographic low point rather than draining south into the Rio Grande. The Closed Basin is an endorheic basin.</p>
+<div class="gterm">Confined Aquifer</div>
+<p class="gdef">Also called the San Luis Aquifer. The deeper of the San Luis Valley's two groundwater systems, extending from beneath a layer of blue clay and basalt to bedrock. Held under artesian pressure, recharged slowly from the piedmont edges of the valley.</p>
+<div class="gterm">Deep Mapping</div>
+<p class="gdef">A creative and narrative research method that attends to the aesthetic, emotional, historical, and sensory dimensions of a landscape alongside technical and social data.</p>
+<div class="gterm">Dust on Snow</div>
+<p class="gdef">A phenomenon in which fine mineral dust from disturbed soils deposits on mountain snowpack, darkening its surface, absorbing more solar radiation, and causing snowmelt to occur earlier and faster. Central to WII's Nexus of Land and Water initiative; the effect shifts the timing of streamflow in ways that cascade through irrigation systems and aquifer recharge cycles.</p>
+<div class="gterm">Endorheic Basin</div>
+<p class="gdef">A closed drainage basin with no outflow to an ocean or other external body of water. Precipitation and surface water that enters it does not exit via surface flow but instead recharges the unconfined aquifer or evaporates.</p>
+<div class="gterm">Evapotranspiration (ET)</div>
+<p class="gdef">The combined process by which water is transferred from the land surface to the atmosphere through evaporation from soil and water surfaces and transpiration from plants. On dry, windy Valley days, ET losses from center-pivot irrigation systems can reach 50 percent of applied water.</p>
+<div class="gterm">Integration Cycle</div>
+<p class="gdef">WII's six-phase framework for integrative research practice: Immerse, Diverge, Connect, Synthesize, Test, Reflect. Used throughout the Field Workshop to structure daily inquiry, team collaboration, and journal reflection.</p>
+<div class="gterm">Integrative Studies</div>
+<p class="gdef">The deliberate practice of crossing disciplinary boundaries to understand and address complex problems. At its fullest, integrative studies is transdisciplinary: weaving together multiple academic disciplines, experiential knowledge, community wisdom, artistic practice, and practical craft.</p>
+<div class="gterm">Leverage Point</div>
+<p class="gdef">A place within a system where a small shift can produce large changes in overall behavior. Identified and ranked by Donella Meadows, leverage points range from low-power interventions (changing numbers) to high-power ones (changing the goals or paradigm of the system).</p>
+<div class="gterm">Mayordomo</div>
+<p class="gdef">The elected or appointed manager of an acequia, responsible for distributing water shares among parciantes, organizing community maintenance work, and resolving disputes according to customary law.</p>
+<div class="gterm">Over-Appropriation</div>
+<p class="gdef">The condition in which more water rights exist than water is available to satisfy them. Both the Rio Grande River system and the San Luis Valley aquifers have been legally declared over-appropriated.</p>
+<div class="gterm">Parciante</div>
+<p class="gdef">A member and shareholder of an acequia, entitled to a proportional share of the ditch's water. Parciantes share responsibility for maintaining the acequia infrastructure and participate in collective governance decisions.</p>
+<div class="gterm">Positionality</div>
+<p class="gdef">Awareness of how one's own background, training, assumptions, identity, and social position shape what one perceives, what one values as evidence, and how one interprets findings. Being aware of your positionality is not paralyzing; it is enabling.</p>
+<div class="gterm">Prior Appropriation</div>
+<p class="gdef">The foundational doctrine of water law in Colorado and most western states: first in time, first in right. Water rights are allocated by seniority based on the date of first beneficial use. Water rights are separable from land ownership and can be bought and sold as private property.</p>
+<div class="gterm">Reinforcing Loop</div>
+<p class="gdef">In systems thinking, a feedback loop that amplifies change in one direction, driving a system toward growth or collapse. Left unchecked, reinforcing loops drive systems toward tipping points. Contrast with: Balancing Loop.</p>
+<div class="gterm">Revegetation</div>
+<p class="gdef">The process of restoring plant cover to land that has been disturbed or left bare. In the San Luis Valley, revegetation of dry-up fields is critical to prevent wind erosion and reduce dust deposition on snowpack.</p>
+<div class="gterm">Rio Grande Compact</div>
+<p class="gdef">A 1938 tri-state agreement among Colorado, New Mexico, and Texas apportioning the waters of the Rio Grande. Under the Compact, Colorado must deliver specified quantities of water to the New Mexico state line.</p>
+<div class="gterm">Subdistrict</div>
+<p class="gdef">A collective groundwater management entity authorized by the Colorado Legislature in 2004. Seven subdistricts have formed in the San Luis Valley, allowing groups of well owners to collectively manage pumping reductions rather than face individual state curtailment orders.</p>
+<div class="gterm">Transdisciplinary</div>
+<p class="gdef">A mode of research in which knowledge is co-created across academic disciplines and with community partners, producing new frameworks that transcend any single field. Distinguished from multidisciplinary and interdisciplinary by its integration of non-academic forms of knowing.</p>
+<div class="gterm">Unconfined Aquifer</div>
+<p class="gdef">The shallower of the San Luis Valley's two groundwater systems, extending to approximately 100 feet below the surface within the Closed Basin. Hydraulically connected to most surface streams in the Valley; currently approximately 1.4 million acre-feet below its sustainability target.</p>
+<div class="chapter-opener"><h1>Suggested Readings</h1></div>
+<h2>Water, Law &amp; Governance</h2>
+<div class="reading-title">Cadillac Desert: The American West and Its Disappearing Water</div>
+<div class="reading-meta">Marc Reisner &middot; Penguin Books, 1986</div>
+<p class="reading-desc">The foundational text on water politics in the American West. Reisner traces how rivers were dammed and diverted, how political corruption and bureaucratic rivalry shaped the landscape, and how the dream of turning desert into Eden produced consequences that are still unfolding. Essential reading for understanding the institutional and political context within which the San Luis Valley's water system operates.</p>
+<div class="reading-title">Water and Agriculture in Colorado and the American West</div>
+<div class="reading-meta">David Stiller &middot; University of Nevada Press, 2021</div>
+<p class="reading-desc">A focused and accessible history of agricultural water use in the Rio Grande and the San Luis Valley. Stiller traces how Native American and Hispano communal water cultures were displaced by Euro-American legal frameworks built around private rights to a previously communal resource.</p>
+<div class="reading-title">Water Exports and the San Luis Valley in Colorado</div>
+<div class="reading-meta">Naomi King et al. &middot; Acequia Assistance Project / Getches-Wilkinson Center, University of Colorado Law School, 2020</div>
+<p class="reading-desc">An indispensable legal primer on the San Luis Valley's water export battles. Provides a clear, detailed account of the Valley's hydrology, the Rio Grande Compact, the Prior Appropriation doctrine, the AWDI controversy, and the post-AWDI regulatory framework including subdistricts. Read before visiting the Rio Grande Water Conservation District or any conservation district partners.</p>
+<h2>Land, Culture &amp; Identity</h2>
+<div class="reading-title">Understories: The Political Life of Forests in Northern New Mexico</div>
+<div class="reading-meta">Jake Kosek &middot; Duke University Press, 2006</div>
+<p class="reading-desc">A landmark work of political ecology and ethnography. Kosek examines the violent and contentious politics of forest and land use in northern New Mexico through the intersecting lenses of race, class, and nation, tracing how Hispano communities forged passionate attachments to forest landscapes that were then made inaccessible through federal management. Essential reading for the Taos Plateau phase.</p>
+<div class="reading-title">The Geology, Ecology, and Human History of the San Luis Valley</div>
+<div class="reading-meta">Jared Maxwell Beeton, Charles Nicholas Saenz &amp; Benjamin James Waddell (eds.) &middot; University Press of Colorado, 2020</div>
+<p class="reading-desc">A comprehensive, interdisciplinary volume covering the full range of systems that shape the San Luis Valley, from its geological origins in the Rio Grande Rift to its ecological communities, its Indigenous and Hispano histories, and its contemporary challenges. An excellent reference to consult before and during Phase One of the workshop.</p>
+<h2>Agriculture, Economy &amp; Rural Life</h2>
+<div class="reading-title">Cheap Land Colorado: Off-Gridders at America's Edge</div>
+<div class="reading-meta">Ted Conover &middot; Knopf, 2022</div>
+<p class="reading-desc">Pulitzer Prize finalist Ted Conover immerses himself in the off-grid communities of the San Luis Valley's failed subdivisions — five-acre lots on the high prairie available for as little as five thousand dollars. A reminder that the Valley's adaptive challenges are deeply social, economic, and political, and are being lived out in conditions of genuine hardship.</p>
+<div class="reading-title">Undermining: A Wild Ride Through Land Use, Politics, and Art in the Changing West</div>
+<div class="reading-meta">Lucy Lippard &middot; Pantheon Books, 2014</div>
+<p class="reading-desc">Art critic and activist Lucy Lippard examines how extraction industries have reshaped the land, politics, and communities of the American Southwest. Essential reading for fellows working across any of the three synthesis project sites, and a useful companion for thinking about how creative practice can function as both documentation and resistance.</p>
+<h2>Acequia Culture &amp; Communal Water</h2>
+<div class="reading-title">Mayordomo: Chronicle of an Acequia in Northern New Mexico</div>
+<div class="reading-meta">Stanley Crawford &middot; University of New Mexico Press, 1988</div>
+<p class="reading-desc">The essential first-person account of acequia life. Crawford, who farmed in northern New Mexico and served as mayordomo for his local acequia, describes the practical, social, and philosophical dimensions of managing a community irrigation system rooted in centuries of practice. Read before the acequia sessions; it will make every conversation richer.</p>
+<h2>Creative, Narrative &amp; Place-Based Inquiry</h2>
+<div class="reading-title">Landlines: M12 Studio San Luis Valley</div>
+<div class="reading-meta">M12 Studio &middot; M12 Studio, 2022 &middot; m12studio.org/mercantile/landlines</div>
+<p class="reading-desc">The culmination of M12 Studio's multi-year engagement with the San Luis Valley, Landlines is a model of what creative, place-based research can look like when practiced with rigor and care. It demonstrates how artistic practice can function not merely as illustration of research findings, but as a method for noticing, connecting, and communicating what scientific and social analysis alone cannot capture.</p>
+<div class="chapter-opener"><h1>Bibliography</h1></div>
+<p class="bib">Alamosa Citizen. "Despite Years of Retiring Wells, Unconfined Aquifer Shows Little Sign of Bouncing Back." 21 Sept. 2024.</p>
+<p class="bib">Beeton, Jared Maxwell, Charles Nicholas Saenz, and Benjamin James Waddell, eds. <em>The Geology, Ecology, and Human History of the San Luis Valley.</em> University Press of Colorado, 2021.</p>
+<p class="bib">Conover, Ted. <em>Cheap Land Colorado: Off-Gridders at America's Edge.</em> Knopf, 2023.</p>
+<p class="bib">Crawford, Stanley. <em>Mayordomo: Chronicle of an Acequia in Northern New Mexico.</em> University of New Mexico Press, 1988.</p>
+<p class="bib">King, Naomi, et al. "Water Exports and the San Luis Valley in Colorado." <em>Acequia Assistance Project, Getches-Wilkinson Center, University of Colorado Law School,</em> December 2020.</p>
+<p class="bib">Kosek, Jake. <em>Understories: The Political Life of Forests in Northern New Mexico.</em> Duke University Press, 2006.</p>
+<p class="bib">Loos, Jonathon R., et al. "Individual to Collective Adaptation through Incremental Change in Colorado Groundwater Governance." <em>Frontiers in Environmental Science,</em> vol. 10, Oct. 2022.</p>
+<p class="bib">M12 Studio. <em>Landlines: M12 Studio San Luis Valley.</em> M12 Studio, 2022. m12studio.org/mercantile/landlines.</p>
+<p class="bib">Reisner, Marc. <em>Cadillac Desert: The American West and Its Disappearing Water.</em> Rev. ed. Penguin Books, 1993.</p>
+<p class="bib">Rojanasakul, Mira, et al. "America Is Using Up Its Groundwater Like There's No Tomorrow." <em>The New York Times,</em> 28 Aug. 2023.</p>
+<p class="bib">Senkosky, Emily. "How Montana Tribes Are Using Sovereignty to Restore Their Waterways." <em>High Country News,</em> 9 Mar. 2026.</p>
+</body>
+</html>
