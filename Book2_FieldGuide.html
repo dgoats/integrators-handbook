@@ -100,7 +100,8 @@ p { margin: 0; font-size: 11pt; line-height: 14.5pt; }
 p + p { text-indent: 20pt; }
 h1 + p, h2 + p, h3 + p, .sidebar + p, blockquote + p,
 table + p, ul + p, ol + p, .no-indent, .stats + p { text-indent: 0 !important; }
-p.cap { font-family: var(--head);
+p.cap {
+	font-family: var(--head);
     font-weight: 600;
     font-size: 6pt;
     text-transform: uppercase;
@@ -109,7 +110,9 @@ p.cap { font-family: var(--head);
     padding: 3pt 0;
     border-top: .5pt solid var(--accent);
     caption-side: top;
-    line-height: 10.5pt;}
+    line-height: 10.5pt;
+    text-indent:0 !important;
+}
 
 /* ── Pull quote ──────────────────────────────────────── */
 blockquote {
@@ -125,7 +128,7 @@ blockquote cite { display: block; font-family: var(--head); font-style: normal;
 /* ── Sidebar box ─────────────────────────────────────── */
 .sidebar { background: var(--sidebar-bg); padding: 9pt 10pt 10pt; margin: 11pt 0;
   break-inside: avoid; page-break-inside: avoid; }
-.sidebar-head { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
+.sidebar-head { font-family: var(--head); font-weight: 600; font-size: 10pt;
   text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 5pt; }
 .sidebar p { font-size: 9pt; line-height: 12.5pt; text-indent: 0 !important; margin-top: 4pt; }
 .sidebar p:first-of-type { margin-top: 0; }
@@ -194,8 +197,23 @@ tbody tr:nth-child(even) td { background: rgba(0,0,0,.04); }
 .bib { font-size: 9pt; line-height: 13pt; padding-left: 18pt; text-indent: -18pt; margin-bottom: 5pt; }
 .gterm { font-family: var(--head); font-weight: 600; font-size: 9pt; color: var(--dark); margin: 10pt 0 1pt; }
 .gdef { font-size: 10pt; line-height: 13.5pt; text-indent: 0 !important; }
-.reading-title { font-family: var(--head); font-weight: 600; font-size: 9pt; color: var(--dark); margin: 12pt 0 1pt; }
-.reading-meta { font-family: var(--head); font-size: 7.5pt; color: var(--mid); margin-bottom: 3pt; }
+.reading-title { font-family: var(--head); 
+	font-weight: 600; 
+	font-size: 11pt; 
+	color: var(--dark); margin: 12pt 0 1pt; 
+	border-top: 1px solid #010101;
+    padding-top: 5px; }
+
+h2.reading-category {font-size: 14pt !important}
+
+.reading-meta { 
+	font-family: var(--head);
+    font-size: 7.5pt;
+    color: var(--mid);
+    margin-bottom: 0px;
+    line-height: .75em !important;
+    }
+    
 .reading-desc { font-size: 10pt; line-height: 13.5pt; text-indent: 0 !important; }
 
 /* ── Synthesis project ───────────────────────────────── */
@@ -333,12 +351,10 @@ figcaption {font-family: var(--head);
   @bottom-right { content: none; }
 }
 
-
 .reading-url {
   font-family: var(--head);
   font-size: 8pt;
   color: var(--accent);
-  margin: 2pt 0 8pt;
   word-break: break-all;
 }
 .reading-url a {
@@ -387,6 +403,9 @@ figcaption {font-family: var(--head);
 <p>The Taos Plateau stretches across the high desert of northern New Mexico, centered on the Rio Grande Gorge and the communities of Taos, Questa, and the surrounding mountains. It shares the same fundamental aridity and watershed as the San Luis Valley. The Rio Grande runs through both, but presents a distinct set of ecological, cultural, and institutional conditions. Taos Pueblo, one of the oldest continuously inhabited communities in North America, maintains one of the most significant Indigenous water governance traditions in the Southwest. The Taos Land Trust, local acequia associations, and partners like the Forest Stewards Guild form a dense web of stewardship that complements and sometimes challenges state and federal institutions.</p>
 <p>Both contexts lie within the Rio Grande watershed. Both are shaped by the same fundamental dynamics of snowpack, aridity, and groundwater. Both carry deep layers of Indigenous and Hispano water culture. And both are navigating drought adaptation under conditions of legal complexity, economic stress, and institutional fragmentation. Moving through them sequentially lets you see what is universal and what is particular to each.</p>
 
+<figure><img src="img/deep-time-watershed.png" style="mix-blend-mode: multiply;width:100%">
+<figcaption>Deep time drawing of the Running Creek Watershed, from the Integrative Studies Pamphlet for Running Creek Field Station, the Wright-Ingraham Institute's 960 acre field laboratory, 1977.</figcaption></figure>
+
 <div class="chapter-opener"><h1>Context 1: The San Luis Valley, Colorado</h1></div>
 <div class="stats">
 <div class="stat"><span class="stat-n">8,000 sq mi</span><span class="stat-l">Area &mdash; largest alpine valley in the world</span></div>
@@ -404,14 +423,14 @@ figcaption {font-family: var(--head);
 <p>The historic consequences of aquifer decline are visible in the landscape. Older farming families in the central valley remember not being able to graze horses near their homes because the ground was too swampy: the water table was that high. Ephemeral wetlands shifted across the valley floor as water pooled in what hydrologists call an endorheic basin — a basin with no natural outflow, where water once recharged the aquifer from below. Those days are long gone. The water table has dropped substantially, the wetlands have retreated, and the wind erosion that follows bare, fallow fields has intensified, depositing dust on the very snowpack that the Valley depends on for recharge.</p>
 
 <p>One reference point comes from the <em>Nexus of Land and Water</em> initiative: atmospheric dust from disturbed soils across the desert Southwest settles on mountain snowpack, darkens its surface, causes earlier and faster melt, and shifts the timing of streamflow in ways that cascade through irrigation systems and aquifer recharge cycles. Land use practices in the Valley directly affect when and how much water returns to it.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">Sources: King et al. (2020), pp. 3–4; Dutton, Heather and Madeline Wilson, "Water, Land, and Life: Adaptation and Regeneration in the San Luis Valley" (WII Webinar, 2024).</p>
+<p class="cap">Sources: King et al. (2020), pp. 3–4; Dutton, Heather and Madeline Wilson, "Water, Land, and Life: Adaptation and Regeneration in the San Luis Valley" (WII Webinar, 2024).</p>
 
 <h2>Water Law and Governance</h2>
 <p>Colorado operates on the <em>Prior Appropriation doctrine</em>, whose governing principle is 'first in time, first in right.' Water rights are allocated by seniority based on the date of first legally recognized beneficial use. In drought years, junior right holders are curtailed before senior ones. The oldest water rights in the state of Colorado are in the Rio Grande Basin. By 1900, all of the water in the basin was spoken for.</p>
 <p>The State's courts have made a critical finding that both the Rio Grande River and its tributaries and the aquifers of the San Luis Valley are over-appropriated. Any new diversion is legally presumed to injure senior appropriators.</p>
 <p>Layered atop state law are acequia governance — community irrigation associations rooted in Spanish colonial and Indigenous traditions — and the Rio Grande Compact of 1938, a tri-state agreement between Colorado, New Mexico, and Texas. Colorado's obligation to deliver water downstream means that aquifer pumping in the Valley that reduces stream flows can put Colorado in Compact violation.</p>
 <p>The subdistrict model, first authorized by the Colorado Legislature in 2004 following the 2002 drought, represents a significant governance innovation. Rather than wait for the State Engineer to impose blanket curtailments, Valley water users took the proactive step of going to the legislature themselves and asking the state to promulgate rules that would allow the community to manage its own reductions. <p>According to Heather Dutton, the San Luis Valley watched what happened on the South Platte when the State Engineer imposed strict priority curtailment and the community decided it did not want that outcome. Subdistricts allow groups of well owners to collectively manage pumping reductions and fund recharge or conservation projects, paying annual fees based on volume pumped. Today, seven subdistricts have formed across the Valley. Subdistrict 3, in the southern Valley near Conejos County, is currently considered sustainable — in part because ranching operations there can move livestock onto BLM and Forest Service grazing allotments in northern New Mexico, reducing on-valley production pressure. Subdistrict 1 on the other hand, covering the central and northern Valley, is a sub-district in crisis.</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">Sources: King et al. (2020), pp. 4–6, 11–13; Dutton and Wilson (2024); C.R.S. § 37-48-108 (subdistricts); § 37-92-102 (prior appropriation).</p>
+<p class="cap">Sources: King et al. (2020), pp. 4–6, 11–13; Dutton and Wilson (2024); C.R.S. § 37-48-108 (subdistricts); § 37-92-102 (prior appropriation).</p>
 
 <h2>Agricultural Economy and the 2031 Deadline</h2>
 <p>The San Luis Valley produces almost 40 percent of Colorado's total agricultural economic output, contributing over $481 million annually. It is the nation's largest producer of seed potatoes — one in four fresh-market potatoes sold at major grocery chains comes from the Valley. This productivity depends almost entirely on groundwater irrigation, primarily from wells in the central valley's Subdistrict 1, where the density of center-pivot irrigation systems is among the highest in the world.</p>
@@ -444,7 +463,7 @@ figcaption {font-family: var(--head);
 <p>The RWR story is still unfolding. What it illustrates for our research is how the water export threat functions as a pressure that has shaped, and continues to shape, many aspects of Valley water governance: the speed of subdistrict formation, the politics of aquifer management, the economics of agricultural land value, and the social dynamics of a community.</p>
 
 <div class="sidebar"><div class="sidebar-head">Case Study: Blanca Wetlands — Restoration in an Arid Landscape</div><p>The Blanca Wetlands, managed by the Bureau of Land Management as an Area of Critical Environmental Concern, sit in the San Luis Valley south of Great Sand Dunes National Park. The wetlands were completely destroyed by pumping and diversion during the twentieth century. Basins that had once held twelve feet of water dried up entirely, becoming known locally as 'Dry Lakes.'</p><p>Beginning in 1965, BLM began restoring the dry playas. The site now covers nearly 10,000 acres containing about two hundred shallow basins, wet meadows, salt flats, marshes, and freshwater ponds. The wetlands are now one of the most important bird habitats in Colorado, hosting thirteen threatened, endangered, and sensitive species, and serving as critical stopover and breeding habitat for migrating shorebirds and waterbirds. The restoration at Blanca is ongoing and deliberately managed: about 1,200 acres are watered each year, while other parts are intentionally allowed to dry. At Blanca, the original damage came not from industrial extraction but from the cumulative logic of agricultural water use. Blanca offers a chance to observe an ecosystem in the process of becoming. It is not a pristine baseline, but a negotiated recovery, shaped by policy, hydrology, and the choices of land managers, scientists, advocates, and activists working across decades.</p><p><strong>Sample Research Questions:</strong> What does 'restoration' mean in a landscape where the pressures that caused the damage are still active? How do San Luis Valley residents — farmers, ranchers, Hispano communities — understand and relate to the wetlands? <p>Is the restoration seen as a gain, a loss, or something more complicated? What can Blanca teach us about the relationship between agricultural livelihood and ecological recovery — and what would it take for those two things to be genuinely compatible?</p>
-<p style="font-family:var(--head);font-size:8pt;font-style:italic;color:var(--mid);margin:3pt 0 8pt">Sources for this section: King et al. (2020), pp. 6–19; 16 U.S.C.A. § 410hhh-7 (Great Sand Dunes water rights); C.R.S. § 37-48-108 (subdistricts); Bureau of Land Management, Blanca Wetlands (blm.gov/visit/blanca-wetlands).</p>
+<p class="cap">Sources for this section: King et al. (2020), pp. 6–19; 16 U.S.C.A. § 410hhh-7 (Great Sand Dunes water rights); C.R.S. § 37-48-108 (subdistricts); Bureau of Land Management, Blanca Wetlands (blm.gov/visit/blanca-wetlands).</p>
 </div>
 <h2>A Note on Hispano and Rural Communities in the SLV</h2>
 <p>The multigenerational Hispano farming and ranching families of the San Luis Valley and Northern New Mexico carry their own history of displacement, legal dispossession, and research that was done on rather than with them. Rural communities have often been imagined as lacking agency, or presented as problems to be solved. When we show up with genuine accountability and reciprocity, communities share what they actually know, and continue to be interested in how that knowledge gets shared in the world.</p>
@@ -562,7 +581,7 @@ figcaption {font-family: var(--head);
 <div class="gterm">Unconfined Aquifer</div>
 <p class="gdef">The shallower of the San Luis Valley's two groundwater systems, extending to approximately 100 feet below the surface within the Closed Basin. Hydraulically connected to most surface streams in the Valley; currently approximately 1.4 million acre-feet below its sustainability target.</p>
 <div class="chapter-opener"><h1>Suggested Readings</h1></div>
-<h2>Water, Law &amp; Governance</h2>
+<h2 class="reading-category">Water, Law &amp; Governance</h2>
 <div class="reading-title">Cadillac Desert: The American West and Its Disappearing Water</div>
 <div class="reading-meta">Marc Reisner &middot; Penguin Books, 1986</div>
 <div class="reading-url"><a href="https://penguinrandomhouse.com/books/323685/cadillac-desert-by-marc-reisner" target="_blank" rel="noopener">https://penguinrandomhouse.com/books/323685/cadillac-desert-by-marc-reisner</a></div>
@@ -575,7 +594,7 @@ figcaption {font-family: var(--head);
 <div class="reading-meta">Naomi King et al. &middot; Acequia Assistance Project / Getches-Wilkinson Center, University of Colorado Law School, 2020</div>
 <div class="reading-url"><a href="https://getches-wilkinsoncenter.cu.law" target="_blank" rel="noopener">https://getches-wilkinsoncenter.cu.law</a></div>
 <p class="reading-desc">An indispensable legal primer on the San Luis Valley's water export battles. Provides a clear, detailed account of the Valley's hydrology, the Rio Grande Compact, the Prior Appropriation doctrine, the AWDI controversy, and the post-AWDI regulatory framework including subdistricts. Read before visiting the Rio Grande Water Conservation District or any conservation district partners.</p>
-<h2>Land, Culture &amp; Identity</h2>
+<h2 class="reading-category">Land, Culture &amp; Identity</h2>
 <div class="reading-title">Understories: The Political Life of Forests in Northern New Mexico</div>
 <div class="reading-meta">Jake Kosek &middot; Duke University Press, 2006</div>
 <div class="reading-url"><a href="https://dukeupress.edu/understories" target="_blank" rel="noopener">https://dukeupress.edu/understories</a></div>
@@ -584,7 +603,7 @@ figcaption {font-family: var(--head);
 <div class="reading-meta">Jared Maxwell Beeton, Charles Nicholas Saenz &amp; Benjamin James Waddell (eds.) &middot; University Press of Colorado, 2020</div>
 <div class="reading-url"><a href="https://upcolorado.com" target="_blank" rel="noopener">https://upcolorado.com</a></div>
 <p class="reading-desc">A comprehensive, interdisciplinary volume covering the full range of systems that shape the San Luis Valley, from its geological origins in the Rio Grande Rift to its ecological communities, its Indigenous and Hispano histories, and its contemporary challenges. An excellent reference to consult before and during Phase One of the workshop.</p>
-<h2>Agriculture, Economy &amp; Rural Life</h2>
+<h2 class="reading-category">Agriculture, Economy &amp; Rural Life</h2>
 <div class="reading-title">Cheap Land Colorado: Off-Gridders at America's Edge</div>
 <div class="reading-meta">Ted Conover &middot; Knopf, 2022</div>
 <div class="reading-url"><a href="https://penguinrandomhouse.com/books/573452/cheap-land-colorado-by-ted-conover" target="_blank" rel="noopener">https://penguinrandomhouse.com/books/573452/cheap-land-colorado-by-ted-conover</a></div>
@@ -593,14 +612,14 @@ figcaption {font-family: var(--head);
 <div class="reading-meta">Lucy Lippard &middot; Pantheon Books, 2014</div>
 <div class="reading-url"><a href="https://thenewpress.org/books/undermining/" target="_blank" rel="noopener">https://thenewpress.org/books/undermining/</a></div>
 <p class="reading-desc">Art critic and activist Lucy Lippard examines how extraction industries have reshaped the land, politics, and communities of the American Southwest. Essential reading for fellows working across any of the three synthesis project sites, and a useful companion for thinking about how creative practice can function as both documentation and resistance.</p>
-<h2>Acequia Culture &amp; Communal Water</h2>
+<h2 class="reading-category">Acequia Culture &amp; Communal Water</h2>
 <div class="reading-title">Mayordomo: Chronicle of an Acequia in Northern New Mexico</div>
 <div class="reading-meta">Stanley Crawford &middot; University of New Mexico Press, 1988</div>
 <div class="reading-url"><a href="https://unmpress.com/9780826314451/mayordomo" target="_blank" rel="noopener">https://unmpress.com/9780826314451/mayordomo</a></div>
 <p class="reading-desc">The essential first-person account of acequia life. Crawford, who farmed in northern New Mexico and served as mayordomo for his local acequia, describes the practical, social, and philosophical dimensions of managing a community irrigation system rooted in centuries of practice. Read before the acequia sessions; it will make every conversation richer.</p>
 
 <div class="reading-title">Colorado Acequia Handbook, Third Edition</div>
-<div class="reading-meta">San deCristo Acequia Association (SdCAA) &middot; PDF</div>
+<div class="reading-meta">San deCristo Acequia Association (SdCAA)</div>
 <div class="reading-url"><a href="https://static1.squarespace.com/static/66a19144a81bb645eaa42dab/t/66d798db0cab7c7381289a00/1725405404546/Colorado+Acequia+Handbook+-+Third+Edition+Final.pdf" target="_blank" rel="noopener">Download PDF</a></div>
 <p class="reading-desc">A comprehensive practical guide to acequia governance, water rights, and community irrigation management in Colorado. Essential reference for understanding the legal and customary framework governing acequias in the San Luis Valley — from parciante rights and mayordomo duties to ditch maintenance, water sharing during drought, and the relationship between acequia law and Colorado's Prior Appropriation doctrine.</p>
 
@@ -609,13 +628,13 @@ figcaption {font-family: var(--head);
 <div class="reading-url"><a href="https://riograndeheadwaters.org/conejos-river-partnership" target="_blank" rel="noopener">riograndeheadwaters.org/conejos-river-partnership</a></div>
 <p class="reading-desc">Documentation of a major collaborative water infrastructure restoration initiative on the Conejos River in southern Colorado — one of the Rio Grande's key tributaries and the heart of the Conejos synthesis project site. Brings together landowners, water districts, conservation organizations, and state agencies to restore stream function, improve water delivery reliability, and build ecological resilience in a watershed under acute drought pressure.</p>
 
-<h2>Creative, Narrative &amp; Place-Based Inquiry</h2>
+<h2 class="reading-category">Creative, Narrative &amp; Place-Based Inquiry</h2>
 <div class="reading-title">Landlines: M12 Studio San Luis Valley</div>
 <div class="reading-meta">M12 Studio &middot; M12 Studio, 2022 &middot; m12studio.org/mercantile/landlines</div>
 <div class="reading-url"><a href="https://m12studio.org/mercantile/landlines" target="_blank" rel="noopener">https://m12studio.org/mercantile/landlines</a></div>
 <p class="reading-desc">The culmination of M12 Studio's multi-year engagement with the San Luis Valley, Landlines is a model of what creative, place-based research can look like when practiced with rigor and care. It demonstrates how artistic practice can function not merely as illustration of research findings, but as a method for noticing, connecting, and communicating what scientific and social analysis alone cannot capture.</p>
 
-<h2>Videos</h2>
+<h2 class="reading-category">Videos</h2>
 
 <div class="reading-title">PBS: Acequias in Northern New Mexico</div>
 <div class="reading-meta">PBS / YouTube</div>
