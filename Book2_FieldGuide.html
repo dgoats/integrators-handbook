@@ -41,7 +41,7 @@
 
 body {
   background: var(--nouvelle);
-  padding: 57pt 28.8pt 67pt 28.8pt;
+  padding: 32pt 28.8pt 67pt 28.8pt;
   font-family: var(--body);
   font-size: 11pt;
   line-height: 14.5pt;
@@ -77,9 +77,11 @@ body {
 
 /* ── Chapter opener ──────────────────────────────────── */
 .chapter-opener {
-  break-before: page; page-break-before: always;
-  padding-top: 8pt; margin-bottom: 18pt;
-  border-top: 3pt solid var(--accent);
+	page-break-before: always;
+    padding-top: 10px;
+    margin-bottom: 18pt;
+    border-top: 3pt solid var(--accent);
+    margin-top: 20px;
 }
 .chapter-opener:first-child { break-before: avoid; page-break-before: avoid; }
 
