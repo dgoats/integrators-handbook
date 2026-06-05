@@ -285,6 +285,42 @@ figcaption {
   margin: 0;
 }
 
+
+/* ── Page numbers via CSS @page margin boxes ─────────────────
+   Chrome/Edge support @bottom-left and @bottom-right natively.
+   Odd pages (verso) = number left, Even pages (recto) = number right.
+   The 'folio' div inside each page handles screen display.
+   The @page rules handle print/PDF output.
+─────────────────────────────────────────────────────────────── */
+
+@page :left {
+  @bottom-left {
+    content: counter(page);
+    font-family: 'Archivo', Helvetica Neue, sans-serif;
+    font-size: 7pt;
+    color: rgb(110, 113, 75);
+    letter-spacing: 0.06em;
+    padding-bottom: 6pt;
+  }
+}
+
+@page :right {
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Archivo', Helvetica Neue, sans-serif;
+    font-size: 7pt;
+    color: rgb(110, 113, 75);
+    letter-spacing: 0.06em;
+    padding-bottom: 6pt;
+  }
+}
+
+/* Cover page = page 1, suppress number */
+@page :first {
+  @bottom-left  { content: none; }
+  @bottom-right { content: none; }
+}
+
 </style>
 </head>
 <body>

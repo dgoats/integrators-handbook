@@ -286,6 +286,29 @@ figcaption {
   margin: 0;
 }
 
+
+/* ── Chapter page numbers (screen only) ─────────────────── */
+@media screen {
+  .chapter-opener {
+    position: relative;
+  }
+  .chapter-page-num {
+    position: absolute;
+    top: 12pt;
+    right: 0;
+    font-family: 'Archivo', Helvetica Neue, sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    opacity: 0.6;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+@media print {
+  .chapter-page-num { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -637,6 +660,22 @@ figcaption {
 <p class="bib">Repko, Allen F., and Rick Szostak. <em>Interdisciplinary Research: Process and Theory.</em> 3rd ed. Sage, 2016.</p>
 <p class="bib">Scott, James C. <em>Seeing Like a State.</em> Yale University Press, 1998.</p>
 <p class="bib">Senge, Peter M. <em>The Fifth Discipline.</em> Doubleday, 1990.</p>
+<p class="bib">Weed, Brad. "Big Science Meets Big Ecology under the Big Sky: How One Man Launched a Quantitative Approach to Systems Ecology in Just a Few Short Years." <em>Interplace,</em> 17 July 2021, interplace.io/p/big-science-meets-big-ecology-under.</p>
 <p class="bib">Sterman, John D. <em>Business Dynamics.</em> Irwin/McGraw-Hill, 2000.</p>
+
+<script>
+(function() {
+  // Number each chapter-opener sequentially, displayed in screen view only.
+  // Skip the cover (first .chapter-opener is the TOC/Contents, we start from 1).
+  var chapters = document.querySelectorAll('.chapter-opener');
+  chapters.forEach(function(ch, i) {
+    var num = document.createElement('span');
+    num.className = 'chapter-page-num';
+    num.textContent = i + 1;
+    ch.appendChild(num);
+  });
+})();
+</script>
+
 </body>
 </html>
