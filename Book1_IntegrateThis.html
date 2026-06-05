@@ -103,11 +103,11 @@ table + p, ul + p, ol + p, .no-indent, .stats + p { text-indent: 0 !important; }
 /* ── Pull quote ──────────────────────────────────────── */
 blockquote {
   margin: 12pt 0 12pt 28pt; padding: 7pt 0 5pt;
-  border-top: 1.5pt solid var(--accent); border-bottom: .5pt solid var(--accent);
+  border-bottom: .5pt solid var(--accent);
   break-inside: avoid; page-break-inside: avoid;
 }
 blockquote p { font-style: italic; font-size: 11.5pt; line-height: 15pt;
-  text-align: right; text-indent: 0 !important; }
+  text-align: right; text-indent: 0 !important;  hyphens: none; }
 blockquote cite { display: block; font-family: var(--head); font-style: normal;
   font-size: 7pt; letter-spacing: .04em; text-align: right; color: var(--mid); margin-top: 4pt; }
 
@@ -305,6 +305,7 @@ figcaption {
     opacity: 0.6;
     pointer-events: none;
     user-select: none;
+    display:none;
   }
 }
 @media print {
