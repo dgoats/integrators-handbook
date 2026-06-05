@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Workshop 2026 — Wright-Ingraham Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tokens ────────────────────────────────────────────── */
+:root {
+  --orange:     #efaa1f;
+  --dkgreen:    #808325;
+  --ltgreen:    #9b9869;
+  --cream:      #f5f0e1;
+  --parchment:  #ede7d3;
+  --dark:       #2e3012;
+  --darker:     #252810;
+  --mid:        #6b6450;
+  --rule:       rgba(239,170,31,0.25);
+  --body:       'Crimson Text', Georgia, serif;
+  --head:       'Archivo', Helvetica Neue, sans-serif;
+}
+
+/* ── Page ──────────────────────────────────────────────── */
+html { background: var(--darker); }
+
+body {
+  background: var(--darker);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Map texture background ────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(239,170,31,0.03) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(239,170,31,0.03) 40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layout container ──────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+header {
+  padding: 72px 0 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+
+.institute-label {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.institute-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 48px;
+}
+
+h1 {
+  font-family: var(--body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.05;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--orange);
+}
+
+.header-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.year-badge {
+  font-family: var(--head);
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 6px;
+}
+
+.workshop-title {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ltgreen);
+  line-height: 1.5;
+  max-width: 160px;
+  text-align: right;
+}
+
+/* ── Intro text ────────────────────────────────────────── */
+.intro {
+  margin-bottom: 72px;
+}
+
+.intro p {
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(245,240,225,0.75);
+  max-width: 620px;
+}
+
+.intro p + p {
+  margin-top: 16px;
+  text-indent: 24px;
+}
+
+/* ── Books grid ────────────────────────────────────────── */
+.books-label {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.books-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(107,100,80,0.3);
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 80px;
+}
+
+/* ── Book card ─────────────────────────────────────────── */
+.book-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(245,240,225,0.04);
+  border: 1px solid rgba(245,240,225,0.06);
+  padding: 32px 28px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.book-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--card-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  background: rgba(245,240,225,0.055);
+  border-color: rgba(245,240,225,0.12);
+}
+
+.book-card:hover::before {
+  transform: scaleX(1);
+}
+
+.book-card:hover .book-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.book-card:hover .book-num {
+  color: var(--card-accent);
+}
+
+/* Book number */
+.book-num {
+  font-family: var(--head);
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+/* Book spine decoration */
+.book-spine {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 3px;
+  background: var(--card-accent);
+  opacity: 0.15;
+}
+
+/* Title */
+.book-title {
+  font-family: var(--body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--cream);
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+/* Subtitle */
+.book-subtitle {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 10.5px;
+  line-height: 1.55;
+  color: var(--mid);
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+}
+
+/* Chapters list */
+.book-chapters {
+  list-style: none;
+  margin-bottom: 28px;
+  border-top: 1px solid rgba(245,240,225,0.07);
+  padding-top: 16px;
+}
+
+.book-chapters li {
+  font-family: var(--head);
+  font-size: 10px;
+  color: rgba(245,240,225,0.4);
+  letter-spacing: 0.04em;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-chapters li::before {
+  content: '';
+  width: 12px;
+  height: 1px;
+  background: var(--card-accent);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* CTA row */
+.book-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(245,240,225,0.07);
+  padding-top: 16px;
+}
+
+.book-open {
+  font-family: var(--head);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+}
+
+.book-arrow {
+  font-size: 14px;
+  color: var(--card-accent);
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Individual book colors */
+.book-1 { --card-accent: #efaa1f; }
+.book-2 { --card-accent: #808325; }
+.book-3 { --card-accent: #9b9869; }
+
+/* ── Authors ────────────────────────────────────────────── */
+.authors-section {
+  border-top: 1px solid var(--rule);
+  padding: 48px 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 0;
+}
+
+.authors-label {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+.authors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-name {
+  font-family: var(--body);
+  font-size: 16px;
+  color: var(--cream);
+}
+
+.author-role {
+  font-family: var(--head);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--mid);
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid rgba(107,100,80,0.2);
+  padding: 28px 0 40px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-wii {
+  font-family: var(--head);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.footer-wii span {
+  color: var(--orange);
+}
+
+.footer-copy {
+  font-family: var(--body);
+  font-size: 13px;
+  color: rgba(107,100,80,0.6);
+  font-style: italic;
+}
+
+/* ── Epigraph ───────────────────────────────────────────── */
+.epigraph {
+  margin: 0 0 72px;
+  padding-left: 24px;
+  border-left: 1.5px solid var(--orange);
+  opacity: 0.65;
+}
+
+.epigraph p {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--cream);
+}
+
+.epigraph cite {
+  display: block;
+  font-family: var(--head);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--mid);
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+/* ── Fade-in animation ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+header        { animation: fadeUp 0.6s ease both; }
+.intro        { animation: fadeUp 0.6s 0.1s ease both; }
+.epigraph     { animation: fadeUp 0.6s 0.15s ease both; }
+.books-label  { animation: fadeUp 0.6s 0.2s ease both; }
+.book-card:nth-child(1) { animation: fadeUp 0.5s 0.25s ease both; }
+.book-card:nth-child(2) { animation: fadeUp 0.5s 0.32s ease both; }
+.book-card:nth-child(3) { animation: fadeUp 0.5s 0.39s ease both; }
+.authors-section { animation: fadeUp 0.5s 0.45s ease both; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .books { grid-template-columns: 1fr; gap: 2px; }
+  .header-grid { grid-template-columns: 1fr; gap: 16px; }
+  .header-meta { text-align: left; }
+  .workshop-title { text-align: left; max-width: none; }
+  .authors-section { grid-template-columns: 1fr; gap: 16px; }
+  .container { padding: 0 20px; }
+  header { padding-top: 40px; }
+}
+
+@media (max-width: 520px) {
+  .books { grid-template-columns: 1fr; }
+}
+
+/* ── Book 3 disabled / coming soon ──────────────────────── */
+.book-disabled {
+  cursor: default;
+  opacity: 0.38;
+  filter: grayscale(0.6);
+  pointer-events: none;
+}
+
+.book-disabled .book-title,
+.book-disabled .book-subtitle,
+.book-disabled .book-num {
+  color: var(--mid);
+}
+
+.book-soon {
+  font-size: 11px;
+  color: var(--mid);
+  opacity: 0.5;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="institute-label">Wright-Ingraham Institute &nbsp;·&nbsp; Field Workshop Program</div>
+    <div class="header-grid">
+      <h1>Designing for<br>Adaptation in a<br>Time of <em>Prolonged Drought</em></h1>
+      <div class="header-meta">
+        <div class="year-badge">Field Workshop · 2026</div>
+        <div class="workshop-title">San Luis Valley, Colorado &amp; Taos Plateau, New Mexico</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <div class="intro">
+    <p>This Field Workshop brings together researchers, designers, artists, and community practitioners to examine drought adaptation across the San Luis Valley and the Taos Plateau. Working at the intersections of hydrology, land governance, ecology, and culture, participants develop integrative research and design responses grounded in place.</p>
+    <p>The three volumes below form the complete curriculum: a handbook on integrative methods, a field guide to the two landscapes, and a workbook of exercises and reflections.</p>
+  </div>
+
+  <!-- Books -->
+  <div class="books-label">Field Workshop Publications</div>
+
+  <div class="books">
+
+    <!-- Book 1 -->
+    <a class="book-card book-1" href="Book1_IntegrateThis.html">
+      <div class="book-spine"></div>
+      <div class="book-num">Book One</div>
+      <div class="book-title">Integrate This!</div>
+      <div class="book-subtitle">An Open Handbook for Place-Based Integrative Studies and Collaborative Research in the Field</div>
+      <ul class="book-chapters">
+        <li>What Is Integrative Studies?</li>
+        <li>Practicing Integration</li>
+        <li>Working With Systems</li>
+        <li>Non-Extractive Research</li>
+        <li>Designing for Adaptation</li>
+        <li>Glossary &amp; Bibliography</li>
+      </ul>
+      <div class="book-cta">
+        <span class="book-open">Open handbook</span>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Book 2 -->
+    <a class="book-card book-2" href="Book2_FieldGuide.html">
+      <div class="book-spine"></div>
+      <div class="book-num">Book Two</div>
+      <div class="book-title">A Field Guide to the San Luis Valley and the Taos Plateau</div>
+      <div class="book-subtitle">Landscape, Water Law, Agricultural Economy, and Adaptive Governance in the Rio Grande Watershed</div>
+      <ul class="book-chapters">
+        <li>What Is Adaptation?</li>
+        <li>San Luis Valley, Colorado</li>
+        <li>Taos Plateau, New Mexico</li>
+        <li>Synthesis Projects</li>
+        <li>Glossary &amp; Suggested Readings</li>
+        <li>Bibliography</li>
+      </ul>
+      <div class="book-cta">
+        <span class="book-open">Open field guide</span>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Book 3 - coming soon -->
+    <div class="book-card book-3 book-disabled">
+      <div class="book-spine"></div>
+      <div class="book-num">Book Three</div>
+      <div class="book-title">Exercises, Connections, and Integrations</div>
+      <div class="book-subtitle">A Workbook of Daily Reflections, Collaborative Agreements, and Synthesis Exercises for Field Researchers</div>
+      <ul class="book-chapters">
+        <li>Coming from Elsewhere</li>
+        <li>Collaborative Agreement</li>
+        <li>Daily Reflection Prompts</li>
+        <li>Synthesis Reflections (Days 1–4)</li>
+        <li>Cohort Reflections</li>
+      </ul>
+      <div class="book-cta">
+        <span class="book-open">Coming soon</span>
+        <span class="book-soon">○</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Authors -->
+  <div class="authors-section">
+    <div class="authors-label">Authors</div>
+    <div class="authors-list">
+      <div class="author">
+        <span class="author-name">Dylan Gauthier</span>
+        <span class="author-role">Director of Research &amp; Publications</span>
+      </div>
+      <div class="author">
+        <span class="author-name">Tal Beery</span>
+        <span class="author-role">Executive Director</span>
+      </div>
+      <div class="author">
+        <span class="author-name">Frida Foberg</span>
+        <span class="author-role">Wright-Ingraham Institute</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-wii"><span>WII</span> &nbsp;Wright-Ingraham Institute &nbsp;·&nbsp; Colorado Springs, Colorado &nbsp;·&nbsp; 2026</div>
+      <div class="footer-copy">Est. 1970 — Nature, culture, environment</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
