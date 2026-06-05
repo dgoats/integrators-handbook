@@ -6,7 +6,7 @@
 <title>Field Workshop 2026 — Wright-Ingraham Institute</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,7 +21,7 @@
   --cream:      #f0ecdc;
   --white:      #ffffff;
   --mid:        #c4c09c;
-  --head:       'Barlow Condensed', Impact, sans-serif;
+  --head:       'Bebas Neue', Impact, sans-serif;
   --body:       'Barlow', Helvetica Neue, sans-serif;
 }
 
@@ -63,22 +63,26 @@ body {
 
 /* WII wordmark block top-right */
 .wii-mark {
-  background: rgba(70, 72, 18, 0.75);
-  border: 1px solid rgba(200,196,150,0.18);
-  padding: 14px 18px;
-  text-align: left;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
 }
-
-.wii-mark span {
+.wii-logo-img {
+  width: 140px;
   display: block;
-  font-family: var(--head);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.2em;
-  line-height: 1.7;
-  color: var(--cream);
-  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.2s;
 }
+.wii-logo-img:hover { opacity: 1; }
+.wii-logo-img {
+  width: 140px;
+  display: block;
+  opacity: 0.85;
+}
+.wii-logo-img:hover { opacity: 1; }
+
+
 
 .hero-date {
   font-family: var(--head);
@@ -514,9 +518,7 @@ footer {
       </h1>
     </div>
     <div class="wii-mark">
-      <a href="http://www.wright-ingraham.org"><span>Wright–</span>
-      <span>Ingraham</span>
-      <span>Institute</span></a>
+      <a href="https://www.wright-ingraham.org" target="_blank" rel="noopener"><img src="img/wii-horizontal-logo.png" alt="Wright-Ingraham Institute" class="wii-logo-img"></a>
     </div>
   </div>
   <div class="hero-bar">
