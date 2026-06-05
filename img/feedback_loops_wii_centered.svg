@@ -1,0 +1,76 @@
+<svg width="100%" viewBox="0 0 680 300" role="img" style="" xmlns="http://www.w3.org/2000/svg">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Types of feedback loops</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Two side-by-side diagrams showing reinforcing and balancing feedback loops in Wright-Ingraham Institute colors.</desc>
+
+  <defs>
+    <marker id="arr-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#efaa1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-sage" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#9b9869" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!--
+    LEFT container: x=28, w=294, center x=175
+    3 nodes w=72, gap=20 → total=256, start x=175-128=47
+    Node centers: 47+36=83, 47+92+36=175, 47+184+36=267
+    RIGHT container: x=358, w=294, center x=505
+    Node centers: 505-128+36=413, 505, 505+128-36=597
+  -->
+
+  <!-- ═══ LEFT: Reinforcing loop ═══ -->
+  <rect x="28" y="38" width="294" height="236" rx="10" fill="rgb(245,240,225)" stroke="#efaa1f" stroke-width="1" style="fill:rgb(245, 240, 225);stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="28" y="38" width="294" height="34" rx="10" fill="#efaa1f" style="fill:rgb(239, 170, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="28" y="55" width="294" height="17" fill="#efaa1f" style="fill:rgb(239, 170, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="175" y="60" font-family="'Archivo',sans-serif" font-size="13" font-weight="600" fill="rgb(24,20,17)" text-anchor="middle" dominant-baseline="central" style="fill:rgb(24, 20, 17);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:13px;font-weight:600;text-anchor:middle;dominant-baseline:central">Reinforcing loop</text>
+  <text x="175" y="88" font-family="'Archivo',sans-serif" font-size="10" fill="#6b6450" text-anchor="middle" style="fill:rgb(107, 100, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">amplifies change in one direction</text>
+
+  <!-- Input: x=47, center=83 -->
+  <rect x="47" y="112" width="72" height="36" rx="5" fill="rgb(24,20,17)" stroke="#efaa1f" stroke-width="0.5" style="fill:rgb(24, 20, 17);stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="83" y="130" font-family="'Archivo',sans-serif" font-size="12" font-weight="500" fill="#efaa1f" text-anchor="middle" dominant-baseline="central" style="fill:rgb(239, 170, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central">Input</text>
+
+  <!-- System: x=139, center=175 -->
+  <rect x="139" y="112" width="72" height="36" rx="5" fill="rgb(24,20,17)" stroke="#efaa1f" stroke-width="0.5" style="fill:rgb(24, 20, 17);stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="175" y="130" font-family="'Archivo',sans-serif" font-size="12" font-weight="500" fill="#efaa1f" text-anchor="middle" dominant-baseline="central" style="fill:rgb(239, 170, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central">System</text>
+
+  <!-- Output: x=231, center=267 -->
+  <rect x="231" y="112" width="72" height="36" rx="5" fill="rgb(24,20,17)" stroke="#efaa1f" stroke-width="0.5" style="fill:rgb(24, 20, 17);stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="267" y="130" font-family="'Archivo',sans-serif" font-size="12" font-weight="500" fill="#efaa1f" text-anchor="middle" dominant-baseline="central" style="fill:rgb(239, 170, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central">Output</text>
+
+  <!-- Forward arrows -->
+  <line x1="119" y1="130" x2="137" y2="130" stroke="#efaa1f" stroke-width="1.5" marker-end="url(#arr-gold)" style="fill:rgb(0, 0, 0);stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="211" y1="130" x2="229" y2="130" stroke="#efaa1f" stroke-width="1.5" marker-end="url(#arr-gold)" style="fill:rgb(0, 0, 0);stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Reinforcing return path -->
+  <path d="M 267 148 L 267 205 L 83 205 L 83 148" fill="none" stroke="#efaa1f" stroke-width="1.5" marker-end="url(#arr-gold)" style="fill:none;stroke:rgb(239, 170, 31);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="175" y="228" font-family="'Crimson Text',Georgia,serif" font-size="10" font-style="italic" fill="#6b6450" text-anchor="middle" style="fill:rgb(107, 100, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Crimson Text&quot;, Georgia, serif;font-size:10px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">output reinforces input ↻</text>
+
+  <!-- ═══ RIGHT: Balancing loop ═══ -->
+  <rect x="358" y="38" width="294" height="236" rx="10" fill="rgb(245,240,225)" stroke="#9b9869" stroke-width="1" style="fill:rgb(245, 240, 225);stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="358" y="38" width="294" height="34" rx="10" fill="#9b9869" style="fill:rgb(155, 152, 105);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="358" y="55" width="294" height="17" fill="#9b9869" style="fill:rgb(155, 152, 105);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="505" y="60" font-family="'Archivo',sans-serif" font-size="13" font-weight="600" fill="rgb(24,20,17)" text-anchor="middle" dominant-baseline="central" style="fill:rgb(24, 20, 17);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:13px;font-weight:600;text-anchor:middle;dominant-baseline:central">Balancing loop</text>
+  <text x="505" y="88" font-family="'Archivo',sans-serif" font-size="10" fill="#6b6450" text-anchor="middle" style="fill:rgb(107, 100, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">resists change, seeks equilibrium</text>
+
+  <!-- Input: x=377, center=413 -->
+  <rect x="377" y="112" width="72" height="36" rx="5" fill="rgb(24,20,17)" stroke="#9b9869" stroke-width="0.5" style="fill:rgb(24, 20, 17);stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="413" y="130" font-family="'Archivo',sans-serif" font-size="12" font-weight="500" fill="#9b9869" text-anchor="middle" dominant-baseline="central" style="fill:rgb(155, 152, 105);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central">Input</text>
+
+  <!-- System: x=469, center=505 -->
+  <rect x="469" y="112" width="72" height="36" rx="5" fill="rgb(24,20,17)" stroke="#9b9869" stroke-width="0.5" style="fill:rgb(24, 20, 17);stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="505" y="130" font-family="'Archivo',sans-serif" font-size="12" font-weight="500" fill="#9b9869" text-anchor="middle" dominant-baseline="central" style="fill:rgb(155, 152, 105);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central">System</text>
+
+  <!-- Output: x=561, center=597 -->
+  <rect x="561" y="112" width="72" height="36" rx="5" fill="rgb(24,20,17)" stroke="#9b9869" stroke-width="0.5" style="fill:rgb(24, 20, 17);stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="597" y="130" font-family="'Archivo',sans-serif" font-size="12" font-weight="500" fill="#9b9869" text-anchor="middle" dominant-baseline="central" style="fill:rgb(155, 152, 105);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Archivo, sans-serif;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central">Output</text>
+
+  <!-- Forward arrows -->
+  <line x1="449" y1="130" x2="467" y2="130" stroke="#9b9869" stroke-width="1.5" marker-end="url(#arr-sage)" style="fill:rgb(0, 0, 0);stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="541" y1="130" x2="559" y2="130" stroke="#9b9869" stroke-width="1.5" marker-end="url(#arr-sage)" style="fill:rgb(0, 0, 0);stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Balancing return path (dashed) -->
+  <path d="M 597 148 L 597 205 L 413 205 L 413 148" fill="none" stroke="#9b9869" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-sage)" style="fill:none;stroke:rgb(155, 152, 105);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:5px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="505" y="228" font-family="'Crimson Text',Georgia,serif" font-size="10" font-style="italic" fill="#6b6450" text-anchor="middle" style="fill:rgb(107, 100, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Crimson Text&quot;, Georgia, serif;font-size:10px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">output opposes input ↺</text>
+
+</svg>

@@ -132,7 +132,7 @@ blockquote cite { display: block; font-family: var(--head); font-style: normal;
   break-inside: avoid; page-break-inside: avoid; }
 .sidebar-head { font-family: var(--head); font-weight: 600; font-size: 7.5pt;
   text-transform: uppercase; letter-spacing: .1em; color: rgb(119 82 7); margin-bottom: 5pt; }
-.sidebar p { font-size: 9pt; line-height: 12.5pt; text-indent: 0 !important; margin-top: 4pt; }
+.sidebar p, .sidebar li { font-size: 9pt; line-height: 12.5pt; text-indent: 0 !important; margin-top: 4pt; }
 .sidebar p:first-of-type { margin-top: 0; }
 
 /* ── Lists ───────────────────────────────────────────── */
@@ -469,7 +469,7 @@ font-family: var(--head);
 <p>The Institute's place-based integrative studies are grounded in systems thinking, a holistic problem-solving framework that focuses on how different parts of a whole interact, influence, and depend on one another. The Southwest's water crisis is the result of multiple, interlinked causes. Drought reduced snowpack. Reduced snowpack cut surface flows. Reduced flows pushed farmers toward groundwater. Decades of heavy pumping drew down the aquifer. All of which unfolded against a backdrop of water rights law, commodity markets, population change, and cultural memory that shaped which decisions were made.</p>
 <h2>What Is a System?</h2>
 <p>A system, in the sense developed by environmental scientist Donella Meadows, is a set of elements interconnected in such a way that they produce their own pattern of behavior over time. Three things make a system a system: its elements (the visible, tangible parts), its interconnections (the relationships and flows linking those elements), and its function or purpose.</p>
-<div class="sidebar"><div class="sidebar-head">Three Components of Every System</div><p><strong>Elements:</strong> The visible, countable parts. In the San Luis Valley: snowpack, aquifers, canals, farms, water boards, families, crops.</p><p><strong>Interconnections:</strong> The relationships, flows, and signals that link elements — water rights seniority, market prices for seed potatoes, acequia work obligations, snowmelt timing, aquifer recharge rates.</p><p><strong>Function or Purpose:</strong> What the system actually does, revealed by its behavior over time. A water system functions to allocate a scarce and variable resource among competing users across generations.</p></div>
+<div class="sidebar"><div class="sidebar-head">Three Components of Every System</div><p><strong>Elements:</strong> The visible, countable parts. In the Southwest, this might include: snowpack, aquifers, canals, farms, water boards, families, crops.</p><p><strong>Interconnections:</strong> The relationships, flows, and signals that link elements — water rights seniority, market prices for seed potatoes, acequia work obligations, snowmelt timing, aquifer recharge rates.</p><p><strong>Function or Purpose:</strong> What the system actually does, revealed by its behavior over time. A water system functions to allocate a scarce and variable resource among competing users across generations.</p></div>
 <p>Meadows observes that the least obvious part of a system is its function or purpose, and that changing elements is the least effective way to change a system's behavior.</p>
 <p class="cap">See Meadows, <em>Thinking in Systems: A Primer</em> (2008), pp. 11–34.</p>
 <figure>
@@ -484,10 +484,12 @@ font-family: var(--head);
 </figure>
 <h2>Two Kinds of Feedback Loops</h2>
 <h3>Reinforcing (positive) loops</h3>
-<p>Amplify change in one direction. Declining aquifer levels raise pumping costs, which stress farm finances, which pressure farmers to pump more aggressively in good years to compensate, which further depletes the aquifer. Left unchecked, reinforcing loops drive systems toward collapse or explosion.</p>
+<p>Positive loops amplify change in one direction. Declining aquifer levels raise pumping costs, which stress farm finances, which pressure farmers to pump more aggressively in good years to compensate, which further depletes the aquifer. Left unchecked, reinforcing loops drive systems toward collapse or explosion.</p>
 <h3>Balancing (negative) loops</h3>
-<p>Resist change and seek equilibrium. The subdistrict model in the San Luis Valley was designed as a series of integrated balancing loops: when collective pumping exceeds targets, mandatory reductions kick in, pushing the system back toward sustainability.</p>
-
+<p>Negative loops resist change and seek equilibrium. The subdistrict model in the San Luis Valley is one example. It was designed as a series of integrated balancing loops: when collective pumping exceeds targets, mandatory reductions kick in, pushing the system back toward sustainability.</p>
+<figure>
+<img src="img/feedback_loops_wii_centered.svg" style="width:100%">
+</figure>
 <!--<div class="img-triple">
   <div class="img-placeholder" style="height:80pt">
   <div class="img-placeholder-inner">
@@ -512,11 +514,14 @@ font-family: var(--head);
 -->
 
 <h2>Why Whole Systems? The Problem of 'Bounded Rationality'</h2>
-<p>Donella Meadows used the term 'bounded rationality' to describe how each actor in a system makes decisions that are individually rational given what that actor can see and know, but which produce outcomes that no one intended and everyone regrets. A farmer who pumps water to protect her livelihood is not being irrational. A water board that allocates according to legal seniority is not being irrational. But the aggregate result of all these locally rational decisions is aquifer depletion that threatens the entire system.</p>
+<p>In <em>Thinking in Systems,</em> Donella Meadows used the term 'bounded rationality' to describe how each actor in a system makes decisions that are individually rational given what that actor can see and know, but which produce outcomes that no one intended and everyone regrets. A farmer who pumps water to protect her livelihood is not being irrational. A water board that allocates according to legal seniority is not being irrational. But the aggregate result of all these locally rational decisions is aquifer depletion that threatens the entire system.</p>
 <h2>Leverage Points: Where to Intervene</h2>
 <p>One of Meadows' most important contributions was her analysis of leverage points: places within a system where a small shift can produce large changes in behavior. Counterintuitively, the most obvious interventions — changing the numbers — are at the bottom of her list. They change outputs without changing the system's underlying structure.</p>
 <p>The most powerful leverage points involve the mindset or paradigm out of which the system arises, the goals of the system, and the rules that govern feedback loops. In the San Luis Valley, shifting from a paradigm of water as privately owned commodity to water as communal trust held across generations would be a high-leverage intervention.</p>
-<h2>Drawing a Causal Loop Diagram</h2>
+<div class="sidebar">
+<div class="sidebar-head">
+Drawing a Causal Loop Diagram
+</div>
 <p>A causal loop diagram (CLD) is the core tool of systems mapping. It makes feedback structure visible. To build one in the field:</p>
 <ol>
 <li><strong>Name the problem variable.</strong> Start with the condition that concerns you most: aquifer level, farm income, community water security.</li>
@@ -526,6 +531,7 @@ font-family: var(--head);
 <li><strong>Look for delays.</strong> Mark connections where cause and effect are separated by time.</li>
 <li><strong>Test and revise with partners.</strong> Show your diagram to farmers, water managers, and community members. The map is a thinking tool, not a truth claim.</li>
 </ol>
+</div>
 <p class="cap">Primary source for this primer: Meadows, Donella H. <em>Thinking in Systems: A Primer</em>. Ed. Diana Wright. Chelsea Green Publishing, 2008. Additional reference: Senge, Peter. <em>The Fifth Discipline: The Art and Practice of the Learning Organization</em>. Doubleday, 1990.</p>
 
 
@@ -535,7 +541,7 @@ font-family: var(--head);
 </figure>
 <div class="chapter-opener"><h1>Place-Based Collaborative Research</h1></div>
 <h2>What Makes Research 'Place-Based'?</h2>
-<p>Place-based research is research conducted in direct, embodied contact with the places, people, and processes under study. In the San Luis Valley context, field-based research means spending time at farms and ranchlands, attending acequia workdays and water board meetings, walking canal headgates and dry creek beds, sitting with elders and with engineers, and tracing the flow of water through both infrastructure and community life.</p>
+<p>Place-based research is research conducted in direct, embodied contact with the places, people, and processes under study. In the Southwest, field-based research might mean spending time at farms and ranchlands, attending acequia workdays and water board meetings, walking canal headgates and dry creek beds, sitting with elders and with engineers, and tracing the flow of water through both infrastructure and community life.</p>
 <h2>Collaborative Research Practices</h2>
 <p>Collaboration is crucial to integrative study. No single researcher can hold the full range of knowledge, perspective, and skill that complex problems demand. Effective collaborative research requires a framework that considers and explicitly negotiates roles, assumptions, and working styles. It requires regular structured check-ins, a genuine willingness to be changed by what your collaborators contribute, and shared norms for managing disagreement productively.</p>
 <h2>Working with Community Partners</h2>
@@ -543,11 +549,10 @@ font-family: var(--head);
 <h2>Collaborative Research Methods Portfolio</h2>
 <h3>Stakeholder Interviews and Oral History</h3>
 <p>Semi-structured interviews with farmers, water managers, community organizers, and elders provide contextual depth that no dataset can supply. Oral history methods allow you to understand how current conditions emerged from past decisions and events.</p>
-<div class="sidebar"><div class="sidebar-head">Interview Practice Principles</div><p>Approach every partner — farmer, rancher, water manager, acequia mayordomo — with the same question: what does this person know that I do not, and how can my work here serve what they are already trying to do?</p><p>Ask for stories, probe values. 'How has your irrigation practice changed over the past decade?' reveals far more than 'Do you think drought is getting worse?'</p><p>Listen for what is not said. Silences, deflections, and changes of subject are data.</p><p>You can finish an interview by asking who else you might consider talking to.</p></div>
 <h3>Participatory Mapping</h3>
 <p>Participatory mapping engages community members in the creation of spatial knowledge: maps of water sources, historical land uses, areas of flooding or desiccation, culturally significant sites, or areas of concern. These maps often reveal spatial dimensions of drought adaptation that technical surveys miss.</p>
 <h3>Transect Walks</h3>
-<p>A transect walk is a systematic journey across a landscape, typically along a line that crosses multiple ecological or land-use zones. In the San Luis Valley, transect walks might traverse a gradient from high-altitude snowpack zones through mountain meadows, into irrigated agricultural land, and across dry basin floor, tracking how water presence or absence shapes ecology and human use.</p>
+<p>A transect walk is a systematic journey across a landscape, typically along a line that crosses multiple ecological or land-use zones. Transect walks might traverse a gradient from high-altitude snowpack zones through mountain meadows, into irrigated agricultural land, and across dry basin floor, tracking how water presence or absence shapes ecology and human use.</p>
 <h3>Rapid Ethnographic Assessment</h3>
 <p>Rapid Ethnographic Assessment (REA) adapts classical ethnographic methods to shorter timeframes and applied research purposes. In the Field Workshop context, REA involves structured observation, key informant interviews, and document review conducted in intensive bursts, triangulated across multiple team members. REA is particularly well suited to understanding how institutions function in practice: how water boards actually make decisions, how acequia work customs are negotiated, and how market pressures shape cropping choices.</p>
 <h3>Deep Mapping: Creative and Narrative Research</h3>
@@ -567,10 +572,10 @@ font-family: var(--head);
 <p>Consent is not a one-time event. People have the right to withdraw, limit, or amend what they have shared at any point in the process. Reciprocity in the field means contributing something of genuine value — not just gratitude.</p>
 <div class="sidebar"><div class="sidebar-head">Free, Prior and Informed Consent (FPIC)</div>
 <p>FPIC is an international standard, recognized in the UN Declaration on the Rights of Indigenous Peoples (2007), that requires research involving Indigenous peoples to be:</p>
-<p>Free: given without coercion, manipulation, or pressure, and without dependence on any benefit the researcher controls.</p>
-<p>Prior: sought before the research begins, not after data has already been collected. Retroactive consent is not consent.</p>
-<p>Informed: based on a full and plain-language explanation of the research purpose, methods, intended uses, and any risks the community might bear as a result.</p>
-<p>Consent: a genuine yes, expressed by whoever has authority to give it — which in Indigenous community contexts may be a governing council, an elder body, or a designated representative, not simply an individual who happens to be present.</p>
+<p><strong>Free:</strong> given without coercion, manipulation, or pressure, and without dependence on any benefit the researcher controls.</p>
+<p><strong>Prior:</strong> sought before the research begins, not after data has already been collected. Retroactive consent is not consent.</p>
+<p><strong>Informed:</strong> based on a full and plain-language explanation of the research purpose, methods, intended uses, and any risks the community might bear as a result.</p>
+<p><strong>Consent:</strong> a genuine yes, expressed by whoever has authority to give it — which in Indigenous community contexts may be a governing council, an elder body, or a designated representative, not simply an individual who happens to be present.</p>
 </div>
 <h2>Indigenous Data Sovereignty</h2>
 <p>Indigenous data sovereignty is the right of Indigenous peoples to govern the collection, ownership, and application of data about their communities, territories, peoples, and cultures. This principle, developed by Indigenous researchers and now recognized in national and international policy frameworks including the CARE Principles for Indigenous Data Governance, extends the logic of FPIC into the domain of data itself.</p>
@@ -595,7 +600,7 @@ font-family: var(--head);
 <h3>Failure can be useful data</h3>
 <p>Adaptive design practitioners expect that first implementations will be imperfect. Monitoring, evaluation, and iteration are built into the process from the beginning. Communities that can identify what is not working and adjust accordingly are more resilient than those that implement 'final' solutions.</p>
 <h3>Local knowledge is critical</h3>
-<p>Farmers, acequia managers, and Indigenous water stewards in the San Luis Valley and Northern New Mexico possess millennia of cumulative knowledge about what works in a specific landscape. This knowledge is not anecdote; it is data, tested over time by the most rigorous of evaluators: survival. Integrating this knowledge with technical analysis is not merely culturally sensitive; it is scientifically sound.</p>
+<p>Farmers, acequia managers, and Indigenous water stewards across the continent possess millennia of cumulative knowledge about what works in a specific landscape. This knowledge is not anecdote; it is data, tested over time by the most rigorous of evaluators: survival. Integrating this knowledge with technical analysis is not merely culturally sensitive; it is scientifically sound.</p>
 <p>Designing for adaptation means approaching these landscapes as evolving, living systems. It means building capacity for change rather than optimizing for a single fixed outcome. It means paying close attention to who bears the costs of adaptation and who captures its benefits — questions of justice as much as ecology. As we move through the range of sites and work with our synthesis partners, we can take notice of what adaptations are underway, but also who designed them, who stands behind them, and who will benefit from them in the future.</p>
 <p class="cap">See also: Glossary entries for "Adaptation," "Leverage Point," "Subdistrict," "Acequia." <em>Working with Systems</em> provides the systems framework that underpins this concept throughout the workshop.</p>
 
@@ -636,7 +641,7 @@ font-family: var(--head);
 <p class="gdef">In systems thinking, a closed chain of cause-and-effect relationships in which a change in one variable propagates through the system and eventually returns to affect that same variable. Feedback loops are the primary mechanism through which systems exhibit self-reinforcing or self-correcting behavior over time. A reinforcing (positive) loop amplifies change in one direction; a balancing (negative) loop resists change and seeks equilibrium. Understanding the feedback structure of a system is essential to identifying where interventions are likely to have lasting effect.</p>
 
 <div class="gterm">Hydrology</div>
-<p class="gdef">The science of water — its properties, distribution, and movement through the atmosphere, across the land surface, and through the subsurface. In the Southwest context, hydrological understanding is foundational: it describes how snowpack accumulates and melts, how water moves from mountains through stream systems and into aquifers, how aquifers recharge and deplete, and how land use choices ripple through the water cycle. Hydrological data — streamflow records, aquifer levels, evapotranspiration estimates — form the quantitative backbone of the San Luis Valley's water management challenges.</p>
+<p class="gdef">The science of water — its properties, distribution, and movement through the atmosphere, across the land surface, and through the subsurface. In the Southwest context, hydrological understanding is foundational: it describes how snowpack accumulates and melts, how water moves from mountains through stream systems and into aquifers, how aquifers recharge and deplete, and how land use choices ripple through the water cycle. </p>
 
 <div class="gterm">Indigenous Knowledge</div>
 <p class="gdef">The body of knowledge, practices, and beliefs developed by Indigenous peoples through long-term interaction with their specific environments, passed down through generations via oral tradition, practice, and ceremony. Sometimes called Traditional Ecological Knowledge (TEK) when referring specifically to knowledge about the natural world. Indigenous knowledge is not a single thing: it varies enormously across nations, communities, and landscapes. In research contexts, Indigenous knowledge must be engaged with on its own terms and according to the protocols of the community that holds it — not extracted, decontextualized, or treated as supplementary data for scientific studies conducted without community consent.</p>
